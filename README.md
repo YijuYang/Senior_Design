@@ -10,5 +10,5 @@ To view documentation, navigate to the documentation directory located in this r
 * **Siluo Feng** - [SiluoFeng](https://github.com/SiluoFeng)
 * **Robert Goss** - [rgoss1](https://github.com/rgoss1)
 * **Qixiang Liu** - [QixiangLiu](https://github.com/QixiangLiu)
-* **Jian Shen** - [JianShen](https://github.com/JianShen)
+* **Jian Shen** - [JianShen](https://github.com/jianshen205)
 * **Yiju Yang** - [YijuYang](https://github.com/YijuYang)
