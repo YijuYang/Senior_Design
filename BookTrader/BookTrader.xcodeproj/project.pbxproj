@@ -33,6 +33,15 @@
 		C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E3221F12CF00703CD2 /* book_store.jpeg */; };
 		C81D79F7221F12D000703CD2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E4221F12CF00703CD2 /* images.png */; };
 		C81D79FC221F160D00703CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D79FA221F160D00703CD2 /* Main.storyboard */; };
+		C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */; };
+		C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */; };
+		C8EA294C222C4A3800FDB7F0 /* SignupSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */; };
+		C8EA294D222C4A3800FDB7F0 /* SignupStep3View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */; };
+		C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */; };
+		C8EA2954222C5BBA00FDB7F0 /* SignupStep2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */; };
+		C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */; };
+		C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */; };
+		C8EA295F222C5E7800FDB7F0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA295E222C5E7800FDB7F0 /* BaseController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +108,24 @@
 		C81D79E3221F12CF00703CD2 /* book_store.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = book_store.jpeg; sourceTree = "<group>"; };
 		C81D79E4221F12CF00703CD2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		C81D79FB221F160D00703CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8EA2942222C4A3700FDB7F0 /* SignupSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessView.h; sourceTree = "<group>"; };
+		C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep2View.m; sourceTree = "<group>"; };
+		C8EA2945222C4A3700FDB7F0 /* SignupStep1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupStep1View.h; sourceTree = "<group>"; };
+		C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep1View.m; sourceTree = "<group>"; };
+		C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessView.m; sourceTree = "<group>"; };
+		C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep3View.m; sourceTree = "<group>"; };
+		C8EA2949222C4A3800FDB7F0 /* SignupStep3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupStep3View.h; sourceTree = "<group>"; };
+		C8EA294E222C4E2800FDB7F0 /* SignupStep2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep2View.h; sourceTree = "<group>"; };
+		C8EA294F222C5B9B00FDB7F0 /* SignupStep1Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep1Controller.h; sourceTree = "<group>"; };
+		C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep1Controller.m; sourceTree = "<group>"; };
+		C8EA2952222C5BB200FDB7F0 /* SignupStep2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep2Controller.h; sourceTree = "<group>"; };
+		C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep2Controller.m; sourceTree = "<group>"; };
+		C8EA2955222C5BC900FDB7F0 /* SignupStep3Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep3Controller.h; sourceTree = "<group>"; };
+		C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep3Controller.m; sourceTree = "<group>"; };
+		C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessController.m; sourceTree = "<group>"; };
+		C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupSuccessController.h; sourceTree = "<group>"; };
+		C8EA295D222C5E6900FDB7F0 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		C8EA295E222C5E7800FDB7F0 /* BaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +176,7 @@
 		C81D7991221F124F00703CD2 /* BookTrader */ = {
 			isa = PBXGroup;
 			children = (
+				C8EA295C222C5E0C00FDB7F0 /* components */,
 				C81D79FF221F180D00703CD2 /* View */,
 				C81D79FE221F180600703CD2 /* Controller */,
 				C81D79FD221F17F900703CD2 /* Model */,
@@ -245,6 +273,14 @@
 			children = (
 				C81D79D2221F12CE00703CD2 /* LoginPageView.h */,
 				C81D79D7221F12CF00703CD2 /* LoginPageView.m */,
+				C8EA2945222C4A3700FDB7F0 /* SignupStep1View.h */,
+				C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */,
+				C8EA294E222C4E2800FDB7F0 /* SignupStep2View.h */,
+				C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */,
+				C8EA2949222C4A3800FDB7F0 /* SignupStep3View.h */,
+				C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */,
+				C8EA2942222C4A3700FDB7F0 /* SignupSuccessView.h */,
+				C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */,
 			);
 			path = "login\\signup";
 			sourceTree = "<group>";
@@ -254,8 +290,25 @@
 			children = (
 				C81D79CC221F12CE00703CD2 /* LoginPageViewController.h */,
 				C81D79D0221F12CE00703CD2 /* LoginPageViewController.m */,
+				C8EA294F222C5B9B00FDB7F0 /* SignupStep1Controller.h */,
+				C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */,
+				C8EA2952222C5BB200FDB7F0 /* SignupStep2Controller.h */,
+				C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */,
+				C8EA2955222C5BC900FDB7F0 /* SignupStep3Controller.h */,
+				C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */,
+				C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */,
+				C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */,
 			);
 			path = "login\\singup";
+			sourceTree = "<group>";
+		};
+		C8EA295C222C5E0C00FDB7F0 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				C8EA295D222C5E6900FDB7F0 /* BaseController.h */,
+				C8EA295E222C5E7800FDB7F0 /* BaseController.m */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,14 +454,23 @@
 				C81D79A2221F125000703CD2 /* main.m in Sources */,
 				C81D79E9221F12CF00703CD2 /* AccountTabView.m in Sources */,
 				C81D79E7221F12CF00703CD2 /* MsgCenterTabView.m in Sources */,
+				C8EA2954222C5BBA00FDB7F0 /* SignupStep2Controller.m in Sources */,
 				C81D7994221F124F00703CD2 /* AppDelegate.m in Sources */,
 				C81D79EE221F12CF00703CD2 /* LoginPageView.m in Sources */,
+				C8EA295F222C5E7800FDB7F0 /* BaseController.m in Sources */,
 				C81D79F1221F12CF00703CD2 /* ViewController.m in Sources */,
+				C8EA294C222C4A3800FDB7F0 /* SignupSuccessView.m in Sources */,
 				C81D79E6221F12CF00703CD2 /* HomePageTabViewController.m in Sources */,
+				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */,
 				C81D79E5221F12CF00703CD2 /* MsgCenterTabViewController.m in Sources */,
 				C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */,
+				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
+				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
+				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
 				C81D79ED221F12CF00703CD2 /* BookItem.m in Sources */,
+				C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */,
+				C8EA294D222C4A3800FDB7F0 /* SignupStep3View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
