@@ -33,7 +33,7 @@
     
     self.loginCtrl = [LoginPageViewController new];
     self.loginCtrl.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:self.loginCtrl animated:YES];}
+    [self.navigationController pushViewController:self.loginCtrl animated:NO];}
 
 
 @end

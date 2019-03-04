@@ -26,10 +26,13 @@
     self.title = @"HOME";
     
     self.homePageView = [[HomePageTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+//    self.homePageView.delegate = self;
     [self.view addSubview:self.homePageView];
     
 }
-    
-  
+
+- (void)doClickSwitch
+{
+}
 
 @end

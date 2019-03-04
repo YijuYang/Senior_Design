@@ -61,26 +61,30 @@
     
     //home page tab
     HomePageTabViewController *homePageViewController = [[HomePageTabViewController alloc] init];
-    homePageViewController.tabBarItem = [self createTabBarItem:@"Home" imageNamed:@"" selectedImageNamed:@""];
-    
+    homePageViewController.tabBarItem = [self createTabBarItem:@"HOME" imageNamed:@"" selectedImageNamed:@"home_btn@3x.png"];
+    homePageViewController.tabBarItem.title = @"HOME";
     UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
 
     //msg center tab
     MsgCenterTabViewController *msgCenterViewController = [[MsgCenterTabViewController alloc] init];
-    msgCenterViewController.tabBarItem = [self createTabBarItem:@"Msg" imageNamed:@"" selectedImageNamed:@""];
+    msgCenterViewController.tabBarItem = [self createTabBarItem:@"MSG CENTER" imageNamed:@"home_btn@3x.png" selectedImageNamed:@"home_btn@3x.png"];
+    msgCenterViewController.tabBarItem.title = @"MSG CENTER";
+    msgCenterViewController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 50, -6, 50);//修改位置和大小
     UINavigationController *topicNavController = [[UINavigationController alloc] initWithRootViewController:msgCenterViewController];
 
     //quick sell tab
     QuickSellTabViewController *quickSellViewController = [[QuickSellTabViewController alloc] init];
-    quickSellViewController.tabBarItem = [self createTabBarItem:@"Quick Sell" imageNamed:@"" selectedImageNamed:@""];
+    quickSellViewController.tabBarItem = [self createTabBarItem:@"QUICK SELL" imageNamed:@"" selectedImageNamed:@""];
+    quickSellViewController.tabBarItem.title = @"QUICK SELL";
     UINavigationController *cartNavController = [[UINavigationController alloc] initWithRootViewController:quickSellViewController];
 
     //account management tab
     AccountTabViewController *accountViewController = [[AccountTabViewController alloc] init];
-    accountViewController.tabBarItem = [self createTabBarItem:@"Account" imageNamed:@"" selectedImageNamed:@""];
-    
+    accountViewController.tabBarItem = [self createTabBarItem:@"ACCOUNT" imageNamed:@"" selectedImageNamed:@""];
+    accountViewController.tabBarItem.title = @"ACCOUNT";
     UINavigationController *myNavController = [[UINavigationController alloc] initWithRootViewController:accountViewController];
 
+    
     bottomBarController.viewControllers = @[homeNavController, topicNavController, cartNavController, myNavController];
 
     return bottomBarController;

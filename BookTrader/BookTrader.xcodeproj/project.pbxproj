@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAB3B056222CC6EA00FD9B89 /* home_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */; };
+		AAB3B05A222CCAFA00FD9B89 /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B059222CCAFA00FD9B89 /* msg.png */; };
+		AAB3B05C222CD2C800FD9B89 /* demo_listView.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B05B222CD2C800FD9B89 /* demo_listView.png */; };
+		AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B05D222CD89400FD9B89 /* demo_gridView.png */; };
 		C81D7994221F124F00703CD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D7993221F124F00703CD2 /* AppDelegate.m */; };
 		C81D799C221F125000703CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81D799B221F125000703CD2 /* Assets.xcassets */; };
 		C81D799F221F125000703CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D799D221F125000703CD2 /* LaunchScreen.storyboard */; };
@@ -62,9 +66,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn@2x.png"; sourceTree = "<group>"; };
+		AAB3B059222CCAFA00FD9B89 /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
+		AAB3B05B222CD2C800FD9B89 /* demo_listView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo_listView.png; sourceTree = "<group>"; };
+		AAB3B05D222CD89400FD9B89 /* demo_gridView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo_gridView.png; sourceTree = "<group>"; };
 		C81D798F221F124F00703CD2 /* BookTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81D7992221F124F00703CD2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C81D7993221F124F00703CD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C81D7993221F124F00703CD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; tabWidth = 5; };
 		C81D799B221F125000703CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C81D799E221F125000703CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C81D79A0221F125000703CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -217,6 +225,10 @@
 		C81D79DE221F12CF00703CD2 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				AAB3B05D222CD89400FD9B89 /* demo_gridView.png */,
+				AAB3B05B222CD2C800FD9B89 /* demo_listView.png */,
+				AAB3B059222CCAFA00FD9B89 /* msg.png */,
+				AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */,
 				C81D79DF221F12CF00703CD2 /* bookSample2.png */,
 				C81D79E0221F12CF00703CD2 /* bookSample.jpg */,
 				C81D79E1221F12CF00703CD2 /* ku.png */,
@@ -414,15 +426,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB3B056222CC6EA00FD9B89 /* home_btn@2x.png in Resources */,
 				C81D79F7221F12D000703CD2 /* images.png in Resources */,
 				C81D79FC221F160D00703CD2 /* Main.storyboard in Resources */,
 				C81D799F221F125000703CD2 /* LaunchScreen.storyboard in Resources */,
 				C81D79F5221F12D000703CD2 /* bookstore-logo.jpg in Resources */,
 				C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */,
 				C81D79F3221F12D000703CD2 /* bookSample.jpg in Resources */,
+				AAB3B05C222CD2C800FD9B89 /* demo_listView.png in Resources */,
 				C81D79F2221F12CF00703CD2 /* bookSample2.png in Resources */,
 				C81D79F4221F12D000703CD2 /* ku.png in Resources */,
+				AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */,
 				C81D799C221F125000703CD2 /* Assets.xcassets in Resources */,
+				AAB3B05A222CCAFA00FD9B89 /* msg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

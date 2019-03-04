@@ -50,7 +50,7 @@
 - (void) doClickSignUpButton
 {
     self.signupStep1Ctrl = [SignupStep1Controller new];
-    [self.navigationController pushViewController:self.signupStep1Ctrl animated:YES];
+    [self.navigationController pushViewController:self.signupStep1Ctrl animated:NO];
     //TODO:goto Signup Page
 }
 @end
