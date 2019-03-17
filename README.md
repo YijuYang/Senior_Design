@@ -7,8 +7,7 @@ To view documentation, navigate to the documentation directory located in this r
 
 ## Developers
 
-* **Siluo Feng** - [SiluoFeng](https://github.com/SiluoFeng)
-* **Robert Goss** - [rgoss1](https://github.com/rgoss1)
-* **Qixiang Liu** - [QixiangLiu](https://github.com/QixiangLiu)
-* **Jian Shen** - [JianShen](https://github.com/jianshen205)
-* **Yiju Yang** - [YijuYang](https://github.com/YijuYang)
+Qixiang Liu
+My part is about backend, using PHP,mysql, and Objective-C in xcode
+
+Log 1: Finsih login,create account, and sell books PHP in backend Model. 
