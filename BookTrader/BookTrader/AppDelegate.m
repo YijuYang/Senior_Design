@@ -73,6 +73,7 @@
     //quick sell tab
     QuickSellTabViewController *quickSellViewController = [[QuickSellTabViewController alloc] init];
     quickSellViewController.tabBarItem = [self createTabBarItem:@"Quick Sell" imageNamed:@"" selectedImageNamed:@""];
+
     UINavigationController *cartNavController = [[UINavigationController alloc] initWithRootViewController:quickSellViewController];
 
     //account management tab
@@ -90,6 +91,7 @@
 - (UITabBarItem *)createTabBarItem:(NSString *)title imageNamed:(NSString *)imageNamed selectedImageNamed:selectedImageNamed {
     UIImage *image = [[UIImage imageNamed:imageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selectedImage = [[UIImage imageNamed:selectedImageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
                                                              image:image
                                                      selectedImage:selectedImage];
