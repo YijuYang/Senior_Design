@@ -33,6 +33,8 @@
 		C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E3221F12CF00703CD2 /* book_store.jpeg */; };
 		C81D79F7221F12D000703CD2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E4221F12CF00703CD2 /* images.png */; };
 		C81D79FC221F160D00703CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D79FA221F160D00703CD2 /* Main.storyboard */; };
+		D253388A2240984400BE7BF8 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D25338882240984400BE7BF8 /* BookModel.m */; };
+		D253388B2240984400BE7BF8 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D25338892240984400BE7BF8 /* UserModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,10 @@
 		C81D79E3221F12CF00703CD2 /* book_store.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = book_store.jpeg; sourceTree = "<group>"; };
 		C81D79E4221F12CF00703CD2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		C81D79FB221F160D00703CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D25338862240984300BE7BF8 /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
+		D25338872240984300BE7BF8 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		D25338882240984400BE7BF8 /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		D25338892240984400BE7BF8 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,10 @@
 		C81D79FD221F17F900703CD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D25338862240984300BE7BF8 /* BookModel.h */,
+				D25338882240984400BE7BF8 /* BookModel.m */,
+				D25338872240984300BE7BF8 /* UserModel.h */,
+				D25338892240984400BE7BF8 /* UserModel.m */,
 				C81D79D4221F12CF00703CD2 /* BookItem.h */,
 				C81D79D6221F12CF00703CD2 /* BookItem.m */,
 			);
@@ -396,8 +406,10 @@
 			files = (
 				C81D79EC221F12CF00703CD2 /* AccountTabViewController.m in Sources */,
 				C81D79E8221F12CF00703CD2 /* QuickSellTabViewController.m in Sources */,
+				D253388A2240984400BE7BF8 /* BookModel.m in Sources */,
 				C81D79EA221F12CF00703CD2 /* LoginPageViewController.m in Sources */,
 				C81D79EF221F12CF00703CD2 /* BookItemGrid.m in Sources */,
+				D253388B2240984400BE7BF8 /* UserModel.m in Sources */,
 				C81D79A2221F125000703CD2 /* main.m in Sources */,
 				C81D79E9221F12CF00703CD2 /* AccountTabView.m in Sources */,
 				C81D79E7221F12CF00703CD2 /* MsgCenterTabView.m in Sources */,
