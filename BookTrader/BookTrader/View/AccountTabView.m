@@ -19,7 +19,7 @@
 @implementation AccountTabView
 
 /*
- @author Simon, Jian
+ @author Yiju, Jian
  */
 - (instancetype)initWithFrame:(CGRect)frame
 {

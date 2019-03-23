@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA8212FC223F3AFF00613D27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8212FB223F3AFF00613D27 /* Assets.xcassets */; };
 		AAB3B056222CC6EA00FD9B89 /* home_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */; };
 		AAB3B05A222CCAFA00FD9B89 /* msg.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B059222CCAFA00FD9B89 /* msg.png */; };
 		AAB3B05C222CD2C800FD9B89 /* demo_listView.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B05B222CD2C800FD9B89 /* demo_listView.png */; };
 		AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B05D222CD89400FD9B89 /* demo_gridView.png */; };
+		AAB3B066222DAB9400FD9B89 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3B060222DAB9300FD9B89 /* AVCamCameraViewController.m */; };
+		AAB3B067222DAB9400FD9B89 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */; };
 		C81D7994221F124F00703CD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D7993221F124F00703CD2 /* AppDelegate.m */; };
-		C81D799C221F125000703CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81D799B221F125000703CD2 /* Assets.xcassets */; };
 		C81D799F221F125000703CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D799D221F125000703CD2 /* LaunchScreen.storyboard */; };
 		C81D79A2221F125000703CD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79A1221F125000703CD2 /* main.m */; };
 		C81D79AC221F125000703CD2 /* BookTraderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79AB221F125000703CD2 /* BookTraderTests.m */; };
@@ -66,14 +68,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA8212FB223F3AFF00613D27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn@2x.png"; sourceTree = "<group>"; };
 		AAB3B059222CCAFA00FD9B89 /* msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = msg.png; sourceTree = "<group>"; };
 		AAB3B05B222CD2C800FD9B89 /* demo_listView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo_listView.png; sourceTree = "<group>"; };
 		AAB3B05D222CD89400FD9B89 /* demo_gridView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo_gridView.png; sourceTree = "<group>"; };
+		AAB3B060222DAB9300FD9B89 /* AVCamCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCameraViewController.m; sourceTree = "<group>"; };
+		AAB3B061222DAB9300FD9B89 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
+		AAB3B062222DAB9300FD9B89 /* AVCamCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCameraViewController.h; sourceTree = "<group>"; };
+		AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		C81D798F221F124F00703CD2 /* BookTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81D7992221F124F00703CD2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C81D7993221F124F00703CD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; tabWidth = 5; };
-		C81D799B221F125000703CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C81D799E221F125000703CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C81D79A0221F125000703CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C81D79A1221F125000703CD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -196,8 +202,8 @@
 				C81D79D8221F12CF00703CD2 /* BookItemGrid.m */,
 				C81D79DA221F12CF00703CD2 /* ViewController.h */,
 				C81D79DB221F12CF00703CD2 /* ViewController.m */,
-				C81D799B221F125000703CD2 /* Assets.xcassets */,
 				C81D799D221F125000703CD2 /* LaunchScreen.storyboard */,
+				AA8212FB223F3AFF00613D27 /* Assets.xcassets */,
 				C81D79A0221F125000703CD2 /* Info.plist */,
 				C81D79A1221F125000703CD2 /* main.m */,
 			);
@@ -252,10 +258,12 @@
 			isa = PBXGroup;
 			children = (
 				C81D7A03221F1F2100703CD2 /* login\singup */,
-				C81D79CE221F12CE00703CD2 /* HomePageTabViewController.h */,
-				C81D79C6221F12CE00703CD2 /* HomePageTabViewController.m */,
+				AAB3B060222DAB9300FD9B89 /* AVCamCameraViewController.m */,
+				AAB3B062222DAB9300FD9B89 /* AVCamCameraViewController.h */,
 				C81D79D3221F12CE00703CD2 /* MsgCenterTabViewController.h */,
 				C81D79C4221F12CE00703CD2 /* MsgCenterTabViewController.m */,
+				C81D79C6221F12CE00703CD2 /* HomePageTabViewController.m */,
+				C81D79CE221F12CE00703CD2 /* HomePageTabViewController.h */,
 				C81D79DC221F12CF00703CD2 /* QuickSellTabViewController.h */,
 				C81D79CB221F12CE00703CD2 /* QuickSellTabViewController.m */,
 				C81D79CF221F12CE00703CD2 /* AccountTabViewController.h */,
@@ -270,6 +278,8 @@
 				C81D7A02221F1EFE00703CD2 /* login\signup */,
 				C81D79C7221F12CE00703CD2 /* HomePageTabView.h */,
 				C81D79D1221F12CE00703CD2 /* HomePageTabView.m */,
+				AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */,
+				AAB3B061222DAB9300FD9B89 /* AVCamPreviewView.h */,
 				C81D79C8221F12CE00703CD2 /* MsgCenterTabView.h */,
 				C81D79C9221F12CE00703CD2 /* MsgCenterTabView.m */,
 				C81D79CA221F12CE00703CD2 /* QuickSellTabView.h */,
@@ -432,12 +442,12 @@
 				C81D799F221F125000703CD2 /* LaunchScreen.storyboard in Resources */,
 				C81D79F5221F12D000703CD2 /* bookstore-logo.jpg in Resources */,
 				C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */,
+				AA8212FC223F3AFF00613D27 /* Assets.xcassets in Resources */,
 				C81D79F3221F12D000703CD2 /* bookSample.jpg in Resources */,
 				AAB3B05C222CD2C800FD9B89 /* demo_listView.png in Resources */,
 				C81D79F2221F12CF00703CD2 /* bookSample2.png in Resources */,
 				C81D79F4221F12D000703CD2 /* ku.png in Resources */,
 				AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */,
-				C81D799C221F125000703CD2 /* Assets.xcassets in Resources */,
 				AAB3B05A222CCAFA00FD9B89 /* msg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,7 +490,9 @@
 				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */,
 				C81D79E5221F12CF00703CD2 /* MsgCenterTabViewController.m in Sources */,
+				AAB3B066222DAB9400FD9B89 /* AVCamCameraViewController.m in Sources */,
 				C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */,
+				AAB3B067222DAB9400FD9B89 /* AVCamPreviewView.m in Sources */,
 				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
 				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
 				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
@@ -658,8 +670,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				DEVELOPMENT_TEAM = 7WPT6UTBTQ;
 				INFOPLIST_FILE = BookTrader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -675,8 +688,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				DEVELOPMENT_TEAM = 7WPT6UTBTQ;
 				INFOPLIST_FILE = BookTrader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

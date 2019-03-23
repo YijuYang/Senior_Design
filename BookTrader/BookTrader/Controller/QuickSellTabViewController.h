@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AVCamCameraViewController.h"
 
 @interface QuickSellTabViewController : UIViewController
 
