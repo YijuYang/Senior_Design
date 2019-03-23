@@ -29,11 +29,17 @@
         return nil;
     }
     
-    self.backgroundColor = [UIColor greenColor];
+    self.backgroundColor = [UIColor whiteColor];
     
-   
+    
+    
     return self;
 }
 
+- (void)scanClicked
+{
+    
+    NSLog(@"adufhakdhflakjsdhfakjsdhflakjshfdakjlsdfhalks!!!!!");
+}
 
 @end
