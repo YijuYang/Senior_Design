@@ -14,6 +14,8 @@
 		AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B05D222CD89400FD9B89 /* demo_gridView.png */; };
 		AAB3B066222DAB9400FD9B89 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3B060222DAB9300FD9B89 /* AVCamCameraViewController.m */; };
 		AAB3B067222DAB9400FD9B89 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */; };
+		AABDCC1F2246C05300FBD71B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AABDCC1B2246C05300FBD71B /* UserModel.m */; };
+		AABDCC202246C05300FBD71B /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AABDCC1D2246C05300FBD71B /* BookModel.m */; };
 		C81D7994221F124F00703CD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D7993221F124F00703CD2 /* AppDelegate.m */; };
 		C81D799F221F125000703CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D799D221F125000703CD2 /* LaunchScreen.storyboard */; };
 		C81D79A2221F125000703CD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79A1221F125000703CD2 /* main.m */; };
@@ -77,6 +79,10 @@
 		AAB3B061222DAB9300FD9B89 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		AAB3B062222DAB9300FD9B89 /* AVCamCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCameraViewController.h; sourceTree = "<group>"; };
 		AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
+		AABDCC1B2246C05300FBD71B /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		AABDCC1C2246C05300FBD71B /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		AABDCC1D2246C05300FBD71B /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		AABDCC1E2246C05300FBD71B /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		C81D798F221F124F00703CD2 /* BookTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81D7992221F124F00703CD2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C81D7993221F124F00703CD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; tabWidth = 5; };
@@ -248,6 +254,10 @@
 		C81D79FD221F17F900703CD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AABDCC1E2246C05300FBD71B /* BookModel.h */,
+				AABDCC1D2246C05300FBD71B /* BookModel.m */,
+				AABDCC1C2246C05300FBD71B /* UserModel.h */,
+				AABDCC1B2246C05300FBD71B /* UserModel.m */,
 				C81D79D4221F12CF00703CD2 /* BookItem.h */,
 				C81D79D6221F12CF00703CD2 /* BookItem.m */,
 			);
@@ -490,10 +500,12 @@
 				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */,
 				C81D79E5221F12CF00703CD2 /* MsgCenterTabViewController.m in Sources */,
+				AABDCC1F2246C05300FBD71B /* UserModel.m in Sources */,
 				AAB3B066222DAB9400FD9B89 /* AVCamCameraViewController.m in Sources */,
 				C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */,
 				AAB3B067222DAB9400FD9B89 /* AVCamPreviewView.m in Sources */,
 				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
+				AABDCC202246C05300FBD71B /* BookModel.m in Sources */,
 				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
 				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
 				C81D79ED221F12CF00703CD2 /* BookItem.m in Sources */,
