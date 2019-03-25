@@ -10,7 +10,7 @@
 
 @protocol SignupStep1ViewDelegate <NSObject>
 
-- (void)doClickNextBtnWithEmailAddress:(NSString *)emailAddress;
+- (void)doClickNextBtnWithFirstName:(NSString *)firstName LastName:(NSString *) lastName EmailAddress:(NSString *)emailAddress Password:(NSString *)password;
 
 @end
 

@@ -11,6 +11,6 @@
 
 @interface SignupSuccessController : UIViewController
 
-- (instancetype)initWithEmailAddress:(NSString *)emailAddress password:(NSString *)password;
+- (instancetype)initWithFirstName:(NSString *)firstName LastName:(NSString *) lastName EmailAddress:(NSString *)emailAddress Password:(NSString *)password;
 
 @end

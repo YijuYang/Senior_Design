@@ -7,7 +7,7 @@
 //
 
 #import "SignupStep1Controller.h"
-#import "SignupStep2Controller.h"
+#import "SignupSuccessController.h"
 #import "SignupStep1View.h"
 
 
@@ -40,12 +40,12 @@
 
 
 #pragma mark - SignupStep1ViewDelegate
-- (void)doClickNextBtnWithEmailAddress:(NSString *)emailAddress
+- (void)doClickNextBtnWithFirstName:(NSString *)firstName LastName:(NSString *)lastName EmailAddress:(NSString *)emailAddress Password:(NSString *)password
 {
     //TODO: save email address to web server
     //hard code for UI test
-    SignupStep2Controller *signupStep2Ctrl = [[SignupStep2Controller alloc] initWithEmailAddress:emailAddress];
-    [self.navigationController pushViewController:signupStep2Ctrl animated:NO];
+    SignupSuccessController *successCtrl = [[SignupSuccessController alloc]initWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
+    [self.navigationController pushViewController:successCtrl animated:NO];
 
 }
 
