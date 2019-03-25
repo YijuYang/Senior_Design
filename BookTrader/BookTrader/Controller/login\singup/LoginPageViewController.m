@@ -36,12 +36,13 @@
 #pragma mark LoginPageViewDelegate
 
 /*
- @author 
+ @author Qixiang Liu
  */
 - (void) doClickLoginButtonWithUsername: (NSString* )username password:(NSString *) password
 {
     //TODO:
-    //errors or go to homepage
+    //check if username and password match
+    
 }
 
 /*
@@ -51,6 +52,6 @@
 {
     self.signupStep1Ctrl = [SignupStep1Controller new];
     [self.navigationController pushViewController:self.signupStep1Ctrl animated:NO];
-    //TODO:goto Signup Page
+
 }
 @end
