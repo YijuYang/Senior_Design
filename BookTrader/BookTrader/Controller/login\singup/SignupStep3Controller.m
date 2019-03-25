@@ -50,44 +50,13 @@
 
 #pragma mark - SignupStep3ViewDelegate
 
+//
 - (void)doClickNextBtnWithCode:(NSString *)code
 {
-//    if (code.length < 1) {
-//        [self toast:@"请输入验证码"];
-//        return;
-//    }
-//
-//    __weak typeof (self) weakSelf = self;
-//    [weakSelf showLoadingView];
-//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                   self.emailAddress,     @"mobile",
-//                                   _password,   @"password",
-//                                   code,        @"code", nil];
-//    [HttpClient requestJson:kUrlUserRegisterStep3
-//                     params:params
-//                    success:^(BOOL status, NSNumber *code, NSString *message, NSDictionary *data) {
-//                        [weakSelf hideLoadingView];
-//                        if (status) {
-//                            //用户注册成功后，保存用户信息
-//                            User *user = [User mj_objectWithKeyValues:[data objectForKey:@"user"]];
-//                            NSString *app_cart_cookie_id = [data objectForKey:@"app_cart_cookie_id"];
-//                            [StorageUtil saveUserId:user.id];
-//                            [StorageUtil saveUserMobile:user.mobile];
-//                            [StorageUtil saveUserLevel:user.level];
-//                            [StorageUtil saveAccessToken:user.access_token];
-//                            [StorageUtil saveAppCartCookieId:app_cart_cookie_id];
-//
-//                            //打开注册成功页面
-                            SignupSuccessController *ctrl = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:self.password];
-                            [self.navigationController pushViewController:ctrl animated:NO];
-//                        } else {
-//                            [weakSelf toast:message];
-//                        }
-//                    } failure:^(NSError *error) {
-//                        [weakSelf hideLoadingView];
-//                        [weakSelf toast:[error localizedDescription]];
-//                    }];
-//
+    //hard code for UI test
+    SignupSuccessController *ctrl = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:self.password];
+    [self.navigationController pushViewController:ctrl animated:NO];
+
 }
 
 @end

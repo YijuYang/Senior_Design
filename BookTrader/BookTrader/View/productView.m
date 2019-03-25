@@ -1,19 +1,16 @@
 //
-//  QuickSellTabView.m
+//  productView.m
 //  BookTrader
 //
-//  Created by JianShen on 2/21/19.
+//  Created by JianShen on 3/25/19.
 //  Copyright © 2019 BookTrader. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "QuickSellTabView.h"
-//#import "BookModel.h"
+#import "productView.h"
 
-@interface QuickSellTabView ()
-
-@property (nonatomic, strong) UIImage* KUIcon;
+@interface productView ()
 @property (nonatomic, strong) UIImageView * imagePreview;
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UILabel *price;
@@ -24,12 +21,13 @@
 @property (nonatomic, strong) UITextField *isbnField;
 @property (nonatomic, strong) UITextView *detailField;
 
+@property (nonatomic, strong) UIButton *contactButton;
 @end
 
-@implementation QuickSellTabView
+@implementation productView
 
 /*
- @author Simon, Jian
+ @author Yiju, Jian
  */
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -39,7 +37,10 @@
         return nil;
     }
     
+    self.backgroundColor = [UIColor whiteColor];
+    
     self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 0, 150, 150)];
+    self.imagePreview.image = [UIImage imageNamed:@"bookSample.jpg"];
     self.imagePreview.backgroundColor = [UIColor orangeColor];
     self.imagePreview.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -71,6 +72,8 @@
     self.titleField.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.titleField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.titleField.layer.cornerRadius = 8;
+    
+
     [self addSubview:self.titleField];
     
     self.priceField = [[UITextField alloc] initWithFrame:CGRectMake(5, 252, 50, 44)];
@@ -94,79 +97,32 @@
     self.detailField.layer.cornerRadius = 8;
     [self addSubview:self.detailField];
     
-    UIButton *scanISBNbtn = [[UIButton alloc] initWithFrame:CGRectMake(365, 252, 44, 44)];
-    scanISBNbtn.backgroundColor = [UIColor whiteColor];
-    UIImage *scan = [UIImage imageNamed:@"scan.png"];
-    scanISBNbtn.layer.cornerRadius = 5;
-    [scanISBNbtn setImage:scan forState:UIControlStateNormal];
-    [scanISBNbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [scanISBNbtn addTarget:self action:@selector(scanClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:scanISBNbtn];
+    self.contactButton = [[UIButton alloc]initWithFrame:CGRectMake(55, 560, 300, 44)];
+    self.contactButton.backgroundColor = [UIColor orangeColor];
+    [self.contactButton setTitle:@"buy this book? contact buyer now! " forState:UIControlStateNormal];
+    [self.contactButton addTarget:self action:@selector(clickContactButton) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.contactButton];
 
-    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 560, 405, 44)];
-    submitBtn.backgroundColor = [UIColor greenColor];
-    submitBtn.layer.cornerRadius = 5;
-    [submitBtn setTitle:@"Submit" forState:UIControlStateNormal];
-    [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [submitBtn addTarget:self action:@selector(submitCliked) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:submitBtn];
+    //hard code here
+    self.titleField.text = @" ego is the enemy";
+    self.isbnField.text = @" 978-1-59184-781-6";
+    self.priceField.text = @" 16.83";
+    self.detailField.text = @"Ego Is the Enemy is the fourth book by author Ryan Holiday, published on June 14, 2016.It is about the treacherous nature of ego.";
+    
     
     return self;
 }
-- (void)submitCliked
+
+- (void) clickContactButton
 {
-    if([[self.isbnField text] isEqualToString:@""]||[[self.titleField text] isEqualToString:@""]||[[self.priceField text] isEqualToString:@""]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"INFO"
-                                                        message:@"Please complete the necessary information."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }//else{
-//        //string-string
-//
-//       // NSLog(@"%@",_customer);
-//
-//       // NSArray* author = @[[_author1 text],[_author2 text],[_author3 text]];
-//
-//        NSLog(@"%@",author);
-//
-//        NSDictionary* data = @{
-//                               @"bookname":[_bookName text],
-//                               @"isbn" :[self.isbnField text],
-//                               @"author":author,
-//                               @"edition":[_edition text],
-//                               @"price":[self.priceField text],
-//                               @"ID":_customer[@"customerID"],
-//
-//                               };
-//
-//        BookModel* book = [[BookModel alloc]init];
-//
-//        [book sellBooks:data completion:^(id response) {
-//            //after do somthing
-//            //NSLog(@"%@",response);
-//            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
-//                //failure
-//                NSLog(@"FAIL:%@",response);
-//
-//            }else{
-//
-//                NSLog(@"SUCC:%@",response);
-//
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//
-//
-//                });
-//
-//            }
-//        }];
-//
-//    }
+    [self.delegate doClickContactButton];
 }
-- (void)scanClicked
-{
-    
-    NSLog(@"adufhakdhflakjsdhfakjsdhflakjshfdakjlsdfhalks!!!!!");
-}
+
+
+//- (void)scanClicked
+//{
+//    
+//    NSLog(@"adufhakdhflakjsdhfakjsdhflakjshfdakjlsdfhalks!!!!!");
+//}
+
 @end

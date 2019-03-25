@@ -33,7 +33,7 @@
  */
 - (void)setNavLeftBarButtonItem
 {
-    //TODO:
+    //
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_back"] style:UIBarButtonItemStyleDone target:self action:@selector(popSelfController)];
 }
 /*

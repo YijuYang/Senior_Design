@@ -40,31 +40,13 @@
 
 
 #pragma mark - SignupStep1ViewDelegate
-
 - (void)doClickNextBtnWithEmailAddress:(NSString *)emailAddress
 {
-//    NSError *error = nil;
-//    if ([ValidatorUtil isValidMobile:mobile error:&error]) {
-//        __weak typeof (self) weakSelf = self;
-//        [weakSelf showLoadingView];
-//        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:mobile forKey:@"mobile"];
-//        [HttpClient requestJson:kUrlUserRegisterStep1
-//                         params:params
-//                        success:^(BOOL result, NSNumber *resultCode, NSString *message, NSDictionary *data) {
-//                            [weakSelf hideLoadingView];
-//                            if (result) {
-                                SignupStep2Controller *signupStep2Ctrl = [[SignupStep2Controller alloc] initWithEmailAddress:emailAddress];
-                                [self.navigationController pushViewController:signupStep2Ctrl animated:NO];
-//                            } else {
-//                                [weakSelf toast:message];
-//                            }
-//                        } failure:^(NSError *error) {
-//                            [weakSelf hideLoadingView];
-//                            [weakSelf toast:[error localizedDescription]];
-//                        }];
-//    } else {
-//        [self toast:[error localizedDescription]];
-//    }
+    //TODO: save email address to web server
+    //hard code for UI test
+    SignupStep2Controller *signupStep2Ctrl = [[SignupStep2Controller alloc] initWithEmailAddress:emailAddress];
+    [self.navigationController pushViewController:signupStep2Ctrl animated:NO];
+
 }
 
 

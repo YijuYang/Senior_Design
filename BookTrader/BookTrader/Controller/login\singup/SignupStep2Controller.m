@@ -8,6 +8,7 @@
 
 #import "SignupStep2Controller.h"
 #import "SignupStep3Controller.h"
+#import "SignupSuccessController.h"
 #import "SignupStep2View.h"
 
 @interface SignupStep2Controller () <SignupStep2ViewDelegate>
@@ -47,30 +48,12 @@
 
 - (void)doClickNextBtnWithPassword:(NSString *)password
 {
-//    NSError *error = nil;
-//    if ([ValidatorUtil isValidPassword:password error:&error]) {
-//        __weak typeof (self) weakSelf = self;
-//        [weakSelf showLoadingView];
-//        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                       _mobile,    @"mobile",
-//                                       password,   @"password", nil];
-//        [HttpClient requestJson:kUrlUserRegisterStep2
-//                         params:params
-//                        success:^(BOOL result, NSNumber *resultCode, NSString *message, NSDictionary *data) {
-//                            [weakSelf hideLoadingView];
-//                            if (result) {
-                                SignupStep3Controller *signupStep3Ctrl = [[SignupStep3Controller alloc] initWithEmailAddress:self.emailAddress password:password];
-                                [self.navigationController pushViewController:signupStep3Ctrl animated:NO];
-//                            } else {
-//                                [weakSelf toast:message];
-//                            }
-//                        } failure:^(NSError *error) {
-//                            [weakSelf hideLoadingView];
-//                            [weakSelf toast:[error localizedDescription]];
-//                        }];
-//    } else {
-//        [self toast:[error localizedDescription]];
-//    }
+    //TODO: save password to web server
+    //hard code for UI Test
+    
+    //skip email code authentication
+    SignupSuccessController *successController = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:password];
+    [self.navigationController pushViewController:successController animated:NO];
 }
 
 @end
