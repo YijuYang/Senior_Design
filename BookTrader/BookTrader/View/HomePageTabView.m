@@ -10,14 +10,15 @@
 #import <Foundation/Foundation.h>
 
 #import "HomePageTabView.h"
+#import "bookCell.h"
+#import "LoginPageView.h"
 
 @interface HomePageTabView()
 @property (nonatomic, strong) UIButton* searchConfirmBtn;
 @property (nonatomic, strong) UIButton* switchViewModeBtn;
 @property (nonatomic, strong) UITextField* searchKeywordTextField;
 
-@property (nonatomic, strong) UIImage* demoImage;
-@property (nonatomic, strong) UIImageView* demoExample;
+    
 
 @end
 
@@ -68,25 +69,18 @@
     self.searchKeywordTextField.textColor = [UIColor lightGrayColor];
     [self addSubview:self.searchKeywordTextField];
     
-    
-    self.demoImage = [UIImage imageNamed:@"demo_listView.png"];
-    self.demoExample = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, 420, 630)];
-    self.demoExample.backgroundColor = [UIColor whiteColor];
-    self.demoExample.image = self.demoImage;
-    self.demoExample.contentMode = UIViewContentModeScaleAspectFit;
-    self.demoExample.layer.cornerRadius = 3;
-    [self addSubview:self.demoExample];
-    
+
     return self;
 
 }
 
 - (void) switch_Clicked
 {
-    UIImage *wdemoImage = [UIImage imageNamed:@"demo_gridView.png"];
-    self.demoExample.image = wdemoImage;
 
-//    [self.delegate doClickSwitch];
+    
 }
+    
+    
+
 
 @end
