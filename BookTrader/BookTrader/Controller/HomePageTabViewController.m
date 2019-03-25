@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HomePageTabViewController.h"
 #import "HomePageTabView.h"
+#import "productViewController.h"
 @interface HomePageTabViewController ()
 
 @property (nonatomic, strong) HomePageTabView* homePageView;
@@ -75,7 +76,8 @@ static NSString* cellID = @"cellID";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    productViewController *productCtrl = [[productViewController alloc]init];
+    [self.navigationController pushViewController:productCtrl animated:NO];
     
 }
 
