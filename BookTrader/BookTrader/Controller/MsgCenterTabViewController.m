@@ -30,10 +30,18 @@
     self.title = @"MSG CENTER";
     self.msgCenterView = [[MsgCenterTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     [self.view addSubview:self.msgCenterView];
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 64)];
+//    label.text = @"首页";
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.textColor = [UIColor whiteColor];
+//    self.navigationItem.titleView = label;
     
     self.loginCtrl = [LoginPageViewController new];
     self.loginCtrl.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:self.loginCtrl animated:NO];}
+    [self.navigationController pushViewController:self.loginCtrl animated:NO];
+    
+}
 
 
 @end
