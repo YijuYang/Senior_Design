@@ -11,6 +11,8 @@
 @interface SignupSuccessController () <SignupSuccessViewDelegate>
 
 @property (nonatomic, strong)SignupSuccessView *signupSuccessView;
+@property (nonatomic, strong)NSString *firstName;
+@property (nonatomic, strong)NSString *lastName;
 @property (nonatomic, strong)NSString *emailAddress;
 @property (nonatomic, strong)NSString *password;
 
@@ -18,11 +20,12 @@
 
 @implementation SignupSuccessController
 
-- (instancetype)initWithEmailAddress:(NSString *)emailAddress password:(NSString *)password
+- (instancetype)initWithFirstName:(NSString *)firstName LastName:(NSString *) lastName EmailAddress:(NSString *)emailAddress Password:(NSString *)password
 {
     self = [super init];
     if (!self) return nil;
-    
+    self.firstName = firstName;
+    self.lastName = lastName;
     self.emailAddress = emailAddress;
     self.password = password;
     return self;
@@ -34,7 +37,7 @@
     
     self.signupSuccessView = [[SignupSuccessView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.signupSuccessView.delegate = self;
-    [self.signupSuccessView fillContentWithLoginName:self.emailAddress password:self.password];
+    [self.signupSuccessView fillContentWithFirstName:self.firstName LastName:self.lastName EmailAddress:self.emailAddress password:self.password];
     [self.view addSubview:self.signupSuccessView];
 }
 
