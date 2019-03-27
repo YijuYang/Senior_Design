@@ -49,7 +49,7 @@
     
     
     self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 400, 95, 44)];
-    self.usernameLabel.text = @"User Name: ";
+    self.usernameLabel.text = @"Email: ";
     self.usernameLabel.textColor = [UIColor grayColor];
     [self addSubview:self.usernameLabel];
     
@@ -62,6 +62,7 @@
     self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(105, 400, 300, 44)];
     self.usernameTextField.backgroundColor = [UIColor whiteColor];
     self.usernameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     [self addSubview:self.usernameTextField];
     
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(105, 444, 300, 44)];
@@ -82,19 +83,11 @@
     //singup button
     self.signupBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 500, 150, 44)];
     self.signupBtn.backgroundColor = [UIColor lightGrayColor];
-    self.signupBtn.layer.cornerRadius = 5;
+    self.signupBtn.layer.cornerRadius = 4;
     [self.signupBtn setTitle:@"Sign Up Now!" forState:UIControlStateNormal];
     [self.signupBtn addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.signupBtn];
     
-    
-//    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(5, 50, 44, 44)];
-//    btn2.backgroundColor = [UIColor whiteColor];
-//    btn2.layer.cornerRadius = 5;
-//    [btn2 setTitle:@"««" forState:UIControlStateNormal];
-//    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [btn2 addTarget:self action:@selector(back_Clicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [self addSubview:btn2];
     return self;
 }
 
@@ -102,10 +95,10 @@
 #pragma mark user action
 - (void) clickLoginButton
 {
-    NSString* username = self.usernameTextField.text;
+    NSString* email = self.usernameTextField.text;
     NSString* password = self.passwordTextField.text;
     
-    [self.delegate doClickLoginButtonWithUsername:username password:password];
+    [self.delegate doClickLoginButtonWithEmail:email password:password];
 }
 
 - (void) clickSignUpButton

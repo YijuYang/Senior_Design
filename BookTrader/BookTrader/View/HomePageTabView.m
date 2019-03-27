@@ -10,12 +10,15 @@
 #import <Foundation/Foundation.h>
 
 #import "HomePageTabView.h"
+#import "bookCell.h"
+#import "LoginPageView.h"
 
 @interface HomePageTabView()
-@property (nonatomic, strong) UIImage* KUIcon;
 @property (nonatomic, strong) UIButton* searchConfirmBtn;
 @property (nonatomic, strong) UIButton* switchViewModeBtn;
-@property (nonatomic, strong) UITextField* searchKeyword;
+@property (nonatomic, strong) UITextField* searchKeywordTextField;
+
+    
 
 @end
 
@@ -53,22 +56,31 @@
     self.switchViewModeBtn.layer.cornerRadius = 5;
     [self.switchViewModeBtn setTitle:@"∆∆" forState:UIControlStateNormal];
     [self.switchViewModeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [self.switchViewModeBtn addTarget:self action:@selector(switch_Clicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.switchViewModeBtn addTarget:self action:@selector(switch_Clicked) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.switchViewModeBtn];
     
     /*
      * Searching input bar
      */
-    self.searchKeyword = [[UITextField alloc] initWithFrame:CGRectMake(44, 0, [UIScreen mainScreen].bounds.size.width - self.switchViewModeBtn.bounds.size.width - self.searchConfirmBtn.bounds.size.width, 44)];
-    self.searchKeyword.backgroundColor = [UIColor whiteColor];
-    self.searchKeyword.borderStyle = UITextBorderStyleRoundedRect;
-    self.searchKeyword.text = @"affordable textbook starts here";
-    self.searchKeyword.textColor = [UIColor lightGrayColor];
-    [self addSubview:self.searchKeyword];
+    self.searchKeywordTextField = [[UITextField alloc] initWithFrame:CGRectMake(44, 0, [UIScreen mainScreen].bounds.size.width - self.switchViewModeBtn.bounds.size.width - self.searchConfirmBtn.bounds.size.width, 44)];
+    self.searchKeywordTextField.backgroundColor = [UIColor whiteColor];
+    self.searchKeywordTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.searchKeywordTextField.placeholder = @"affordable textbook starts here";
+    self.searchKeywordTextField.textColor = [UIColor lightGrayColor];
+    [self addSubview:self.searchKeywordTextField];
     
+
     return self;
 
 }
+
+- (void) switch_Clicked
+{
+
+    
+}
+    
+    
 
 
 @end

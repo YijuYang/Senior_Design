@@ -211,7 +211,7 @@ static NSString* postDataForTestLocal= @"http://localhost/postData.php";
             completion(json_response);//NSArray
         }
         else {
-            NSLog(@"Error serializing JSON: %@", error); //NSString
+            //NSLog(@"Error serializing JSON: %@", error); //NSString
            // NSLog(@"RAW RESPONSE: %@",data);
             NSString *returnString = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
             //NSLog(@"Response:%@",returnString2);

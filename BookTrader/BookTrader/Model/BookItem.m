@@ -10,10 +10,22 @@
 #import "BookItem.h"
 @interface BookItem ()
 
+    // 左边的图片, 需要注意: 不要和父类的imageView属性冲突
+    @property (nonatomic, strong) UIImageView *bookImageView;
+    // 书名,      需要注意: 不要和父类的textLabel和DetailTextLable属性冲突
+    @property (nonatomic, strong) UILabel *nameLabel;
+    // 价格
+    @property (nonatomic, strong) UILabel *prcieLabel;
+    // 描述
+    @property (nonatomic, strong) UILabel *descLabel;
+
 @end
 
 @implementation BookItem
 
+/*
+ @author:  Simon
+ */
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

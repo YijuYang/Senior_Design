@@ -12,4 +12,5 @@
 @interface QuickSellTabView : UIView
 
 
+
 @end

@@ -19,7 +19,7 @@
 @implementation AccountTabView
 
 /*
- @author Simon, Jian
+ @author Yiju, Jian
  */
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -29,11 +29,17 @@
         return nil;
     }
     
-    self.backgroundColor = [UIColor greenColor];
+    self.backgroundColor = [UIColor whiteColor];
     
-   
+    
+    
     return self;
 }
 
+- (void)scanClicked
+{
+    
+    NSLog(@"adufhakdhflakjsdhfakjsdhflakjshfdakjlsdfhalks!!!!!");
+}
 
 @end
