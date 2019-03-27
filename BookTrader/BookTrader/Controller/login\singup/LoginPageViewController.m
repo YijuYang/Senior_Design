@@ -81,10 +81,12 @@
                 });
             }else{
                 //success check Case-sensitive
-                NSLog(@"%@",response);
+               // NSLog(@"%@",response);
                 //ASYN
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //TODO successful alert?
+                    [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"currentUser"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                     [self.navigationController popViewControllerAnimated:YES];
                 });
 

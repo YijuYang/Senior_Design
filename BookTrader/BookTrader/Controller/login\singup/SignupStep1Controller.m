@@ -68,10 +68,15 @@
             });
             
         }else{
-            //success
+            //success return NSDictionary*
             NSLog(@"%@",response);
+          
 
             dispatch_async(dispatch_get_main_queue(), ^{
+                //local store
+                [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"currentUser"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
                 SignupSuccessController *successCtrl = [[SignupSuccessController alloc]initWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
                 [self.navigationController pushViewController:successCtrl animated:NO];
             });

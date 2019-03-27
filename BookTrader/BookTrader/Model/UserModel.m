@@ -356,4 +356,12 @@ static NSString* postDataForTestLocal= @"http://localhost/postData.php";
     [task resume];
 }
 
+
+-(NSDictionary*)getCurrentLocalUserInfo{
+    NSDictionary *currUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUser"];
+    
+    NSLog(@"%@",currUser);
+    return currUser;
+}
+
 @end
