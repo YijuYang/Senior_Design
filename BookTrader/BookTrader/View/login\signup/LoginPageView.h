@@ -12,7 +12,7 @@
  */
 @protocol LoginPageViewDelegate<NSObject>
 
-- (void) doClickLoginButtonWithUsername: (NSString* )username password:(NSString *) password;
+- (void) doClickLoginButtonWithEmail: (NSString* )email password:(NSString *) password;
 
 - (void) doClickSignUpButton;
 
