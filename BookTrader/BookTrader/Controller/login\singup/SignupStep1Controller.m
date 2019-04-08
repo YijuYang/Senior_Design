@@ -9,7 +9,7 @@
 #import "SignupStep1Controller.h"
 #import "SignupSuccessController.h"
 #import "SignupStep1View.h"
-
+#import "UserModel.h"
 
 @interface SignupStep1Controller () <SignupStep1ViewDelegate>
 
@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"register";
-    
+
     self.signupStep1View = [[SignupStep1View alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.signupStep1View.delegate = self;
     [self.view addSubview:self.signupStep1View];
@@ -44,8 +44,47 @@
 {
     //TODO: save email address to web server
     //hard code for UI test
-    SignupSuccessController *successCtrl = [[SignupSuccessController alloc]initWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
-    [self.navigationController pushViewController:successCtrl animated:NO];
+    NSDictionary* data = @{
+                           @"firstName":firstName,
+                           @"lastName" :lastName,
+                           @"customerEmail":emailAddress,
+                           @"customerPwd":password,
+                           @"major":@"ALL",
+                           @"KUID":@""
+                           };
+    UserModel* user = [[UserModel alloc]init];
+    [user createAccount:data completion:^(id response) {
+        if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
+          
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                                                                               message:response
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+            
+        }else{
+            //success return NSDictionary*
+            NSLog(@"%@",response);
+          
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //local store
+                [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"currentUser"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                SignupSuccessController *successCtrl = [[SignupSuccessController alloc]initWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
+                [self.navigationController pushViewController:successCtrl animated:NO];
+            });
+
+        }
+    }];
+
+
 
 }
 
