@@ -16,7 +16,7 @@
 @interface HomePageTabView()
 @property (nonatomic, strong) UIButton* searchConfirmBtn;
 @property (nonatomic, strong) UIButton* switchViewModeBtn;
-@property (nonatomic, strong) UITextField* searchKeywordTextField;
+@property (nonatomic, strong) UISearchBar* searchKeywordTextField;
 
     
 
@@ -46,7 +46,7 @@
     [self.searchConfirmBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     // Click to load result
     //[self.searchConfirmBtn addTarget:self action:@selector(back_Clicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.searchConfirmBtn];
+//    [self addSubview:self.searchConfirmBtn];
     
     /*
      *<self.switchViewModeBtn> Switch button :used to swith <list> and <gird> mode
@@ -57,17 +57,18 @@
     [self.switchViewModeBtn setTitle:@"∆∆" forState:UIControlStateNormal];
     [self.switchViewModeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.switchViewModeBtn addTarget:self action:@selector(switch_Clicked) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.switchViewModeBtn];
+//    [self addSubview:self.switchViewModeBtn];
     
     /*
-     * Searching input bar
+     * Searching search bar
      */
-    self.searchKeywordTextField = [[UITextField alloc] initWithFrame:CGRectMake(44, 0, [UIScreen mainScreen].bounds.size.width - self.switchViewModeBtn.bounds.size.width - self.searchConfirmBtn.bounds.size.width, 44)];
+    
+    self.searchKeywordTextField = [[UISearchBar alloc] initWithFrame:CGRectMake(44, 0, [UIScreen mainScreen].bounds.size.width - self.switchViewModeBtn.bounds.size.width - self.searchConfirmBtn.bounds.size.width, 44)];
     self.searchKeywordTextField.backgroundColor = [UIColor whiteColor];
-    self.searchKeywordTextField.borderStyle = UITextBorderStyleRoundedRect;
-    self.searchKeywordTextField.placeholder = @"affordable textbook starts here";
-    self.searchKeywordTextField.textColor = [UIColor lightGrayColor];
-    [self addSubview:self.searchKeywordTextField];
+//    self.searchKeywordTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.searchKeywordTextField.placeholder = @"affordable textbook starts from here";
+//    self.searchKeywordTextField.textColor = [UIColor lightGrayColor];
+//    [self addSubview:self.searchKeywordTextField];
     
 
     return self;

@@ -78,7 +78,8 @@
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 SignupSuccessController *successCtrl = [[SignupSuccessController alloc]initWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
-                [self.navigationController pushViewController:successCtrl animated:NO];
+                self.view.window.rootViewController = successCtrl;
+//                [self.navigationController pushViewController:successCtrl animated:NO];
             });
 
         }
