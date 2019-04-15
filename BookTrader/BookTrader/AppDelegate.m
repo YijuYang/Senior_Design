@@ -12,7 +12,11 @@
 #import "QuickSellTabViewController.h"
 #import "AccountTabViewController.h"
 #import "AVCamCameraViewController.h"
+<<<<<<< HEAD
 #import "OCRViewController.h"
+=======
+#import "LoginPageViewController.h"
+>>>>>>> master
 
 @import Photos;
 
@@ -169,9 +173,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [self rootController];
+    
+    LoginPageViewController *loginctrl = [[LoginPageViewController alloc] init];
+    UINavigationController *objNavigationController=[[UINavigationController alloc]initWithRootViewController:loginctrl];
+
+    self.window.rootViewController = objNavigationController;
     
     self.window.backgroundColor = [UIColor whiteColor];
+
 //    [self.window makeKeyAndVisible];
     return YES;}
 

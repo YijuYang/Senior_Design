@@ -20,6 +20,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import "UserModel.h"
+#import "BookModel.h"
 
 @implementation ALAssetsLibrary (PFLast)
 
@@ -240,12 +241,11 @@
                                               otherButtonTitles:nil];
         [alert show];
     }else{
-    //        //string-string
-    //
-    //       // NSLog(@"%@",_customer);
-    //
+            //string-string
+    
+           // NSLog(@"%@",_customer);
             NSArray* author = @[[self.author1 text],[self.author2 text],[self.author3 text]];
-    //
+    
             NSLog(@"%@",author);
             NSUserDefaults
             NSDictionary* data = @{

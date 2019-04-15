@@ -48,8 +48,8 @@
     [self addSubview:imageView];
     
     
-    self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 400, 95, 44)];
-    self.usernameLabel.text = @"User Name: ";
+    self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 400, 95, 44)];
+    self.usernameLabel.text = @"Email: ";
     self.usernameLabel.textColor = [UIColor grayColor];
     [self addSubview:self.usernameLabel];
     
@@ -62,6 +62,7 @@
     self.usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(105, 400, 300, 44)];
     self.usernameTextField.backgroundColor = [UIColor whiteColor];
     self.usernameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     [self addSubview:self.usernameTextField];
     
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(105, 444, 300, 44)];
@@ -94,10 +95,10 @@
 #pragma mark user action
 - (void) clickLoginButton
 {
-    NSString* username = self.usernameTextField.text;
+    NSString* email = self.usernameTextField.text;
     NSString* password = self.passwordTextField.text;
     
-    [self.delegate doClickLoginButtonWithUsername:username password:password];
+    [self.delegate doClickLoginButtonWithEmail:email password:password];
 }
 
 - (void) clickSignUpButton

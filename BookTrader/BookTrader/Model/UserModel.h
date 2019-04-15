@@ -11,13 +11,7 @@
 
 }
 
-//This is for qixiang to test; u do not use for them
--(void)getDataFromPhp1;
--(void)getDataFromPhp2;
-//-(void)postDataToPhpAndGetResponse1;
--(void)postDataToPhpAndGetResponse2:(NSString*) post_data;
--(void)postDataToPhpAndGetResponse3:(NSDictionary*) postData;
--(void)postDataToPhpAndGetResponse4:(NSArray*) postData;
+
 
 //Any HTTP 请求无法有返回值,但是可以操作返回值在这个function里面。@"email=%@&password=%@" 传递的data 格式必须严格要求
 -(void)login:(NSString*) emailAndPwd completion:(void (^)(id ))completion;
@@ -39,6 +33,28 @@
 
 -(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
+-(NSDictionary*)getCurrentLocalUserInfo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//This is for qixiang to test; u do not use for them
+-(void)getDataFromPhp1;
+-(void)getDataFromPhp2;
+//-(void)postDataToPhpAndGetResponse1;
+-(void)postDataToPhpAndGetResponse2:(NSString*) post_data;
+-(void)postDataToPhpAndGetResponse3:(NSDictionary*) postData;
+-(void)postDataToPhpAndGetResponse4:(NSArray*) postData;
 
 @end
 

@@ -7,6 +7,13 @@
 //
 #import "SignupSuccessController.h"
 #import "SignupSuccessView.h"
+#import "SignupStep1Controller.h"
+#import "HomePageTabViewController.h"
+#import "MsgCenterTabViewController.h"
+#import "QuickSellTabViewController.h"
+#import "AccountTabViewController.h"
+#import "AVCamCameraViewController.h"
+#import "LoginPageViewController.h"
 
 @interface SignupSuccessController () <SignupSuccessViewDelegate>
 
@@ -48,7 +55,61 @@
 
 - (void)doClickShoppingBtn
 {
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    self.view.window.rootViewController = [self rootController];
+
+//    [self.navigationController popToRootViewControllerAnimated:NO];
 }
+
+
+#pragma mark
+//@author: Jian Shen
+- (UITabBarController *)rootController {
+    // childController of rootController are navigationControllers/
+    //each NavigationController corresponds to specific viewController
+    
+    UITabBarController *bottomBarController = [[UITabBarController alloc] init];
+    
+    //home page tab
+    HomePageTabViewController *homePageViewController = [[HomePageTabViewController alloc] init];
+    homePageViewController.tabBarItem = [self createTabBarItem:@"HOME" imageNamed:@"" selectedImageNamed:@"home_btn@3x.png"];
+    homePageViewController.tabBarItem.title = @"HOME";
+    UINavigationController *homeNaviCtrl = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
+    homeNaviCtrl.tabBarItem.title = @"HOME";
+    
+    //msg center tab
+    MsgCenterTabViewController *msgCenterViewController = [[MsgCenterTabViewController alloc] init];
+    msgCenterViewController.tabBarItem = [self createTabBarItem:@"MSG CENTER" imageNamed:@"home_btn@3x.png" selectedImageNamed:@"home_btn@3x.png"];
+    msgCenterViewController.tabBarItem.title = @"MSG CENTER";
+    msgCenterViewController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 50, -6, 50);
+    UINavigationController *msgNaviCtrl = [[UINavigationController alloc] initWithRootViewController:msgCenterViewController];
+    msgNaviCtrl.tabBarItem.title = @"MSG CENTER";
+    
+    //quick sell tab
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AVCamCameraViewController *quickSellViewController = [storyBoard instantiateViewControllerWithIdentifier:@"camViewController"];
+    quickSellViewController.tabBarItem = [self createTabBarItem:@"QUICK SELL" imageNamed:@"" selectedImageNamed:@""];
+    quickSellViewController.tabBarItem.title = @"QUICK SELL";
+    UINavigationController *qsNaviCtrl = [[UINavigationController alloc] initWithRootViewController:quickSellViewController];
+    qsNaviCtrl.tabBarItem.title = @"QUICK SELL";
+    //account management tab
+    AccountTabViewController *accountViewController = [[AccountTabViewController alloc] init];
+    accountViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"ACCONT" image:NULL tag:(NULL)];
+    accountViewController.tabBarItem.title = @"ACCOUNT";
+    UINavigationController *accountNaviCtrl = [[UINavigationController alloc] initWithRootViewController:accountViewController];
+    accountNaviCtrl.tabBarItem.title = @"ACCOUNT";
+    
+    bottomBarController.viewControllers = @[homeNaviCtrl, msgNaviCtrl, qsNaviCtrl, accountNaviCtrl];
+    return bottomBarController;
+}
+
+- (UITabBarItem *)createTabBarItem:(NSString *)title imageNamed:(NSString *)imageNamed selectedImageNamed:selectedImageNamed {
+    UIImage *image = [[UIImage imageNamed:imageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedImage = [[UIImage imageNamed:selectedImageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
+                                                             image:image
+                                                     selectedImage:selectedImage];
+    return tabBarItem;
+}
+
 
 @end
