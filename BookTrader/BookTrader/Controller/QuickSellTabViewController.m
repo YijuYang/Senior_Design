@@ -82,6 +82,7 @@
  */
 - (void)viewDidLoad
 {
+//    self.cameraView = [super getViewController];
     [super viewDidLoad];
     [self getLastImage];
 
@@ -122,7 +123,7 @@
     // Retrieve the recognized text
 //    NSLog(@"%@", [self.tesseract recognizedText]);
     
-    self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 0, 150, 150)];
+    self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 65, 150, 150)];
     self.imagePreview.backgroundColor = [UIColor orangeColor];
     self.imagePreview.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -130,76 +131,76 @@
     [self getLastImage];
     [self.view addSubview:self.imagePreview];
     
-    self.mytitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 150, 95, 44)];
+    self.mytitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 205, 95, 44)];
     self.mytitle.text = @"Title: ";
     self.mytitle.textColor = [UIColor grayColor];
     [self.view addSubview:self.mytitle];
     
-    self.price = [[UILabel alloc] initWithFrame:CGRectMake(5, 220, 85, 44)];
+    self.price = [[UILabel alloc] initWithFrame:CGRectMake(5, 275, 85, 44)];
     self.price.text = @"Price: ";
     self.price.textColor = [UIColor grayColor];
     [self.view addSubview:self.price];
     
-    self.isbn = [[UILabel alloc] initWithFrame:CGRectMake(60, 220, 85, 44)];
+    self.isbn = [[UILabel alloc] initWithFrame:CGRectMake(60, 275, 85, 44)];
     self.isbn.text = @"ISBN: ";
     self.isbn.textColor = [UIColor grayColor];
     [self.view addSubview:self.isbn];
     
-    self.detail = [[UILabel alloc] initWithFrame:CGRectMake(5, 395, 95, 44)];
+    self.detail = [[UILabel alloc] initWithFrame:CGRectMake(5, 450, 95, 44)];
     self.detail.text = @"Description: ";
     self.detail.textColor = [UIColor grayColor];
     [self.view addSubview:self.detail];
     
-    self.author1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 285, 85, 44)];
+    self.author1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 340, 85, 44)];
     self.author1.text = @"Author 1: ";
     self.author1.textColor = [UIColor grayColor];
     [self.view addSubview:self.author1];
     
-    self.author2 = [[UILabel alloc] initWithFrame:CGRectMake(110, 285, 85, 44)];
+    self.author2 = [[UILabel alloc] initWithFrame:CGRectMake(110, 340, 85, 44)];
     self.author2.text = @"Author 2: ";
     self.author2.textColor = [UIColor grayColor];
     [self.view addSubview:self.author2];
     
-    self.author3 = [[UILabel alloc] initWithFrame:CGRectMake(215, 285, 85, 44)];
+    self.author3 = [[UILabel alloc] initWithFrame:CGRectMake(215, 340, 85, 44)];
     self.author3.text = @"Author 3: ";
     self.author3.textColor = [UIColor grayColor];
     [self.view addSubview:self.author3];
     
-    self.authorField1 = [[UITextField alloc] initWithFrame:CGRectMake(5, 324, 100, 44)];
+    self.authorField1 = [[UITextField alloc] initWithFrame:CGRectMake(5, 372, 100, 44)];
     self.authorField1.backgroundColor = [UIColor whiteColor];
     self.authorField1.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.authorField1.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField1.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField1];
     
-    self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(110, 324, 100, 44)];
+    self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(110, 372, 100, 44)];
     self.authorField2.backgroundColor = [UIColor whiteColor];
     self.authorField2.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.authorField2.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField2.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField2];
     
-    self.authorField3 = [[UITextField alloc] initWithFrame:CGRectMake(215, 324, 100, 44)];
+    self.authorField3 = [[UITextField alloc] initWithFrame:CGRectMake(215, 372, 100, 44)];
     self.authorField3.backgroundColor = [UIColor whiteColor];
     self.authorField3.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.authorField3.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField3.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField3];
     
-    self.titleField = [[UITextField alloc] initWithFrame:CGRectMake(5, 184, 405, 44)];
+    self.titleField = [[UITextField alloc] initWithFrame:CGRectMake(5, 239, 405, 44)];
     self.titleField.backgroundColor = [UIColor whiteColor];
     self.titleField.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.titleField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.titleField.layer.cornerRadius = 8;
     [self.view addSubview:self.titleField];
     
-    self.priceField = [[UITextField alloc] initWithFrame:CGRectMake(5, 252, 50, 44)];
+    self.priceField = [[UITextField alloc] initWithFrame:CGRectMake(5, 307, 50, 44)];
     self.priceField.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.priceField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.priceField.layer.cornerRadius = 8;
     [self.view addSubview:self.priceField];
     
-    self.isbnField = [[UITextField alloc] initWithFrame:CGRectMake(60, 252, 300, 44)];
+    self.isbnField = [[UITextField alloc] initWithFrame:CGRectMake(60, 307, 300, 44)];
     self.isbnField.backgroundColor = [UIColor whiteColor];
     self.isbnField.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.isbnField.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -213,7 +214,7 @@
     self.detailField.layer.cornerRadius = 8;
     [self.view addSubview:self.detailField];
     
-    UIButton *scanISBNbtn = [[UIButton alloc] initWithFrame:CGRectMake(365, 252, 44, 44)];
+    UIButton *scanISBNbtn = [[UIButton alloc] initWithFrame:CGRectMake(365, 307, 44, 44)];
     scanISBNbtn.backgroundColor = [UIColor whiteColor];
     UIImage *scan = [UIImage imageNamed:@"scan.png"];
     scanISBNbtn.layer.cornerRadius = 5;
@@ -247,20 +248,20 @@
             NSArray* author = @[[self.author1 text],[self.author2 text],[self.author3 text]];
     
             NSLog(@"%@",author);
-            NSUserDefaults
+            UserModel *user = [[UserModel alloc] init];
+
             NSDictionary* data = @{
                                    @"bookname":[self.titleField text],
                                    @"isbn" :[self.isbnField text],
                                    @"author":author,
                                    @"edition":[self.detailField text],
                                    @"price":[self.priceField text],
-                                   @"ID":_customer[@"customerID"],
-    
+                                   @"ID":[user getCurrentLocalUserInfo][@"customerID"]
                                    };
     
             BookModel* book = [[BookModel alloc]init];
     //
-            [book sellBooks:data completion:^(id response) {
+        [book sellBooks:data image:self.image completion:^(id response) {
     //            //after do somthing
     //            //NSLog(@"%@",response);
                 if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
@@ -352,7 +353,6 @@
             completion(result,info);
         });
     }];
-    
 }
 
 -(void)getLastImage{

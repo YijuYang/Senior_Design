@@ -49,61 +49,61 @@
 {
     //TODO:
     //check if username and password match
-    if([email isEqualToString:@""]||[password isEqualToString:@""]){
-        NSString* err = @"invalid email address or password";
-        //failure alert
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                       message:err
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-        
-        [alert addAction:defaultAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }else{
-        //TODO check email style??
-        NSString *data =[[NSString alloc] initWithFormat:@"email=%@&password=%@", email,password];
-
-      //  NSLog(@"post data: %@",data);
-
-        UserModel* user = [[UserModel alloc]init];
-
-        //first way
-        [user login:data completion:^(id response) {
-
-            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
-                //failure
-                NSLog(@"%@",response);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //failure alert
-                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
-                                                                                   message:response
-                                                                            preferredStyle:UIAlertControllerStyleAlert];
-
-                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-
-                    [alert addAction:defaultAction];
-                    [self presentViewController:alert animated:YES completion:nil];
-                });
-            }else{
-                //success check Case-sensitive
-                NSLog(@"%@",response);
-                //ASYN
-                dispatch_async(dispatch_get_main_queue(), ^{
+//    if([email isEqualToString:@""]||[password isEqualToString:@""]){
+//        NSString* err = @"invalid email address or password";
+//        //failure alert
+//        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
+//                                                                       message:err
+//                                                                preferredStyle:UIAlertControllerStyleAlert];
+//
+//        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+//
+//        [alert addAction:defaultAction];
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }else{
+//        //TODO check email style??
+//        NSString *data =[[NSString alloc] initWithFormat:@"email=%@&password=%@", email,password];
+//
+//      //  NSLog(@"post data: %@",data);
+//
+//        UserModel* user = [[UserModel alloc]init];
+//
+//        //first way
+//        [user login:data completion:^(id response) {
+//
+//            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
+//                //failure
+//                NSLog(@"%@",response);
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    //failure alert
+//                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
+//                                                                                   message:response
+//                                                                            preferredStyle:UIAlertControllerStyleAlert];
+//
+//                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+//
+//                    [alert addAction:defaultAction];
+//                    [self presentViewController:alert animated:YES completion:nil];
+//                });
+//            }else{
+//                //success check Case-sensitive
+//                NSLog(@"%@",response);
+//                //ASYN
+//                dispatch_async(dispatch_get_main_queue(), ^{
                     //TODO successful alert?
                     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"currentUser"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     self.view.window.rootViewController = [self rootController];
 
-//                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
-                });
-
-            }
-        }];
-
-
-
-    }
+////                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
+//                });
+//
+//            }
+//        }];
+//
+//
+//
+//    }
 
 
 }

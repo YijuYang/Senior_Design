@@ -1135,4 +1135,9 @@ didFinishRecordingToOutputFileAtURL:(NSURL*)outputFileURL
     }
 }
 
+- (AVCamCameraViewController*) getViewComtroller
+{
+    return self;
+}
+
 @end
