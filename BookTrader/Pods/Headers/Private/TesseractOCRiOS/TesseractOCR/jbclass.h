@@ -1,0 +1,1 @@
+../../../../TesseractOCRiOS/TesseractOCR/ios/include/leptonica/jbclass.h

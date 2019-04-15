@@ -12,6 +12,7 @@
 #import "QuickSellTabViewController.h"
 #import "AccountTabViewController.h"
 #import "AVCamCameraViewController.h"
+#import "OCRViewController.h"
 
 @import Photos;
 
@@ -232,7 +233,7 @@
     UINavigationController *qsNaviCtrl = [[UINavigationController alloc] initWithRootViewController:quickSellViewController];
     qsNaviCtrl.tabBarItem.title = @"QUICK SELL";
     //account management tab
-    AccountTabViewController *accountViewController = [[AccountTabViewController alloc] init];
+    OCRViewController *accountViewController = [[OCRViewController alloc] init];
     accountViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"ACCONT" image:NULL tag:(NULL)];
     accountViewController.tabBarItem.title = @"ACCOUNT";
     UINavigationController *accountNaviCtrl = [[UINavigationController alloc] initWithRootViewController:accountViewController];
