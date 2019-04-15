@@ -48,7 +48,7 @@
     [self addSubview:imageView];
     
     
-    self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 400, 95, 44)];
+    self.usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 400, 95, 44)];
     self.usernameLabel.text = @"Email: ";
     self.usernameLabel.textColor = [UIColor grayColor];
     [self addSubview:self.usernameLabel];

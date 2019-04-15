@@ -54,7 +54,7 @@
     self.shopBtn = [[UIButton alloc] initWithFrame:CGRectMake(130, 500, 150, 44) ];
     [self.shopBtn setTitle:@"start my journey" forState:UIControlStateNormal];
     [self.shopBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.shopBtn setBackgroundColor:[UIColor greenColor]];
+    [self.shopBtn setBackgroundColor:[UIColor blueColor]];
     self.shopBtn.layer.cornerRadius = 4;
     [self addSubview:self.shopBtn];
   

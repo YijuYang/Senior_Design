@@ -121,8 +121,6 @@
     MsgCenterController *msg = [[MsgCenterController alloc]init];
     [self.navigationController pushViewController:msg animated:NO];
     
-    
-    
 }
 // 设置 cell 是否允许左滑
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -160,5 +158,6 @@
     return @[cellActionA];
 
 }
+
 
 @end

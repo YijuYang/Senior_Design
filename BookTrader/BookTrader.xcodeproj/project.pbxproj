@@ -24,7 +24,6 @@
 		C81D79EA221F12CF00703CD2 /* LoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D0221F12CE00703CD2 /* LoginPageViewController.m */; };
 		C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D1221F12CE00703CD2 /* HomePageTabView.m */; };
 		C81D79EC221F12CF00703CD2 /* AccountTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D5221F12CF00703CD2 /* AccountTabViewController.m */; };
-		C81D79ED221F12CF00703CD2 /* BookItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D6221F12CF00703CD2 /* BookItem.m */; };
 		C81D79EE221F12CF00703CD2 /* LoginPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D7221F12CF00703CD2 /* LoginPageView.m */; };
 		C81D79EF221F12CF00703CD2 /* BookItemGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D8221F12CF00703CD2 /* BookItemGrid.m */; };
 		C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D79D9221F12CF00703CD2 /* QuickSellTabView.m */; };
@@ -108,9 +107,7 @@
 		C81D79D1221F12CE00703CD2 /* HomePageTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageTabView.m; sourceTree = "<group>"; };
 		C81D79D2221F12CE00703CD2 /* LoginPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPageView.h; sourceTree = "<group>"; };
 		C81D79D3221F12CE00703CD2 /* MsgCenterTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgCenterTabViewController.h; sourceTree = "<group>"; };
-		C81D79D4221F12CF00703CD2 /* BookItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookItem.h; sourceTree = "<group>"; };
 		C81D79D5221F12CF00703CD2 /* AccountTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTabViewController.m; sourceTree = "<group>"; };
-		C81D79D6221F12CF00703CD2 /* BookItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookItem.m; sourceTree = "<group>"; };
 		C81D79D7221F12CF00703CD2 /* LoginPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPageView.m; sourceTree = "<group>"; };
 		C81D79D8221F12CF00703CD2 /* BookItemGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookItemGrid.m; sourceTree = "<group>"; };
 		C81D79D9221F12CF00703CD2 /* QuickSellTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSellTabView.m; sourceTree = "<group>"; };
@@ -278,8 +275,6 @@
 				D2533895224ACF2800BE7BF8 /* BookModel.m */,
 				D2533892224ACF2800BE7BF8 /* UserModel.h */,
 				D2533894224ACF2800BE7BF8 /* UserModel.m */,
-				C81D79D4221F12CF00703CD2 /* BookItem.h */,
-				C81D79D6221F12CF00703CD2 /* BookItem.m */,
 				D22B1C6B2253CD68004C76FE /* MsgCenterCell.h */,
 				D22B1C6C2253CD68004C76FE /* MsgCenterCell.m */,
 			);
@@ -552,7 +547,6 @@
 				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
 				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
 				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
-				C81D79ED221F12CF00703CD2 /* BookItem.m in Sources */,
 				C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */,
 				C8EA294D222C4A3800FDB7F0 /* SignupStep3View.m in Sources */,
 			);

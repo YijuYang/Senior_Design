@@ -10,6 +10,12 @@
 #import "LoginPageViewController.h"
 #import "LoginPageView.h"
 #import "SignupStep1Controller.h"
+#import "HomePageTabViewController.h"
+#import "MsgCenterTabViewController.h"
+#import "QuickSellTabViewController.h"
+#import "AccountTabViewController.h"
+#import "AVCamCameraViewController.h"
+#import "LoginPageViewController.h"
 #import "UserModel.h"
 @interface LoginPageViewController () <LoginPageViewDelegate>
 
@@ -44,9 +50,9 @@
     //TODO:
     //check if username and password match
     if([email isEqualToString:@""]||[password isEqualToString:@""]){
-        NSString* err = @"FAILURE: Empty Email or password";
+        NSString* err = @"invalid email address or password";
         //failure alert
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
                                                                        message:err
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
@@ -70,7 +76,7 @@
                 NSLog(@"%@",response);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //failure alert
-                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
                                                                                    message:response
                                                                             preferredStyle:UIAlertControllerStyleAlert];
 
@@ -81,13 +87,15 @@
                 });
             }else{
                 //success check Case-sensitive
-               // NSLog(@"%@",response);
+                NSLog(@"%@",response);
                 //ASYN
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //TODO successful alert?
-                    [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"currentUser"];
+                    [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"currentUser"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    self.view.window.rootViewController = [self rootController];
+
+//                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
                 });
 
             }
@@ -105,8 +113,61 @@
  */
 - (void) doClickSignUpButton
 {
-    self.signupStep1Ctrl = [SignupStep1Controller new];
-    [self.navigationController pushViewController:self.signupStep1Ctrl animated:NO];
+    self.signupStep1Ctrl = [[SignupStep1Controller alloc]init];
+    self.view.window.rootViewController = self.signupStep1Ctrl;
+    
+//    [self pushViewController:self.signupStep1Ctrl animated:NO];
 
 }
+
+#pragma mark
+//@author: Jian Shen
+- (UITabBarController *)rootController {
+    // childController of rootController are navigationControllers/
+    //each NavigationController corresponds to specific viewController
+    
+    UITabBarController *bottomBarController = [[UITabBarController alloc] init];
+    
+    //home page tab
+    HomePageTabViewController *homePageViewController = [[HomePageTabViewController alloc] init];
+    homePageViewController.tabBarItem = [self createTabBarItem:@"HOME" imageNamed:@"" selectedImageNamed:@"home_btn@3x.png"];
+    homePageViewController.tabBarItem.title = @"HOME";
+    UINavigationController *homeNaviCtrl = [[UINavigationController alloc] initWithRootViewController:homePageViewController];
+    homeNaviCtrl.tabBarItem.title = @"HOME";
+    
+    //msg center tab
+    MsgCenterTabViewController *msgCenterViewController = [[MsgCenterTabViewController alloc] init];
+    msgCenterViewController.tabBarItem = [self createTabBarItem:@"MSG CENTER" imageNamed:@"home_btn@3x.png" selectedImageNamed:@"home_btn@3x.png"];
+    msgCenterViewController.tabBarItem.title = @"MSG CENTER";
+    msgCenterViewController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 50, -6, 50);
+    UINavigationController *msgNaviCtrl = [[UINavigationController alloc] initWithRootViewController:msgCenterViewController];
+    msgNaviCtrl.tabBarItem.title = @"MSG CENTER";
+    
+    //quick sell tab
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AVCamCameraViewController *quickSellViewController = [storyBoard instantiateViewControllerWithIdentifier:@"camViewController"];
+    quickSellViewController.tabBarItem = [self createTabBarItem:@"QUICK SELL" imageNamed:@"" selectedImageNamed:@""];
+    quickSellViewController.tabBarItem.title = @"QUICK SELL";
+    UINavigationController *qsNaviCtrl = [[UINavigationController alloc] initWithRootViewController:quickSellViewController];
+    qsNaviCtrl.tabBarItem.title = @"QUICK SELL";
+    //account management tab
+    AccountTabViewController *accountViewController = [[AccountTabViewController alloc] init];
+    accountViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"ACCONT" image:NULL tag:(NULL)];
+    accountViewController.tabBarItem.title = @"ACCOUNT";
+    UINavigationController *accountNaviCtrl = [[UINavigationController alloc] initWithRootViewController:accountViewController];
+    accountNaviCtrl.tabBarItem.title = @"ACCOUNT";
+    
+    bottomBarController.viewControllers = @[homeNaviCtrl, msgNaviCtrl, qsNaviCtrl, accountNaviCtrl];
+    return bottomBarController;
+}
+
+- (UITabBarItem *)createTabBarItem:(NSString *)title imageNamed:(NSString *)imageNamed selectedImageNamed:selectedImageNamed {
+    UIImage *image = [[UIImage imageNamed:imageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedImage = [[UIImage imageNamed:selectedImageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
+                                                             image:image
+                                                     selectedImage:selectedImage];
+    return tabBarItem;
+}
+
 @end
