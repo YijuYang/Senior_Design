@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MsgCenterTabView : UIView
+@interface MsgCenterTabView : UIView 
 
 
 @end

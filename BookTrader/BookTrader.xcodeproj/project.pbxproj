@@ -1,10 +1,10 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 50;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
 
 /* Begin PBXBuildFile section */
 		AAB3B056222CC6EA00FD9B89 /* home_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3B055222CC6EA00FD9B89 /* home_btn@2x.png */; };
@@ -45,6 +45,10 @@
 		C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */; };
 		C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */; };
 		C8EA295F222C5E7800FDB7F0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA295E222C5E7800FDB7F0 /* BaseController.m */; };
+		D22B1C6D2253CD68004C76FE /* MsgCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C6C2253CD68004C76FE /* MsgCenterCell.m */; };
+		D22B1C7922546879004C76FE /* CommunicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7822546879004C76FE /* CommunicationView.m */; };
+		D22B1C7C225635CB004C76FE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B1C7B225635CB004C76FE /* MessageUI.framework */; };
+		D22B1C7F225638CA004C76FE /* MsgCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7E225638C9004C76FE /* MsgCenterController.m */; };
 		D2533896224ACF2800BE7BF8 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D2533894224ACF2800BE7BF8 /* UserModel.m */; };
 		D2533897224ACF2800BE7BF8 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D2533895224ACF2800BE7BF8 /* BookModel.m */; };
 		D253389C224ACF3C00BE7BF8 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D253389A224ACF3C00BE7BF8 /* AVCamCameraViewController.m */; };
@@ -55,20 +59,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-        C81D79A8221F125000703CD2 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = C81D7987221F124F00703CD2 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = C81D798E221F124F00703CD2;
-            remoteInfo = BookTrader;
-        };
-        C81D79B3221F125000703CD2 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = C81D7987221F124F00703CD2 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = C81D798E221F124F00703CD2;
-            remoteInfo = BookTrader;
-        };
+		C81D79A8221F125000703CD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C81D7987221F124F00703CD2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C81D798E221F124F00703CD2;
+			remoteInfo = BookTrader;
+		};
+		C81D79B3221F125000703CD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C81D7987221F124F00703CD2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C81D798E221F124F00703CD2;
+			remoteInfo = BookTrader;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +143,13 @@
 		C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupSuccessController.h; sourceTree = "<group>"; };
 		C8EA295D222C5E6900FDB7F0 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		C8EA295E222C5E7800FDB7F0 /* BaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		D22B1C6B2253CD68004C76FE /* MsgCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgCenterCell.h; sourceTree = "<group>"; };
+		D22B1C6C2253CD68004C76FE /* MsgCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgCenterCell.m; sourceTree = "<group>"; };
+		D22B1C7722546879004C76FE /* CommunicationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationView.h; sourceTree = "<group>"; };
+		D22B1C7822546879004C76FE /* CommunicationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunicationView.m; sourceTree = "<group>"; };
+		D22B1C7B225635CB004C76FE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D22B1C7D225638C9004C76FE /* MsgCenterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgCenterController.h; sourceTree = "<group>"; };
+		D22B1C7E225638C9004C76FE /* MsgCenterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgCenterController.m; sourceTree = "<group>"; };
 		D2533892224ACF2800BE7BF8 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		D2533893224ACF2800BE7BF8 /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		D2533894224ACF2800BE7BF8 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
@@ -160,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22B1C7C225635CB004C76FE /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +199,7 @@
 				C81D79AA221F125000703CD2 /* BookTraderTests */,
 				C81D79B5221F125000703CD2 /* BookTraderUITests */,
 				C81D7990221F124F00703CD2 /* Products */,
+				D22B1C7A225635CA004C76FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,7 +229,6 @@
 				C81D79DA221F12CF00703CD2 /* ViewController.h */,
 				C81D79DB221F12CF00703CD2 /* ViewController.m */,
 				C81D799D221F125000703CD2 /* LaunchScreen.storyboard */,
-				AA8212FB223F3AFF00613D27 /* Assets.xcassets */,
 				C81D79A0221F125000703CD2 /* Info.plist */,
 				C81D79A1221F125000703CD2 /* main.m */,
 			);
@@ -262,14 +274,14 @@
 		C81D79FD221F17F900703CD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-
 				D2533893224ACF2800BE7BF8 /* BookModel.h */,
 				D2533895224ACF2800BE7BF8 /* BookModel.m */,
 				D2533892224ACF2800BE7BF8 /* UserModel.h */,
 				D2533894224ACF2800BE7BF8 /* UserModel.m */,
-
 				C81D79D4221F12CF00703CD2 /* BookItem.h */,
 				C81D79D6221F12CF00703CD2 /* BookItem.m */,
+				D22B1C6B2253CD68004C76FE /* MsgCenterCell.h */,
+				D22B1C6C2253CD68004C76FE /* MsgCenterCell.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,7 +294,6 @@
 				D2533899224ACF3C00BE7BF8 /* productViewController.h */,
 				D253389B224ACF3C00BE7BF8 /* productViewController.m */,
 				C81D7A03221F1F2100703CD2 /* login\singup */,
-
 				C81D79D3221F12CE00703CD2 /* MsgCenterTabViewController.h */,
 				C81D79C4221F12CE00703CD2 /* MsgCenterTabViewController.m */,
 				C81D79C6221F12CE00703CD2 /* HomePageTabViewController.m */,
@@ -291,6 +302,8 @@
 				C81D79CB221F12CE00703CD2 /* QuickSellTabViewController.m */,
 				C81D79CF221F12CE00703CD2 /* AccountTabViewController.h */,
 				C81D79D5221F12CF00703CD2 /* AccountTabViewController.m */,
+				D22B1C7D225638C9004C76FE /* MsgCenterController.h */,
+				D22B1C7E225638C9004C76FE /* MsgCenterController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,14 +319,14 @@
 				C81D7A02221F1EFE00703CD2 /* login\signup */,
 				C81D79C7221F12CE00703CD2 /* HomePageTabView.h */,
 				C81D79D1221F12CE00703CD2 /* HomePageTabView.m */,
-				AAB3B063222DAB9400FD9B89 /* AVCamPreviewView.m */,
-				AAB3B061222DAB9300FD9B89 /* AVCamPreviewView.h */,
 				C81D79C8221F12CE00703CD2 /* MsgCenterTabView.h */,
 				C81D79C9221F12CE00703CD2 /* MsgCenterTabView.m */,
 				C81D79CA221F12CE00703CD2 /* QuickSellTabView.h */,
 				C81D79D9221F12CF00703CD2 /* QuickSellTabView.m */,
 				C81D79C5221F12CE00703CD2 /* AccountTabView.h */,
 				C81D79CD221F12CE00703CD2 /* AccountTabView.m */,
+				D22B1C7722546879004C76FE /* CommunicationView.h */,
+				D22B1C7822546879004C76FE /* CommunicationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +372,14 @@
 				C8EA295E222C5E7800FDB7F0 /* BaseController.m */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		D22B1C7A225635CA004C76FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D22B1C7B225635CB004C76FE /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,43 +441,43 @@
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        C81D7987221F124F00703CD2 /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                LastUpgradeCheck = 1010;
-                ORGANIZATIONNAME = BookTrader;
-                TargetAttributes = {
-                    C81D798E221F124F00703CD2 = {
-                        CreatedOnToolsVersion = 10.1;
-                    };
-                    C81D79A6221F125000703CD2 = {
-                        CreatedOnToolsVersion = 10.1;
-                        TestTargetID = C81D798E221F124F00703CD2;
-                    };
-                    C81D79B1221F125000703CD2 = {
-                        CreatedOnToolsVersion = 10.1;
-                        TestTargetID = C81D798E221F124F00703CD2;
-                    };
-                };
-            };
-            buildConfigurationList = C81D798A221F124F00703CD2 /* Build configuration list for PBXProject "BookTrader" */;
-            compatibilityVersion = "Xcode 9.3";
-            developmentRegion = en;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = C81D7986221F124F00703CD2;
-            productRefGroup = C81D7990221F124F00703CD2 /* Products */;
-            projectDirPath = "";
-            projectRoot = "";
-            targets = (
-                C81D798E221F124F00703CD2 /* BookTrader */,
-                C81D79A6221F125000703CD2 /* BookTraderTests */,
-                C81D79B1221F125000703CD2 /* BookTraderUITests */,
-            );
-        };
+		C81D7987221F124F00703CD2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = BookTrader;
+				TargetAttributes = {
+					C81D798E221F124F00703CD2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					C81D79A6221F125000703CD2 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C81D798E221F124F00703CD2;
+					};
+					C81D79B1221F125000703CD2 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C81D798E221F124F00703CD2;
+					};
+				};
+			};
+			buildConfigurationList = C81D798A221F124F00703CD2 /* Build configuration list for PBXProject "BookTrader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C81D7986221F124F00703CD2;
+			productRefGroup = C81D7990221F124F00703CD2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C81D798E221F124F00703CD2 /* BookTrader */,
+				C81D79A6221F125000703CD2 /* BookTraderTests */,
+				C81D79B1221F125000703CD2 /* BookTraderUITests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -471,11 +492,9 @@
 				D25338AD224ACFE900BE7BF8 /* scan.png in Resources */,
 				C81D79F5221F12D000703CD2 /* bookstore-logo.jpg in Resources */,
 				C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */,
-				AA8212FC223F3AFF00613D27 /* Assets.xcassets in Resources */,
 				C81D79F3221F12D000703CD2 /* bookSample.jpg in Resources */,
 				AAB3B05C222CD2C800FD9B89 /* demo_listView.png in Resources */,
 				C81D79F2221F12CF00703CD2 /* bookSample2.png in Resources */,
-				AABDCC222246D54100FBD71B /* scan.png in Resources */,
 				C81D79F4221F12D000703CD2 /* ku.png in Resources */,
 				AAB3B05E222CD89500FD9B89 /* demo_gridView.png in Resources */,
 				AAB3B05A222CCAFA00FD9B89 /* msg.png in Resources */,
@@ -504,9 +523,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81D79EC221F12CF00703CD2 /* AccountTabViewController.m in Sources */,
+				D22B1C7922546879004C76FE /* CommunicationView.m in Sources */,
 				D2533896224ACF2800BE7BF8 /* UserModel.m in Sources */,
 				C81D79E8221F12CF00703CD2 /* QuickSellTabViewController.m in Sources */,
 				D25338AA224ACFCE00BE7BF8 /* productView.m in Sources */,
+				D22B1C7F225638CA004C76FE /* MsgCenterController.m in Sources */,
 				C81D79EA221F12CF00703CD2 /* LoginPageViewController.m in Sources */,
 				C81D79EF221F12CF00703CD2 /* BookItemGrid.m in Sources */,
 				C81D79A2221F125000703CD2 /* main.m in Sources */,
@@ -521,15 +542,13 @@
 				C8EA294C222C4A3800FDB7F0 /* SignupSuccessView.m in Sources */,
 				D253389C224ACF3C00BE7BF8 /* AVCamCameraViewController.m in Sources */,
 				C81D79E6221F12CF00703CD2 /* HomePageTabViewController.m in Sources */,
+				D22B1C6D2253CD68004C76FE /* MsgCenterCell.m in Sources */,
 				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				D2533897224ACF2800BE7BF8 /* BookModel.m in Sources */,
 				D253389D224ACF3C00BE7BF8 /* productViewController.m in Sources */,
 				C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */,
 				C81D79E5221F12CF00703CD2 /* MsgCenterTabViewController.m in Sources */,
-				AABDCC1F2246C05300FBD71B /* UserModel.m in Sources */,
-				AAB3B066222DAB9400FD9B89 /* AVCamCameraViewController.m in Sources */,
 				C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */,
-
 				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
 				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
 				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
@@ -590,266 +609,266 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-        C81D79B9221F125000703CD2 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_ENABLE_OBJC_WEAK = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = dwarf;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_TESTABILITY = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_DYNAMIC_NO_PIC = NO;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_OPTIMIZATION_LEVEL = 0;
-                GCC_PREPROCESSOR_DEFINITIONS = (
-                    "DEBUG=1",
-                    "$(inherited)",
-                );
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-                MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-                MTL_FAST_MATH = YES;
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = iphoneos;
-            };
-            name = Debug;
-        };
-        C81D79BA221F125000703CD2 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_ENABLE_OBJC_WEAK = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                ENABLE_NS_ASSERTIONS = NO;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-                MTL_ENABLE_DEBUG_INFO = NO;
-                MTL_FAST_MATH = YES;
-                SDKROOT = iphoneos;
-                VALIDATE_PRODUCT = YES;
-            };
-            name = Release;
-        };
-        C81D79BC221F125000703CD2 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTrader/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTrader;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Debug;
-        };
-        C81D79BD221F125000703CD2 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTrader/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTrader;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Release;
-        };
-        C81D79BF221F125000703CD2 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTraderTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                    "@loader_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderTests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTrader.app/BookTrader";
-            };
-            name = Debug;
-        };
-        C81D79C0221F125000703CD2 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTraderTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                    "@loader_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderTests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTrader.app/BookTrader";
-            };
-            name = Release;
-        };
-        C81D79C2221F125000703CD2 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTraderUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                    "@loader_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderUITests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_TARGET_NAME = BookTrader;
-            };
-            name = Debug;
-        };
-        C81D79C3221F125000703CD2 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = AUYLQLSPLU;
-                INFOPLIST_FILE = BookTraderUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = (
-                    "$(inherited)",
-                    "@executable_path/Frameworks",
-                    "@loader_path/Frameworks",
-                );
-                PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderUITests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_TARGET_NAME = BookTrader;
-            };
-            name = Release;
-        };
+		C81D79B9221F125000703CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C81D79BA221F125000703CD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C81D79BC221F125000703CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTrader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTrader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C81D79BD221F125000703CD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTrader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTrader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C81D79BF221F125000703CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTraderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTrader.app/BookTrader";
+			};
+			name = Debug;
+		};
+		C81D79C0221F125000703CD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTraderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookTrader.app/BookTrader";
+			};
+			name = Release;
+		};
+		C81D79C2221F125000703CD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTraderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BookTrader;
+			};
+			name = Debug;
+		};
+		C81D79C3221F125000703CD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AUYLQLSPLU;
+				INFOPLIST_FILE = BookTraderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BookTraderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BookTrader;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        C81D798A221F124F00703CD2 /* Build configuration list for PBXProject "BookTrader" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C81D79B9221F125000703CD2 /* Debug */,
-                C81D79BA221F125000703CD2 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        C81D79BB221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTrader" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C81D79BC221F125000703CD2 /* Debug */,
-                C81D79BD221F125000703CD2 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        C81D79BE221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTraderTests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C81D79BF221F125000703CD2 /* Debug */,
-                C81D79C0221F125000703CD2 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        C81D79C1221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTraderUITests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C81D79C2221F125000703CD2 /* Debug */,
-                C81D79C3221F125000703CD2 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+		C81D798A221F124F00703CD2 /* Build configuration list for PBXProject "BookTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81D79B9221F125000703CD2 /* Debug */,
+				C81D79BA221F125000703CD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81D79BB221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81D79BC221F125000703CD2 /* Debug */,
+				C81D79BD221F125000703CD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81D79BE221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTraderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81D79BF221F125000703CD2 /* Debug */,
+				C81D79C0221F125000703CD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81D79C1221F125000703CD2 /* Build configuration list for PBXNativeTarget "BookTraderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81D79C2221F125000703CD2 /* Debug */,
+				C81D79C3221F125000703CD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = C81D7987221F124F00703CD2 /* Project object */;
+	};
+	rootObject = C81D7987221F124F00703CD2 /* Project object */;
 }

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookTrader/Model/UserModel.h"
-            timestampString = "575403474.364033"
+            timestampString = "576437404.80577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "UserModel"
             landmarkType = "2">
          </BreakpointContent>
