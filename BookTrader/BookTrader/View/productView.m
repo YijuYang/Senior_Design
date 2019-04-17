@@ -16,10 +16,7 @@
 @property (nonatomic, strong) UILabel *price;
 @property (nonatomic, strong) UILabel *isbn;
 @property (nonatomic, strong) UILabel *detail;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *priceLabel;
-@property (nonatomic, strong) UILabel *isbnLabel;
-@property (nonatomic, strong) UILabel *detailLabel;
+
 //@property (nonatomic, strong) UITextField *titleField;
 //@property (nonatomic, strong) UITextField *priceField;
 //@property (nonatomic, strong) UITextField *isbnField;
