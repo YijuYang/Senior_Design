@@ -19,7 +19,7 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
 
 
 
--(void)sellBooks:(NSDictionary*) data completion:(void (^)(id))completion{
+-(void)sellBooks:(NSDictionary*) data image:(UIImage*)img completion:(void (^)(id))completion{
     //POST request
     NSError *error;
     

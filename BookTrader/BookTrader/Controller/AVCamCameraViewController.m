@@ -72,6 +72,8 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
 @property (nonatomic, weak) IBOutlet AVCamPreviewView* previewView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl* captureModeControl;
 
+@property (nonatomic, weak) IBOutlet UISegmentedControl* scanModeControl;
+
 @property (nonatomic) AVCamSetupResult setupResult;
 @property (nonatomic) dispatch_queue_t sessionQueue;
 @property (nonatomic) AVCaptureSession* session;
@@ -101,6 +103,8 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
 @property (nonatomic, weak) IBOutlet UIButton* recordButton;
 @property (nonatomic, weak) IBOutlet UIButton* resumeButton;
 
+@property (nonatomic, weak) IBOutlet UIImageView* scanImage;
+
 @property (nonatomic, strong) AVCaptureMovieFileOutput* movieFileOutput;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundRecordingID;
 @end
@@ -114,6 +118,7 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
     [super viewDidLoad];
     self.title = @"QUICK SELL";
     
+    self.FLAG = YES;
     // Disable UI. The UI is enabled if and only if the session starts running.
     self.cameraButton.enabled = NO;
     self.recordButton.enabled = NO;
@@ -122,6 +127,7 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
     self.captureModeControl.enabled = NO;
     self.depthDataDeliveryButton.enabled = NO;
     self.portraitEffectsMatteDeliveryButton.enabled = NO;
+    self.scanImage.hidden = YES;
     
     // Create the AVCaptureSession.
     self.session = [[AVCaptureSession alloc] init];
@@ -492,6 +498,19 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
     }
 }
 
+- (IBAction) switchModeISBN:(id)sender
+{
+    self.recordButton.enabled = NO;
+    if(self.FLAG){
+        self.scanImage.hidden = NO;
+        self.FLAG = NO;
+    }
+    else{
+        self.scanImage.hidden = YES;
+        self.FLAG =YES;
+    }
+}
+
 #pragma mark Device Configuration
 
 - (IBAction) changeCamera:(id)sender
@@ -699,7 +718,7 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
                 else {
                     self.inProgressLivePhotoCapturesCount--;
                 }
-                
+
                 NSInteger inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (inProgressLivePhotoCapturesCount > 0) {
@@ -713,10 +732,20 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
                     }
                 });
             });
-        } completionHandler:^(AVCamPhotoCaptureDelegate* photoCaptureDelegate) {
+        }
+        completionHandler:^(AVCamPhotoCaptureDelegate* photoCaptureDelegate) {
             // When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
             dispatch_async(self.sessionQueue, ^{
                 self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = nil;
+            });
+            /*
+             *  pop-up window for quick sell
+             */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                QuickSellTabViewController *quickSellController = [QuickSellTabViewController alloc];
+                quickSellController.flag = self.FLAG;
+                [self.navigationController pushViewController:quickSellController animated:NO];
+//                [self nextScreenButtonTapped:sender];
             });
         }];
         
@@ -729,13 +758,9 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
         
         [self.photoOutput capturePhotoWithSettings:photoSettings delegate:photoCaptureDelegate];
     });
-    NSLog(@"");
     /*
      *
      */
-    QuickSellTabViewController *quickSellController = [QuickSellTabViewController new];
-    [self.navigationController pushViewController:quickSellController animated:NO];
-
 }
 
 - (IBAction) toggleLivePhotoMode:(UIButton*)livePhotoModeButton
@@ -753,7 +778,6 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
             }
         });
     });
-        NSLog(@"adhfaksjdfhlakdjhfalksdhflakjdshflakjshfalk123123");
 }
 
 - (IBAction) toggleDepthDataDeliveryMode:(UIButton*)depthDataDeliveryButton
@@ -775,7 +799,6 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
             }
         });
     });
-        NSLog(@"adhfaksjdfhlakdjhfalksdhflakjdshflakjshfalk11111111");
 }
 
 - (IBAction) togglePortraitEffectsMatteDeliveryMode:(UIButton*)portraitEffectsMatteDeliveryButton
@@ -911,7 +934,7 @@ didFinishRecordingToOutputFileAtURL:(NSURL*)outputFileURL
                     [creationRequest addResourceWithType:PHAssetResourceTypeVideo fileURL:outputFileURL options:options];
                 } completionHandler:^(BOOL success, NSError* error) {
                     if (!success) {
-                        NSLog(@"AVCam couldn't save the movie to your photo library: %@", error);
+                        NSLog(@"Cam couldn't save the movie to your photo library: %@", error);
                     }
                     cleanUp();
                 }];
@@ -1110,6 +1133,11 @@ didFinishRecordingToOutputFileAtURL:(NSURL*)outputFileURL
             self.cameraUnavailableLabel.hidden = YES;
         }];
     }
+}
+
+- (AVCamCameraViewController*) getViewComtroller
+{
+    return self;
 }
 
 @end

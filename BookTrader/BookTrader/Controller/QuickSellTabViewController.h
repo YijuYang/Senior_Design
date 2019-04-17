@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AVCamCameraViewController.h"
+#import <TesseractOCR/TesseractOCR.h>
 
-@interface QuickSellTabViewController : UIViewController
 
+@interface QuickSellTabViewController : UIViewController<G8TesseractDelegate>
+@property (nonatomic) BOOL flag;
 @end

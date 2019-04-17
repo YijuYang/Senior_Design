@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "QuickSellTabView.h"
 //#import "BookModel.h"
 
@@ -23,8 +24,35 @@
 @property (nonatomic, strong) UITextField *priceField;
 @property (nonatomic, strong) UITextField *isbnField;
 @property (nonatomic, strong) UITextView *detailField;
+@property (nonatomic, strong) NSString * recognition;
 
 @end
+
+//@implementation ALAssetsLibrary (PFLast)
+//
+//- (void)latestAsset:(void (^)(ALAsset * _Nullable, NSError *_Nullable))block {
+//    [self enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+//        if (group) {
+//            [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+//            [group enumerateAssetsWithOptions:NSEnumerationReverse/*遍历方式*/ usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+//                if (result) {
+//                    if (block) {
+//                        block(result,nil);
+//                    }
+//                    *stop = YES;
+//                }
+//            }];
+//            *stop = YES;
+//        }
+//    } failureBlock:^(NSError *error) {
+//        if (error) {
+//            if (block) {
+//                block(nil,error);
+//            }
+//        }
+//    }];
+//}
+//@end
 
 @implementation QuickSellTabView
 
@@ -38,12 +66,18 @@
     {
         return nil;
     }
+    //self.KUIcon = [UIImage alloc];
+    
+//    NSDictionary * infp = [NSDictionary alloc];
+//    NSMutableArray *arr = [self GetALLphotosUsingPohotKit];
+////    [self accessToImageAccordingToTheAsset:arr[0][0] size:CGSizeMake(150, 150)
     
     self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 0, 150, 150)];
     self.imagePreview.backgroundColor = [UIColor orangeColor];
     self.imagePreview.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
+//    [self getLastImage];
     [self addSubview:self.imagePreview];
     
     self.title = [[UILabel alloc] initWithFrame:CGRectMake(5, 150, 95, 44)];
@@ -113,6 +147,7 @@
     
     return self;
 }
+            
 - (void)submitCliked
 {
     if([[self.isbnField text] isEqualToString:@""]||[[self.titleField text] isEqualToString:@""]||[[self.priceField text] isEqualToString:@""]){
@@ -169,4 +204,87 @@
     
     NSLog(@"adufhakdhflakjsdhfakjsdhflakjshfdakjlsdfhalks!!!!!");
 }
+//
+//-(NSMutableArray*)GetALLphotosUsingPohotKit
+//{
+//    NSMutableArray *arr = [NSMutableArray array];
+//
+//    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+//
+//    for (NSInteger i = 0; i < smartAlbums.count; i++) {
+//        PHFetchOptions *option = [[PHFetchOptions alloc] init];
+//        option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+//        option.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
+//        PHCollection *collection = smartAlbums[i];
+//        if ([collection isKindOfClass:[PHAssetCollection class]]) {
+//            if ([collection.localizedTitle isEqualToString:@"相机胶卷"]) {
+//                PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
+//                PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+//                NSArray *assets;
+//                if (fetchResult.count > 0) {
+//                    assets = [self getAllPhotosAssetInAblumCollection:assetCollection ascending:YES ];
+//                    [arr addObjectsFromArray:assets];
+//                }
+//            }
+//        }
+//    }
+//    return arr;
+//}
+//
+//- (NSArray *)getAllPhotosAssetInAblumCollection:(PHAssetCollection *)assetCollection ascending:(BOOL)ascending
+//{
+//    NSMutableArray *assets = [NSMutableArray array];
+//
+//    PHFetchOptions *option = [[PHFetchOptions alloc] init];
+//    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:ascending]];
+//    option.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
+//
+//    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:assetCollection options:option];
+//    [result enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [assets addObject:asset];
+//    }];
+//    return assets;
+//}
+//
+//- (void)accessToImageAccordingToTheAsset:(PHAsset *)asset size:(CGSize)size resizeMode:(PHImageRequestOptionsResizeMode)resizeMode completion:(void(^)(UIImage *image,NSDictionary *info))completion
+//{
+//    static PHImageRequestID requestID = -2;
+//
+//    CGFloat scale = [UIScreen mainScreen].scale;
+//    CGFloat width = MIN([UIScreen mainScreen].bounds.size.width, 500);
+//    if (requestID >= 1 && size.width / width == scale) {
+//        [[PHCachingImageManager defaultManager] cancelImageRequest:requestID];
+//    }
+//    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+//    option.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+//    //    option.resizeMode = PHImageRequestOptionsResizeModeFast;
+//    option.resizeMode = resizeMode;
+//
+//    requestID = [[PHCachingImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            completion(result,info);
+//        });
+//    }];
+//
+//}
+//
+//
+//-(void)getLastImage{
+//    ALAssetsLibrary *al = [[ALAssetsLibrary alloc] init];
+//    [al latestAsset:^(ALAsset * _Nullable asset, NSError * _Nullable error) {
+//        NSString *type = [asset valueForProperty:ALAssetPropertyType];
+//        if ([type isEqual:ALAssetTypePhoto]){
+//            UIImage *needImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+//            if (needImage) {
+//                self.imagePreview.image = needImage;
+//            }
+//        }
+//    }];
+//}
+
 @end
+
+
+
+
+
