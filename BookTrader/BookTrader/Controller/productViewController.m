@@ -11,16 +11,19 @@
 #import "productViewController.h"
 #import "MsgCenterTabViewController.h"
 #import "productView.h"
+#import "BookModel.h"
 @interface productViewController ()<productViewDelegate>
 @property (nonatomic, strong) productView* productView;
+
 
 @end
 
 @implementation productViewController
 
 /*
- @author
+ @author Jian Shen
  */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -29,8 +32,14 @@
     self.productView.delegate = self;
     [self.view addSubview:self.productView];
     
+
+    self.productView.titleLabel.text = self.booktitle;
+    self.productView.isbnLabel.text = self.ISBN;
+    self.productView.priceLabel.text = self.price;
+    self.productView.detailLabel.text = self.bookdescription;
     
 }
+
 
 #pragma mark productViewDelegate
 

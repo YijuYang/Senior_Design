@@ -47,7 +47,9 @@
     imageView.layer.cornerRadius = 3;
     [self addSubview:imageView];
     
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self addGestureRecognizer:tap];
+
     //firstName label
     self.FirstNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 444, 95, 44)];
     self.FirstNameLabel.text = @"First Name: ";
@@ -128,6 +130,14 @@
     NSString *emailAddress = self.emailAddressTextField.text;
     NSString *password = self.passwordTextField.text;
     [self.delegate doClickNextBtnWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
+}
+-(void)dismissKeyboard
+{
+    [self.passwordTextField resignFirstResponder];
+    [self.LastNameTextField resignFirstResponder];
+    [self.FirstNameTextField resignFirstResponder];
+    [self.emailAddressTextField resignFirstResponder];
+
 }
 
 @end
