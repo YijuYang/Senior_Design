@@ -118,7 +118,8 @@ static NSString* cellID = @"cellID";
     }
     NSInteger indexofRow = indexPath.row;
     cell.textLabel.text = self.goods[indexofRow][@"title"];
-    cell.detailTextLabel.text = @"10$";
+    cell.detailTextLabel.text = self.goods[indexofRow][@"price"];
+    cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"] ;
     cell.imageView.image = [UIImage imageNamed:@"bookSample2.png"];
     return cell;
     
