@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *isbnLabel;
 @property (nonatomic, strong) UILabel *detailLabel;
+@property (nonatomic, strong) UIImageView * imagePreview;
 @property (nonatomic, weak) id<productViewDelegate> delegate;
 
 @end

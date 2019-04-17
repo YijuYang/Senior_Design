@@ -94,6 +94,7 @@
     [super viewDidLoad];
     [self getLastImage];
     
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
@@ -282,44 +283,76 @@
         [alert show];
     }else{
             //string-string
-    
+        //UIImage* image = [UIImage imageNamed:@"bookSample.jpg"];
            // NSLog(@"%@",_customer);
-            NSArray* author = @[[self.author1 text],[self.author2 text],[self.author3 text]];
+            NSArray* author = @[[_authorField1 text],[_authorField2 text],[_authorField3 text]];
     
-            NSLog(@"%@",author);
+            //NSLog(@"%@",author);
             UserModel *user = [[UserModel alloc] init];
-
-            NSDictionary* data = @{
-                                   @"bookname":[self.titleField text],
-                                   @"isbn" :[self.isbnField text],
-                                   @"author":author,
-                                   @"edition":[self.detailField text],
-                                   @"price":[self.priceField text],
-                                   @"ID":[user getCurrentLocalUserInfo][@"customerID"]
-                                   };
+            NSDictionary* currUser = [user getCurrentLocalUserInfo];
+            if(currUser==nil){
+                NSLog(@"Fail sell");
+            }else{
     
-            BookModel* book = [[BookModel alloc]init];
-    //
-        [book sellBooks:data image:self.image completion:^(id response) {
-    //            //after do somthing
-    //            //NSLog(@"%@",response);
-                if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
-    //                //failure
-                    NSLog(@"FAIL:%@",response);
-    
-                }else{
-    
-                    NSLog(@"SUCC:%@",response);
-    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-    
-    
-                    });
-    //
+                //check UIImage !=nil
+//                CGImageRef cgref = [_image CGImage];
+//                CIImage *cim = [_image CIImage];
+//
+//                if (cim == nil && cgref == NULL)
+//                {
+//                    NSLog(@"no underlying data");
+//                }
+                //covert UIImage to NSData(.png)
+                NSData* imageData = UIImageJPEGRepresentation(_image,0.3);
+                NSString* imageString;
+                if([imageData respondsToSelector:@selector(base64EncodedStringWithOptions:)])
+                {
+                    //NSLog(@"iOS 7+");
+                    imageString=[imageData base64EncodedStringWithOptions:kNilOptions];
                 }
-            }];
+                else
+                {
+                    imageString=[imageData base64Encoding];
+                }
+            
+               // NSLog(@"%@",imageString);
 
-        }
+                NSDictionary* data = @{
+                                       @"bookname":[_titleField text],
+                                       @"isbn" :[_isbnField text],
+                                       @"author":author,
+                                       @"edition":@"1",
+                                       @"price":[_priceField text],
+                                       @"ID":[user getCurrentLocalUserInfo][@"customerID"],
+                                       @"description":[_detailField text],
+                                       @"zimage":imageString
+                                       };
+                
+
+                BookModel* book = [[BookModel alloc]init];
+                //
+                [book sellBooks:data completion:^(id response) {
+                    //            //after do somthing
+                    //            //NSLog(@"%@",response);
+                    if([response containsString:@"FAILURE"]){
+                        //                //failure
+                        NSLog(@"%@",response);
+
+                    }else{
+
+                        NSLog(@"%@",response);
+
+                        dispatch_async(dispatch_get_main_queue(), ^{
+
+                        });
+                        //
+                    }
+                }];
+
+            }
+            }
+        
+   
 }
 
 - (void) scanClicked
@@ -404,6 +437,7 @@
                 self.imagePreview.image = needImage;
                 [self.tesseract setImage:needImage];
                 [self.tesseract recognize];
+
                 self.image = self.imagePreview.image;
                 if(self.flag)
                 {
@@ -415,6 +449,32 @@
             }
         }
     }];
+}
+//@property (nonatomic, strong) UITextField *authorField1;
+//@property (nonatomic, strong) UITextField *authorField2;
+//@property (nonatomic, strong) UITextField *authorField3;
+//@property (nonatomic, strong) UITextField *titleField;
+//@property (nonatomic, strong) UITextField *priceField;
+//@property (nonatomic, strong) UITextField *isbnField;
+//@property (nonatomic, strong) UITextView *detailField;
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self.titleField isExclusiveTouch]) {
+        [self.titleField resignFirstResponder];
+    }
+    if (![self.priceField isExclusiveTouch]) {
+        [self.priceField resignFirstResponder];
+    }
+    if (![self.priceField isExclusiveTouch]) {
+        [self.priceField resignFirstResponder];
+    }
+    if (![self.priceField isExclusiveTouch]) {
+        [self.priceField resignFirstResponder];
+    }
+    if (![self.detailField isExclusiveTouch]) {
+        [self.detailField resignFirstResponder];
+    }
+    
 }
 @end
 

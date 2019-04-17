@@ -19,6 +19,7 @@
 
 /* The is part for data style in createAccount
  NSDictionary* data = @{
+                     @customerID: <unique>
                      @"firstName":
                      @"lastName" :
                      @"customerEmail":
@@ -31,10 +32,9 @@
 -(void)createAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
 
--(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
++(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
 -(NSDictionary*)getCurrentLocalUserInfo;
-
 
 
 

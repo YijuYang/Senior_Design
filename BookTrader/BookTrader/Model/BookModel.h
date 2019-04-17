@@ -14,10 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)displayAllBooks:(void (^)(id))completion;
 
 
--(void)sellBooks:(NSDictionary*) data image:(UIImage*) img completion:(void (^)(id))completion;
+-(void)sellBooks:(NSDictionary*) data completion:(void (^)(id))completion;
 
 
 -(void)findBooks:(NSString*) data completion:(void (^)(id ))completion;
+
++(UIImage*)stringToImage:(NSString*) string;
++(NSString*)imageToString:(UIImage*) image;
 
 
 @end

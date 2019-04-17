@@ -66,6 +66,9 @@
 		C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */; };
 		C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */; };
 		C8EA295F222C5E7800FDB7F0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA295E222C5E7800FDB7F0 /* BaseController.m */; };
+		D219739622656BBF006D3E39 /* MsgCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7E225638C9004C76FE /* MsgCenterController.m */; };
+		D219739722656BDC006D3E39 /* CommunicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7822546879004C76FE /* CommunicationView.m */; };
+		D25CD08A22675F790054A05A /* MsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D25CD08922675F790054A05A /* MsgCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +198,12 @@
 		C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupSuccessController.h; sourceTree = "<group>"; };
 		C8EA295D222C5E6900FDB7F0 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		C8EA295E222C5E7800FDB7F0 /* BaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		D219739222656AA4006D3E39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D219739422656AAE006D3E39 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		D22B1C7722546879004C76FE /* CommunicationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationView.h; sourceTree = "<group>"; };
+		D22B1C7822546879004C76FE /* CommunicationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunicationView.m; sourceTree = "<group>"; };
+		D22B1C7D225638C9004C76FE /* MsgCenterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgCenterController.h; sourceTree = "<group>"; };
+		D22B1C7E225638C9004C76FE /* MsgCenterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgCenterController.m; sourceTree = "<group>"; };
 		D2533898224ACF3C00BE7BF8 /* AVCamCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCameraViewController.h; sourceTree = "<group>"; };
 		D2533899224ACF3C00BE7BF8 /* productViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productViewController.h; sourceTree = "<group>"; };
 		D253389A224ACF3C00BE7BF8 /* AVCamCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCameraViewController.m; sourceTree = "<group>"; };
@@ -202,6 +211,8 @@
 		D25338A5224ACFCE00BE7BF8 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		D25338A8224ACFCE00BE7BF8 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		D25338A9224ACFCE00BE7BF8 /* bookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookCell.h; sourceTree = "<group>"; };
+		D25CD08822675F790054A05A /* MsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgCell.h; sourceTree = "<group>"; };
+		D25CD08922675F790054A05A /* MsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +247,8 @@
 		696216762A5A1393068E54F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D219739422656AAE006D3E39 /* Messages.framework */,
+				D219739222656AA4006D3E39 /* MessageUI.framework */,
 				AA793882225B118100DAC9D3 /* libz.tbd */,
 				AA79387E225B080D00DAC9D3 /* TesseractOCR.framework */,
 				AEA90BF34A5F2D686E0C8D92 /* libPods-BookTrader.a */,
@@ -254,6 +267,7 @@
 				C81D7990221F124F00703CD2 /* Products */,
 				DBB11CE79D01E39461719C8C /* Pods */,
 				696216762A5A1393068E54F2 /* Frameworks */,
+				D219738B22654434006D3E39 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -330,6 +344,8 @@
 		C81D79FD221F17F900703CD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D25CD08822675F790054A05A /* MsgCell.h */,
+				D25CD08922675F790054A05A /* MsgCell.m */,
 				AA422B2C2265018600B2699E /* BookModel.h */,
 				AA422B2D2265018600B2699E /* BookModel.m */,
 				AA422B292264F4A100B2699E /* UserModel.h */,
@@ -366,6 +382,8 @@
 				C81D79DC221F12CF00703CD2 /* QuickSellTabViewController.h */,
 				C81D79CF221F12CE00703CD2 /* AccountTabViewController.h */,
 				C81D79D5221F12CF00703CD2 /* AccountTabViewController.m */,
+				D22B1C7D225638C9004C76FE /* MsgCenterController.h */,
+				D22B1C7E225638C9004C76FE /* MsgCenterController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -397,6 +415,8 @@
 				AABDCC322249589D00FBD71B /* AVCamPreviewView.m */,
 				C81D79C5221F12CE00703CD2 /* AccountTabView.h */,
 				C81D79CD221F12CE00703CD2 /* AccountTabView.m */,
+				D22B1C7722546879004C76FE /* CommunicationView.h */,
+				D22B1C7822546879004C76FE /* CommunicationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +464,13 @@
 				C8EA295E222C5E7800FDB7F0 /* BaseController.m */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		D219738B22654434006D3E39 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		DBB11CE79D01E39461719C8C /* Pods */ = {
@@ -675,6 +702,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D219739722656BDC006D3E39 /* CommunicationView.m in Sources */,
+				D219739622656BBF006D3E39 /* MsgCenterController.m in Sources */,
 				C81D79EC221F12CF00703CD2 /* AccountTabViewController.m in Sources */,
 				9A0BC12F22668F3300DC6ABA /* OrderViewController.m in Sources */,
 				C81D79E8221F12CF00703CD2 /* QuickSellTabViewController.m in Sources */,
@@ -699,6 +728,7 @@
 				C81D79E6221F12CF00703CD2 /* HomePageTabViewController.m in Sources */,
 				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				9A0BC13222668F3300DC6ABA /* OrderHistoryViewController.m in Sources */,
+				D25CD08A22675F790054A05A /* MsgCell.m in Sources */,
 				C81D79EB221F12CF00703CD2 /* HomePageTabView.m in Sources */,
 				C81D79E5221F12CF00703CD2 /* MsgCenterTabViewController.m in Sources */,
 				C81D79F0221F12CF00703CD2 /* QuickSellTabView.m in Sources */,
@@ -890,7 +920,7 @@
 					"$(PROJECT_DIR)/Pods/TesseractOCRiOS/Products",
 				);
 				INFOPLIST_FILE = BookTrader/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -915,7 +945,7 @@
 					"$(PROJECT_DIR)/Pods/TesseractOCRiOS/Products",
 				);
 				INFOPLIST_FILE = BookTrader/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

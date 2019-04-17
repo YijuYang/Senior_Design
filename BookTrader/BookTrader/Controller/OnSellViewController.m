@@ -71,25 +71,14 @@
     NSArray *dictArray = [NSArray arrayWithContentsOfFile:fileName];
     
     self.goods = dictArray;
-//    NSMutableArray *goodsArray = [[NSMutableArray alloc]init];
-//    for (NSDictionary *dict in dictArray) {
-//        NSDictionary *good = [[NSDictionary alloc] initWithObjectsAndKeys:dict[@"title"],@"title", dict[@"price"], @"price",dict[@"bookID"], @"bookID",dict[@"ISBN"], @"ISBN",dict[@"description"], @"description",nil];
-//        [goodsArray addObject:good];
-//    }
-//    self.booksonSell = [goodsArray copy];
-//
-//
-//    self.allResults = self.booksonSell;
-//    self.visibleResults = self.allResults;
+
     
     self.onsellView = [[OnSellView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    //    self.homePageView.delegate = self;
     [self.view addSubview:self.onsellView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    //    self.bookList = @[@"Hamlet", @"Algorithm Design", @"Physics", @"Organic Chemisty",@"Machine Learning",@"Computer Vision",@"Operating System",@"Compiler"];
     _tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -120,7 +109,8 @@ static NSString* cellID = @"cellID";
     cell.textLabel.text = self.goods[indexofRow][@"title"];
     cell.detailTextLabel.text = self.goods[indexofRow][@"price"];
     cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"] ;
-    cell.imageView.image = [UIImage imageNamed:@"bookSample2.png"];
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:self.goods[indexofRow][@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    cell.imageView.image = [UIImage imageWithData:data];
     return cell;
     
 }

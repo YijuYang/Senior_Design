@@ -12,6 +12,7 @@
 
 static NSString* createAccountLocal= @"http://localhost/createAccount.php";
 static NSString* modifyAccountLocal= @"http://localhost/modifyAccount.php";
+static NSString* modifyAccountAWS= @"http://ec2-54-242-126-17.compute-1.amazonaws.com/modifyAccount.php";
 
 static NSString* createAccountAWS= @"http://ec2-54-242-126-17.compute-1.amazonaws.com/createAccount.php";
 
@@ -334,12 +335,12 @@ static NSString* postDataForTestLocal= @"http://localhost/postData.php";
 }
 
 
--(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion{
++(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion{
     NSError *error;
     
     NSArray *jsonArray = [NSArray arrayWithObject:data];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:NSUTF8StringEncoding error:&error];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:modifyAccountLocal]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:modifyAccountAWS]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:jsonData];
@@ -360,7 +361,7 @@ static NSString* postDataForTestLocal= @"http://localhost/postData.php";
 -(NSDictionary*)getCurrentLocalUserInfo{
     NSDictionary *currUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUser"];
     
-    NSLog(@"%@",currUser);
+    //NSLog(@"%@",currUser);
     return currUser;
 }
 
