@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   type = "1"
+   type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
@@ -9,14 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BookTrader/Model/UserModel.h"
-            timestampString = "577204403.989408"
+            filePath = "BookTrader/Controller/QuickSellTabViewController.m"
+            timestampString = "577169786.431941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "UserModel"
-            landmarkType = "2">
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "-dismissKeyboard"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

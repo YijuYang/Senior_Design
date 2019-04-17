@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MsgCenterTabViewController : UIViewController
+@interface MsgCenterTabViewController<UITableViewDelegate,UITableViewDataSource> : UIViewController
 
 @end

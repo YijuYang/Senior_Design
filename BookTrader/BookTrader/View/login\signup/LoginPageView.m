@@ -107,6 +107,17 @@
 {
     [self.delegate doClickSignUpButton];
 }
+
+//@property (nonatomic, strong) UITextField* usernameTextField;
+//@property (nonatomic, strong) UITextField* passwordTextField;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self.usernameTextField isExclusiveTouch]) {
+        [self.usernameTextField resignFirstResponder];
+    }
+    if (![self.passwordTextField isExclusiveTouch]) {
+        [self.passwordTextField resignFirstResponder];
+    }
+}
 -(void)dismissKeyboard
 {
     [self.usernameTextField resignFirstResponder];

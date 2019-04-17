@@ -9,7 +9,7 @@
 #import "SettingViewController.h"
 #import <Foundation/Foundation.h>
 #import "SettingView.h"
-
+#import "UserModel.h"
 
 @interface SettingViewController ()
 @property (nonatomic, strong) SettingView* settingView;
@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UILabel *pword;
 @property(nonatomic, strong) UIButton* btn;
 @property(nonatomic, strong) UIButton* btn2;
-
+@property(nonatomic,strong)NSDictionary* currUser;
 @end
 
 @implementation SettingViewController
@@ -34,7 +34,8 @@
     [super viewDidLoad];
 //    self.settingView = [[SettingView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //    [self.view addSubview:self.settingView];
-    
+    UserModel* user = [[UserModel alloc]init];
+    _currUser = [user getCurrentLocalUserInfo];
     self.fname = [[UILabel alloc] initWithFrame:CGRectMake(5, 75, 95, 40)];
     self.fname.text = @"FirstName: ";
     self.fname.textColor = [UIColor grayColor];
@@ -48,11 +49,14 @@
     self.Firstname.enabled= NO;
     self.Firstname.keyboardType = UIKeyboardTypeDefault;
     self.Firstname.returnKeyType = UIReturnKeyNext;
+    self.Firstname.text = _currUser[@"firstName"];
     [self.view addSubview: self.Firstname];
     
     self.lname = [[UILabel alloc] initWithFrame:CGRectMake(5, 120, 95, 40)];
     self.lname.text = @"LastName: ";
     self.lname.textColor = [UIColor grayColor];
+    self.lname.text = _currUser[@"lastName"];
+
     [self.view addSubview: self.lname];
     
     self.Lastname = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 200, 40)];
@@ -63,11 +67,14 @@
     self.Lastname.enabled= NO;
     self.Lastname.keyboardType = UIKeyboardTypeDefault;
     self.Lastname.returnKeyType = UIReturnKeyNext;
+    self.Lastname.text = _currUser[@"lastName"];
+
     [self.view addSubview: self.Lastname];
     
     self.pword = [[UILabel alloc] initWithFrame:CGRectMake(5, 165, 95, 40)];
     self.pword.text = @"Password: ";
     self.pword.textColor = [UIColor grayColor];
+
     [self.view addSubview: self.pword];
     
     self.Password = [[UITextField alloc] initWithFrame:CGRectMake(100, 165, 200, 40)];
@@ -78,11 +85,15 @@
     self.Password.enabled= YES;
     self.Password.keyboardType = UIKeyboardTypeDefault;
     self.Password.returnKeyType = UIReturnKeyNext;
+    self.Password.text = _currUser[@"customerPwd"];
+    self.Password.secureTextEntry = YES;
+
     [self.view addSubview: self.Password];
     
     self.email = [[UILabel alloc] initWithFrame:CGRectMake(5, 210, 95, 40)];
     self.email.text = @"Email: ";
     self.email.textColor = [UIColor grayColor];
+
     [self.view addSubview: self.email];
     
     self.Emailaddress = [[UITextField alloc] initWithFrame:CGRectMake(100, 210, 200, 40)];
@@ -93,6 +104,8 @@
     self.Emailaddress.enabled= NO;
     self.Emailaddress.keyboardType = UIKeyboardTypeDefault;
     self.Emailaddress.returnKeyType = UIReturnKeyNext;
+    self.Emailaddress.text = _currUser[@"customerEmail"];
+
     [self.view addSubview: self.Emailaddress];
 
     self.btn = [[UIButton alloc] initWithFrame:CGRectMake(5, 280, 100, 50)];
@@ -133,6 +146,41 @@
     self.Firstname.enabled= NO;
     self.Lastname.enabled= NO;
     self.Password.enabled= NO;
+    //check local data is the same as before
+    if(_currUser[@"firstName"]!= _Firstname.text||_currUser[@"lastName"]!=_Lastname.text||_currUser[@"customerPwd"]!=_Emailaddress.text){
+        
+        NSDictionary* data = @{
+                               @"firstName":_Firstname.text,
+                               @"lastName" :_Lastname.text,
+                               @"customerEmail":_currUser[@"customerEmail"],
+                               @"customerPwd":_Password.text,
+                               @"major":_currUser[@"major"],
+                               @"KUID":_currUser[@"KUID"]
+                               };
+       
+        //updata server database
+        [UserModel modifyAccount:data completion:^(id response) {
+            NSLog(@"%@",response);
+            if([response containsString:@"SUCCESS"]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+                    //remove local
+                    [userDefault removeObjectForKey:@"currentUser"];
+                    //updata local database
+                    [userDefault setObject:data forKey:@"currentUser"];
+                    [userDefault synchronize];
+                    
+                    UserModel* user = [[UserModel alloc]init];
+                    NSLog(@"%@", [user getCurrentLocalUserInfo]);
+                });
+               
+            }
+        }];
+        
+       
+    }else{
+        //do not change anything
+    }
 }
 
 - (void)doClickSwitch

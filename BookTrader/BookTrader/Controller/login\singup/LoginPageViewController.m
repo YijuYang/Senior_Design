@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     self.title = @"welcome";
-
+    
     self.loginPage = [[LoginPageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.loginPage.delegate = self;
     [self.view addSubview:self.loginPage];
@@ -86,6 +86,7 @@
                 });
             }else{
                 //success check Case-sensitive
+
                 NSLog(@"%@",response);
                 
                 //ASYN
@@ -100,6 +101,7 @@
 
             }
         }];
+
 
 
 

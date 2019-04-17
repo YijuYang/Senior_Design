@@ -19,10 +19,20 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
 
 
 
--(void)sellBooks:(NSDictionary*) data image:(UIImage*)img completion:(void (^)(id))completion{
+-(void)sellBooks:(NSDictionary*) data completion:(void (^)(id))completion{
     //POST request
     NSError *error;
-    
+
+//    NSDictionary* storeData =@{
+//                               @"bookname":
+//                               @"isbn" :
+//                               @"author":
+//                               @"edition":
+//                               @"price":
+//                               @"ID":data[@"ID"],
+//                               @"description":
+//                               @"zimage":
+//                               };
     NSArray *jsonArray = [NSArray arrayWithObject:data];
     //最后生成jsonData
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:NSUTF8StringEncoding error:&error];
@@ -49,8 +59,22 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
 -(void)findBooks:(NSString*) data completion:(void (^)(id ))completion{
     NSURLSession *session = [NSURLSession sharedSession];
     
-    NSURL *url = [NSURL URLWithString:searchBookAWS];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    NSURL *url = [NSURL URLWithString:searchBookAWS];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURL* url = [NSURL URLWithString:searchBookAWS];
+    
+    NSData *postData = [data dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
+    
+    //URLRequest
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];//POST
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
     
     NSURLSessionDataTask * dataTask =  [session dataTaskWithRequest:request completionHandler:^(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error) {
         
@@ -90,6 +114,25 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
 
     [dataTask resume];
 }
-
++(UIImage*)stringToImage:(NSString*) string{
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:string options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    return [UIImage imageWithData:data];
+    
+}
++(NSString*)imageToString:(UIImage*) image{
+    NSData* imageData = UIImageJPEGRepresentation(image,0.3);
+    NSString* imageString;
+    if([imageData respondsToSelector:@selector(base64EncodedStringWithOptions:)])
+    {
+        //NSLog(@"iOS 7+");
+        imageString=[imageData base64EncodedStringWithOptions:kNilOptions];
+    }
+    else
+    {
+        imageString=[imageData base64Encoding];
+    }
+    return imageString;
+}
 
 @end
