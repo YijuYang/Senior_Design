@@ -94,7 +94,7 @@
     
     NSMutableArray *goodsArray = [[NSMutableArray alloc]init];
     for (NSDictionary *dict in dictArray) {
-        NSDictionary *good = [[NSDictionary alloc] initWithObjectsAndKeys:dict[@"title"],@"title", dict[@"price"], @"price",dict[@"bookID"], @"bookID",dict[@"ISBN"], @"ISBN",dict[@"description"], @"description",nil];
+        NSDictionary *good = [[NSDictionary alloc] initWithObjectsAndKeys:dict[@"title"],@"title", dict[@"price"], @"price",dict[@"bookID"], @"bookID",dict[@"ISBN"], @"ISBN",dict[@"description"], @"description",dict[@"image"],@"image",nil];
         [goodsArray addObject:good];
     }
     self.booksonSell = [goodsArray copy];
@@ -169,7 +169,8 @@ static NSString* cellID = @"cellID";
     cell.textLabel.text = self.visibleResults[indexofRow][@"title"];
 
     cell.detailTextLabel.text = [self.visibleResults objectAtIndex:indexofRow][@"price"];
-    cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"] ;
+    cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"];
+    
     cell.imageView.image = [UIImage imageNamed:@"bookSample2.png"];
     return cell;
     
