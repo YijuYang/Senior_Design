@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookModel : NSObject
@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 -(void)findBooks:(NSString*) data completion:(void (^)(id ))completion;
+
++(UIImage*)stringToImage:(NSString*) string;
++(NSString*)imageToString:(UIImage*) image;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

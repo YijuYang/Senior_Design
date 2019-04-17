@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     self.title = @"welcome";
-
+    
     self.loginPage = [[LoginPageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.loginPage.delegate = self;
     [self.view addSubview:self.loginPage];
@@ -55,9 +55,9 @@
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Alert"
                                                                        message:err
                                                                 preferredStyle:UIAlertControllerStyleAlert];
-        
+
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-        
+
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }else{
@@ -87,21 +87,20 @@
                 });
             }else{
                 //success check Case-sensitive
-                NSLog(@"%@",response);
+                NSLog(@"%@",response);//NSArray
+                NSDictionary* currUser= response[0];
                 //ASYN
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //TODO successful alert?
-                    [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"currentUser"];
+                    [[NSUserDefaults standardUserDefaults] setObject:currUser forKey:@"currentUser"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     self.view.window.rootViewController = [self rootController];
-
-//                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
+ 
+////                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
                 });
 
             }
         }];
-
-
 
     }
 

@@ -34,7 +34,7 @@
 
 -(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
-+(NSDictionary*)getCurrentLocalUserInfo;
+-(NSDictionary*)getCurrentLocalUserInfo;
 
 
 

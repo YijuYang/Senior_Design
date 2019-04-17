@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "MsgCenterTabViewController.h"
 #import "MsgCenterTabView.h"
-#import "MsgCenterCell.h"
+#import "MsgCell.h"
 #import "LoginPageViewController.h"
 #import "MsgCenterController.h"
 #import "UserModel.h"
@@ -54,16 +54,7 @@
     tableView.dataSource = self;
     // 添加到 view 上
     [self.view addSubview:tableView];
- 
-    NSDictionary* isLogin = [UserModel getCurrentLocalUserInfo];
-    //NSLog(@"%@",isLogin);
-    if(isLogin==nil){
-        self.loginCtrl = [LoginPageViewController new];
-        self.loginCtrl.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:self.loginCtrl animated:NO];
-    }else{
-        //check again local to server
-    }
+    
    
     
 }
@@ -86,7 +77,7 @@
         // 如果tableview的重用池中没有取到，就创建一个新的cell，style为Value2，并用cellID对其进行标记。
         //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
    
-        cell = [[MsgCenterCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
+        cell = [[MsgCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellID];
 
     }
 //    // 设置 cell 的标题

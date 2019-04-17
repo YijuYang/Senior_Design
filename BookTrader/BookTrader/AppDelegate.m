@@ -14,6 +14,7 @@
 #import "AVCamCameraViewController.h"
 #import "LoginPageViewController.h"
 
+
 @import Photos;
 
 @interface AVCamPhotoCaptureDelegate ()
@@ -239,7 +240,7 @@
     qsNaviCtrl.tabBarItem.title = @"QUICK SELL";
     //account management tab
     AccountTabViewController *accountViewController = [[AccountTabViewController alloc] init];
-    accountViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"ACCONT" image:NULL tag:(NULL)];
+    accountViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"ACCONT" image:@"" tag:(@"")];
     accountViewController.tabBarItem.title = @"ACCOUNT";
     UINavigationController *accountNaviCtrl = [[UINavigationController alloc] initWithRootViewController:accountViewController];
     accountNaviCtrl.tabBarItem.title = @"ACCOUNT";
