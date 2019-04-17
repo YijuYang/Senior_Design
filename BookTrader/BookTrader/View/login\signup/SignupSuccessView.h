@@ -18,6 +18,6 @@
 @interface SignupSuccessView : UIView
 @property (nonatomic, weak) id<SignupSuccessViewDelegate> delegate;
 
-- (void)fillContentWithLoginName:(NSString *)loginName password:(NSString *)password;
+- (void)fillContentWithFirstName:(NSString *) firstName LastName:(NSString *) lastName EmailAddress:(NSString *)emailAddress password:(NSString *)password;
 
 @end

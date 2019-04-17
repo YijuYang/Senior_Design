@@ -14,7 +14,8 @@
 @property (nonatomic, strong)UILabel *loginNameLabel;
 @property (nonatomic, strong)UILabel *passwordLabel;
 @property (nonatomic, strong)UIButton *shopBtn;
-
+@property (nonatomic, strong)UILabel *firstNameLabel;
+@property (nonatomic, strong)UILabel *lastNameLabel;
 @end
 
 
@@ -27,22 +28,21 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    //KU Icon
-//    self.KUIcon = [UIImage imageNamed:@"ku.png"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 220, 200)];
-//    imageView.backgroundColor = [UIColor grayColor];
-//    imageView.image = self.KUIcon;
-//    imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    imageView.layer.cornerRadius = 3;
-//    [self addSubview:imageView];
-//
-    
+
     self.congrateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 200,[UIScreen mainScreen].bounds.size.width, 44)];
     self.congrateLabel.text = @"Congratulations Your Registration Was Successful!";
     [self addSubview:self.congrateLabel];
 
+    
+    self.firstNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 312, [UIScreen mainScreen].bounds.size.width, 44)];
+    [self addSubview:self.firstNameLabel];
+    
+    
+    self.lastNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 356, [UIScreen mainScreen].bounds.size.width, 44)];
+    [self addSubview:self.lastNameLabel];
+    
 
-    self.loginNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 400, [UIScreen mainScreen].bounds.size.width, 44)];
+    self.loginNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 400, [UIScreen mainScreen].bounds.size.width, 44)];
     [self addSubview:self.loginNameLabel];
 
     
@@ -54,7 +54,7 @@
     self.shopBtn = [[UIButton alloc] initWithFrame:CGRectMake(130, 500, 150, 44) ];
     [self.shopBtn setTitle:@"start my journey" forState:UIControlStateNormal];
     [self.shopBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.shopBtn setBackgroundColor:[UIColor greenColor]];
+    [self.shopBtn setBackgroundColor:[UIColor blueColor]];
     self.shopBtn.layer.cornerRadius = 4;
     [self addSubview:self.shopBtn];
   
@@ -66,9 +66,11 @@
 /*
  @author: Jian
  */
-- (void)fillContentWithLoginName:(NSString *)loginName password:(NSString *)password
+- (void)fillContentWithFirstName:(NSString *)firstName LastName:(NSString *)lastName EmailAddress:(NSString *)emailAddress password:(NSString *)password
 {
-    self.loginNameLabel.text = [NSString stringWithFormat:@"email address：%@", loginName];
+    self.firstNameLabel.text = [NSString stringWithFormat:@"first Name: %@", firstName];
+    self.lastNameLabel.text = [NSString stringWithFormat:@"last Name: %@", lastName];
+    self.loginNameLabel.text = [NSString stringWithFormat:@"email address：%@", emailAddress];
     self.passwordLabel.text = [NSString stringWithFormat:@"password：%@", password];
 }
 /*

@@ -53,9 +53,9 @@
 //
 - (void)doClickNextBtnWithCode:(NSString *)code
 {
-    //hard code for UI test
-    SignupSuccessController *ctrl = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:self.password];
-    [self.navigationController pushViewController:ctrl animated:NO];
+//    //hard code for UI test
+//    SignupSuccessController *ctrl = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:self.password];
+//    [self.navigationController pushViewController:ctrl animated:NO];
 
 }
 

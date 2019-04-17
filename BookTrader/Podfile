@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.1'
+
+target 'BookTrader' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+  pod 'TesseractOCRiOS', :git => 'git://github.com/parallaxe/Tesseract-OCR-iOS.git', :branch => 'macos-support'
+
+  # Pods for BookTrader
+
+  target 'BookTraderTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'BookTraderUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

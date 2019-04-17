@@ -51,9 +51,9 @@
     //TODO: save password to web server
     //hard code for UI Test
     
-    //skip email code authentication
-    SignupSuccessController *successController = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:password];
-    [self.navigationController pushViewController:successController animated:NO];
+//    //skip email code authentication
+//    SignupSuccessController *successController = [[SignupSuccessController alloc] initWithEmailAddress:self.emailAddress password:password];
+//    [self.navigationController pushViewController:successController animated:NO];
 }
 
 @end
