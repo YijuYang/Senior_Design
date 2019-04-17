@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AccountTabViewDelegate <NSObject>
+
+- (void)doClickSwitch;
+
+@end
 
 @interface AccountTabView : UIView
 
+@property (nonatomic, weak) id<AccountTabViewDelegate> delegate;
 
 @end

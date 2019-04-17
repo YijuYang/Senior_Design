@@ -36,6 +36,8 @@
         return nil;
     }
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self addGestureRecognizer:tap];
     self.backgroundColor = [UIColor whiteColor];
     
     //KU Icon
@@ -116,4 +118,11 @@
         [self.passwordTextField resignFirstResponder];
     }
 }
+-(void)dismissKeyboard
+{
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+}
+
+
 @end

@@ -47,7 +47,6 @@
  */
 - (void) doClickLoginButtonWithEmail: (NSString* )email password:(NSString *) password
 {
-    //TODO:
     //check if username and password match
     if([email isEqualToString:@""]||[password isEqualToString:@""]){
         NSString* err = @"invalid email address or password";
@@ -87,20 +86,24 @@
                 });
             }else{
                 //success check Case-sensitive
-                NSLog(@"%@",response);//NSArray
-                NSDictionary* currUser= response[0];
+
+                NSLog(@"%@",response);
+                
                 //ASYN
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    //TODO successful alert?
+                    NSDictionary * currUser = response[0];
                     [[NSUserDefaults standardUserDefaults] setObject:currUser forKey:@"currentUser"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     self.view.window.rootViewController = [self rootController];
- 
-////                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
+
+//                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
                 });
 
             }
         }];
+
+
+
 
     }
 

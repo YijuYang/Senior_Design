@@ -32,7 +32,7 @@
 -(void)createAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
 
--(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
++(void)modifyAccount:(NSDictionary*) data completion:(void (^)(id))completion;
 
 -(NSDictionary*)getCurrentLocalUserInfo;
 

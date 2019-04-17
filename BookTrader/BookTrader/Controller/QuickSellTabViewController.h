@@ -12,5 +12,5 @@
 
 
 @interface QuickSellTabViewController : UIViewController<G8TesseractDelegate>
-
+@property (nonatomic) BOOL flag;
 @end

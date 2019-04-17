@@ -9,10 +9,7 @@
 
 #import "AccountTabView.h"
 
-@interface AccountTabView ()
-@property (nonatomic, strong) UIImage* KUIcon;
-
-
+@interface AccountTabView()
 
 @end
 
@@ -30,7 +27,6 @@
     }
     
     self.backgroundColor = [UIColor whiteColor];
-    
     
     
     return self;

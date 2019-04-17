@@ -14,7 +14,6 @@
 #import "AVCamPreviewView.h"
 #import "AppDelegate.h"
 
-BOOL FLAG = YES;
 static void*  SessionRunningContext = &SessionRunningContext;
 static void*  SystemPressureContext = &SystemPressureContext;
 
@@ -119,6 +118,7 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
     [super viewDidLoad];
     self.title = @"QUICK SELL";
     
+    self.FLAG = YES;
     // Disable UI. The UI is enabled if and only if the session starts running.
     self.cameraButton.enabled = NO;
     self.recordButton.enabled = NO;
@@ -501,13 +501,13 @@ typedef NS_ENUM(NSInteger, AVCamPortraitEffectsMatteDeliveryMode) {
 - (IBAction) switchModeISBN:(id)sender
 {
     self.recordButton.enabled = NO;
-    if(FLAG){
+    if(self.FLAG){
         self.scanImage.hidden = NO;
-        FLAG = NO;
+        self.FLAG = NO;
     }
     else{
         self.scanImage.hidden = YES;
-        FLAG =YES;
+        self.FLAG =YES;
     }
 }
 
@@ -742,8 +742,10 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
              *  pop-up window for quick sell
              */
             dispatch_async(dispatch_get_main_queue(), ^{
-            QuickSellTabViewController *quickSellController = [QuickSellTabViewController new];
+                QuickSellTabViewController *quickSellController = [QuickSellTabViewController alloc];
+                quickSellController.flag = self.FLAG;
                 [self.navigationController pushViewController:quickSellController animated:NO];
+//                [self nextScreenButtonTapped:sender];
             });
         }];
         
@@ -776,7 +778,6 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
             }
         });
     });
-        NSLog(@"adhfaksjdfhlakdjhfalksdhflakjdshflakjshfalk123123");
 }
 
 - (IBAction) toggleDepthDataDeliveryMode:(UIButton*)depthDataDeliveryButton
@@ -798,7 +799,6 @@ monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
             }
         });
     });
-        NSLog(@"adhfaksjdfhlakdjhfalksdhflakjdshflakjshfalk11111111");
 }
 
 - (IBAction) togglePortraitEffectsMatteDeliveryMode:(UIButton*)portraitEffectsMatteDeliveryButton

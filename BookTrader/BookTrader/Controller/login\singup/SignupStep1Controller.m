@@ -23,6 +23,7 @@
     [super viewDidLoad];
     self.title = @"register";
 
+    
     self.signupStep1View = [[SignupStep1View alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.signupStep1View.delegate = self;
     [self.view addSubview:self.signupStep1View];
