@@ -17,4 +17,5 @@
 @property (nonatomic, assign) NSString* ISBN;
 @property (nonatomic, assign) NSString* booktitle;
 @property (nonatomic, assign) NSString* price;
+@property (nonatomic, assign) NSString* imagestring;
 @end

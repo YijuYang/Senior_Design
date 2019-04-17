@@ -37,7 +37,8 @@
     self.productView.isbnLabel.text = self.ISBN;
     self.productView.priceLabel.text = self.price;
     self.productView.detailLabel.text = self.bookdescription;
-    
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:self.imagestring options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    self.productView.imagePreview.image = [UIImage imageWithData:data];
 }
 
 

@@ -171,7 +171,8 @@ static NSString* cellID = @"cellID";
     cell.detailTextLabel.text = [self.visibleResults objectAtIndex:indexofRow][@"price"];
     cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"];
     
-    cell.imageView.image = [UIImage imageNamed:@"bookSample2.png"];
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:self.visibleResults[indexofRow][@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        cell.imageView.image = [UIImage imageWithData:data];
     return cell;
     
 }
@@ -188,7 +189,8 @@ static NSString* cellID = @"cellID";
     productCtrl.ISBN = self.visibleResults[indexPath.row][@"ISBN"];
     productCtrl.price = self.visibleResults[indexPath.row][@"price"];
     productCtrl.bookdescription = self.visibleResults[indexPath.row][@"description"];
-
+    productCtrl.imagestring = self.visibleResults[indexPath.row][@"image"];
+    
     [self.navigationController pushViewController:productCtrl animated:NO];
     
 }
