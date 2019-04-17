@@ -73,6 +73,7 @@
 @property (nonatomic, strong) UITextView *detailField;
 @property (nonatomic, strong) NSString * recognition;
 
+
 @end
 
 @implementation QuickSellTabViewController
@@ -80,13 +81,23 @@
 /*
  @author Yiju Yang
  */
+//-(void) initWithState :(BOOL) Flag
+//{
+//    self = [super initWithNibName:@"AVCamCameraViewController" bundle:nil];
+//    if(self){
+//        self.flag = Flag;
+//    }
+//}
+
 - (void)viewDidLoad
 {
-//    self.cameraView = [super getViewController];
     [super viewDidLoad];
     [self getLastImage];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 
-    self.title = @"QUICK SELL";
 //    self.quicksellView = [[QuickSellTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //    [self.view addSubview:self.quicksellView];
  
@@ -97,6 +108,7 @@
     
     // Create your Tesseract object using the initWithLanguage method:
     self.tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
+    [self setVariableValue];
     
     // Set up the delegate to receive Tesseract's callbacks.
     // self should respond to TesseractDelegate and implement a
@@ -106,8 +118,6 @@
     self.tesseract.delegate = self;
     
     // Optional: Limit the character set Tesseract should try to recognize from
-    [self.tesseract setVariableValue:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" forKey:@"tessedit_char_whitelist"];
-    [self.tesseract setVariableValue:@".,:;'" forKey:@"tessedit_char_blacklist"];
     
     // See http://www.sk-spell.sk.cx/tesseract-ocr-en-variables for a complete
     // (but not up-to-date) list of Tesseract variables.
@@ -115,7 +125,7 @@
 //    [self.tesseract setImage:self.image];
     
     // Optional: Limit the area of the image Tesseract should recognize on to a rectangle
-    [self.tesseract setRect:CGRectMake(0, 0, 720, 1280)];
+    
     //NSLog(@"what??%@", image.size.width);
     // Start the recognition
 //    [self.tesseract recognize];
@@ -125,7 +135,7 @@
     
     self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 65, 150, 150)];
     self.imagePreview.backgroundColor = [UIColor orangeColor];
-    self.imagePreview.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.imagePreview.layer.borderWidth = 2;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
     [self getLastImage];
@@ -146,7 +156,7 @@
     self.isbn.textColor = [UIColor grayColor];
     [self.view addSubview:self.isbn];
     
-    self.detail = [[UILabel alloc] initWithFrame:CGRectMake(5, 450, 95, 44)];
+    self.detail = [[UILabel alloc] initWithFrame:CGRectMake(5, 415, 95, 44)];
     self.detail.text = @"Description: ";
     self.detail.textColor = [UIColor grayColor];
     [self.view addSubview:self.detail];
@@ -156,60 +166,62 @@
     self.author1.textColor = [UIColor grayColor];
     [self.view addSubview:self.author1];
     
-    self.author2 = [[UILabel alloc] initWithFrame:CGRectMake(110, 340, 85, 44)];
+    self.author2 = [[UILabel alloc] initWithFrame:CGRectMake(115, 340, 85, 44)];
     self.author2.text = @"Author 2: ";
     self.author2.textColor = [UIColor grayColor];
     [self.view addSubview:self.author2];
     
-    self.author3 = [[UILabel alloc] initWithFrame:CGRectMake(215, 340, 85, 44)];
+    self.author3 = [[UILabel alloc] initWithFrame:CGRectMake(225, 340, 85, 44)];
     self.author3.text = @"Author 3: ";
     self.author3.textColor = [UIColor grayColor];
     [self.view addSubview:self.author3];
     
     self.authorField1 = [[UITextField alloc] initWithFrame:CGRectMake(5, 372, 100, 44)];
     self.authorField1.backgroundColor = [UIColor whiteColor];
-    self.authorField1.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.authorField1.layer.borderWidth = 2;
     self.authorField1.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField1.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField1];
     
-    self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(110, 372, 100, 44)];
+    self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(115, 372, 100, 44)];
     self.authorField2.backgroundColor = [UIColor whiteColor];
-    self.authorField2.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.authorField2.layer.borderWidth = 2;
     self.authorField2.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField2.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField2];
     
-    self.authorField3 = [[UITextField alloc] initWithFrame:CGRectMake(215, 372, 100, 44)];
+    self.authorField3 = [[UITextField alloc] initWithFrame:CGRectMake(225, 372, 100, 44)];
     self.authorField3.backgroundColor = [UIColor whiteColor];
-    self.authorField3.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.authorField3.layer.borderWidth = 2;
     self.authorField3.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField3.layer.cornerRadius = 8;
     [self.view addSubview:self.authorField3];
     
     self.titleField = [[UITextField alloc] initWithFrame:CGRectMake(5, 239, 405, 44)];
     self.titleField.backgroundColor = [UIColor whiteColor];
-    self.titleField.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.titleField.layer.borderWidth = 2;
     self.titleField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.titleField.layer.cornerRadius = 8;
     [self.view addSubview:self.titleField];
     
     self.priceField = [[UITextField alloc] initWithFrame:CGRectMake(5, 307, 50, 44)];
-    self.priceField.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.priceField.layer.borderWidth = 2;
     self.priceField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.priceField.layer.cornerRadius = 8;
+    self.priceField.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:self.priceField];
     
     self.isbnField = [[UITextField alloc] initWithFrame:CGRectMake(60, 307, 300, 44)];
     self.isbnField.backgroundColor = [UIColor whiteColor];
-    self.isbnField.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.isbnField.layer.borderWidth = 2;
     self.isbnField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.isbnField.layer.cornerRadius = 8;
+    self.isbnField.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:self.isbnField];
     
-    self.detailField = [[UITextView alloc] initWithFrame:CGRectMake(5, 430, 405, 200)];
+    self.detailField = [[UITextView alloc] initWithFrame:CGRectMake(5, 450, 405, 120)];
     self.detailField.backgroundColor = [UIColor whiteColor];
-    self.detailField.layer.borderWidth = UITextBorderStyleRoundedRect;
+    self.detailField.layer.borderWidth = 2;
     self.detailField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.detailField.layer.cornerRadius = 8;
     [self.view addSubview:self.detailField];
@@ -223,13 +235,39 @@
     [scanISBNbtn addTarget:self action:@selector(scanClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:scanISBNbtn];
     
-    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 640, 405, 44)];
+    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 578, 405, 44)];
     submitBtn.backgroundColor = [UIColor greenColor];
     submitBtn.layer.cornerRadius = 5;
     [submitBtn setTitle:@"Submit" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(submitInfo) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
+}
+-(void)dismissKeyboard
+{
+    [self.isbnField resignFirstResponder];
+    [self.titleField resignFirstResponder];
+    [self.detailField resignFirstResponder];
+    [self.priceField resignFirstResponder];
+    [self.authorField1 resignFirstResponder];
+    [self.authorField2 resignFirstResponder];
+    [self.authorField3 resignFirstResponder];
+}
+- (void)setVariableValue
+{
+    if(self.flag)
+    {
+        [self.tesseract setVariableValue:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" forKey:@"tessedit_char_whitelist"];
+        [self.tesseract setVariableValue:@".,:;'" forKey:@"tessedit_char_blacklist"];
+        [self.tesseract setRect:CGRectMake(0, 0, 3000, 4000)];
+        NSLog(@"COVER");
+    }
+    else{ // ISBN
+        [self.tesseract setVariableValue:@"BINS0123456789" forKey:@"tessedit_char_whitelist"];
+        [self.tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzACDEFGHJKLMOPQRTUVWXYZ.,:;'" forKey:@"tessedit_char_blacklist"];
+        [self.tesseract setRect:CGRectMake(500, 800, 2000, 400)];
+        NSLog(@"ISBN");
+    }
 }
 
 - (void)submitInfo
@@ -365,7 +403,14 @@
                 self.imagePreview.image = needImage;
                 [self.tesseract setImage:needImage];
                 [self.tesseract recognize];
-                self.titleField.text = [self.tesseract recognizedText];
+                self.image = self.imagePreview.image;
+                if(self.flag)
+                {
+                    self.titleField.text = [self.tesseract recognizedText];
+                }
+                else{
+                    self.isbnField.text = [self.tesseract recognizedText];
+                }
             }
         }
     }];

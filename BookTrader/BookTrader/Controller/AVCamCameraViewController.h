@@ -10,5 +10,6 @@
 @import UIKit;
 
 @interface AVCamCameraViewController : UIViewController
+@property(atomic) BOOL FLAG;
 
 @end
