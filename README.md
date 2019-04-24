@@ -7,11 +7,11 @@ View the documentation directory located in this repository for more information
 
 ## Developers
 
-Yiju Yang - [YijuYang](https://github.com/YijuYang)
-Jian SHen - [JianShen](https://github.com/jianshen205)
-Qixiang Liu - [QixiangLiu](https://github.com/QixiangLiu)
-Siluo Feng - [SiluoFeng](https://github.com/SiluoFeng)
-Robert Goss - [rgoss1](https://github.com/rgoss1)
+* **Yiju Yang** - [YijuYang](https://github.com/YijuYang)
+* **Jian Shen** - [JianShen](https://github.com/jianshen205)
+* **Qixiang Liu** - [QixiangLiu](https://github.com/QixiangLiu)
+* **Siluo Feng** - [SiluoFeng](https://github.com/SiluoFeng)
+* **Robert Goss** - [rgoss1](https://github.com/rgoss1)
 
 ## Roles
 
