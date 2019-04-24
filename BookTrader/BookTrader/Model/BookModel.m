@@ -15,6 +15,8 @@ static NSString* bookLocal = @"http://localhost/bookModel.php";
 static NSString* displayBookLocal = @"http://localhost/displayAllBooksInfo.php";
 static NSString* displayBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/displayAllBooksInfo.php";
 
+static NSString* deleteBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/deleteBooks.php";
+
 static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/searchBook.php";
 
 
@@ -56,14 +58,14 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
     [task resume];
 }
 
--(void)findBooks:(NSString*) data completion:(void (^)(id ))completion{
++(void)findBooks:(NSString*) customerID completion:(void (^)(id ))completion{
     NSURLSession *session = [NSURLSession sharedSession];
     
 //    NSURL *url = [NSURL URLWithString:searchBookAWS];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURL* url = [NSURL URLWithString:searchBookAWS];
     
-    NSData *postData = [data dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSData *postData = [customerID dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
     
     //URLRequest
@@ -133,6 +135,43 @@ static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.
         imageString=[imageData base64Encoding];
     }
     return imageString;
+}
+
++(void)deleteBook:(NSString*) bookID completion:(void (^)(id))completion{
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //    NSURL *url = [NSURL URLWithString:searchBookAWS];
+    //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURL* url = [NSURL URLWithString:deleteBookAWS];
+    
+    NSData *postData = [bookID dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
+    
+    //URLRequest
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];//POST
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLSessionDataTask * dataTask =  [session dataTaskWithRequest:request completionHandler:^(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error) {
+        
+        //第三种打印 比较高级 可以报错error，可以得到其他数据类型 NSAraay,NSDictionary,NSString
+        NSError *err;
+        NSArray* book = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+        if(err){
+            //failure
+            NSLog(@"Failed to serialize into JSON%@",err);
+        }else{
+            //return NSarray
+            completion(book);
+        }
+    }];
+    
+    [dataTask resume];
 }
 
 @end
