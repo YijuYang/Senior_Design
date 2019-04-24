@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 //NSString *customerID =[[NSString alloc] initWithFormat:@"customerID=%@", ?];
 +(void)findBooks:(NSString*) customerID completion:(void (^)(id ))completion;
 
+
+
+//http:// www.goodreads.com/search?q=8811667739&format=xml&key=YOUR_KEY_VALUE
++(void)searchBooksGoodRead:(NSString*) isbn completion:(void (^)(id ))completion;
+
 +(UIImage*)stringToImage:(NSString*) string;
 +(NSString*)imageToString:(UIImage*) image;
 
