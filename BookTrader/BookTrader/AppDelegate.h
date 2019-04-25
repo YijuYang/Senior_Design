@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
+#import <SendBirdSDK/SendBirdSDK.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate, SBDAuthenticateDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic, nullable) NSString *receivedPushChannelUrl;
+@property (strong) NSString *pushReceivedGroupChannel;
 
 @end
 
@@ -23,4 +26,6 @@
 
 @property (nonatomic, readonly) AVCapturePhotoSettings *requestedPhotoSettings;
 
+
 @end
+

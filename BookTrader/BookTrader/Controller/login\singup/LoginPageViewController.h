@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <SendBirdSDK/SendBirdSDK.h>
+//#import "NotificationDelegate.h"
 /*
  @author Jian
  */
-@interface LoginPageViewController : UIViewController
+@interface LoginPageViewController : UIViewController<UITextFieldDelegate, SBDAuthenticateDelegate> //NotificationDelegate>
 
 @end
