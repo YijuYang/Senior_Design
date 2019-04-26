@@ -40,7 +40,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@" ",@"My selling",@"OrderHistory",@"Setting",@"Help and contacts"];
+    self.AccountList = @[@" ",@"My selling",@"View History",@"Setting",@"Help and contacts"];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.accountView addSubview:self.tableView];
