@@ -70,7 +70,7 @@
     NSString *fileName = [path stringByAppendingPathComponent:@"usergoods.plist"];
     NSArray *dictArray = [NSArray arrayWithContentsOfFile:fileName];
     
-    self.goods = dictArray;
+    self.goods = [dictArray copy];
 
     
     self.onsellView = [[OnSellView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
@@ -88,13 +88,32 @@
 - ( UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     //删除
     UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-        [self.bookList removeObjectAtIndex:indexPath.row];
+        //Jian editted here:
+        NSMutableArray * temp = [[NSMutableArray alloc]initWithArray:self.goods];
+        [temp removeObjectAtIndex:indexPath.row];
+        self.goods = [temp copy];
         completionHandler (YES);
         
         //delete DB on server
+        NSString* bookID =@"1";//Can we get book ID ?
         
-        
-        //delete local DB
+        [BookModel deleteBook:bookID completion:^(id response) {
+            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
+                NSLog(@"%@",response);
+
+            }else{
+                
+                NSLog(@"%@",response);
+                
+                //ASYN
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //delete local DB
+
+                });
+
+            }
+        }];
+
         
         
         
@@ -159,3 +178,11 @@ static NSString* cellID = @"cellID";
 */
 
 @end
+//
+//
+////jump to login interface
+////delete local user account
+//NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+////remove local
+//[userDefault removeObjectForKey:@"currentUser"];
+

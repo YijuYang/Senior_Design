@@ -21,6 +21,7 @@
 @property (nonatomic, strong) AccountTabView* accountView;
 @property (nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSArray* AccountList;
+@property(nonatomic, strong) UIButton* logoutbtn;
 
 @end
 
@@ -87,6 +88,16 @@ static NSString* cellID = @"cellID";
         NSLog(@"Settings",(long)indexPath.row);
         SettingViewController *stsl= [[SettingViewController alloc]init];
         [self.navigationController pushViewController:stsl animated:NO];
+    }
+    else if(indexofRow==5){
+        self.logoutbtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 280, 100, 50)];
+        [self.logoutbtn setTitle:@"Log out" forState:UIControlStateNormal];
+        self.logoutbtn.enabled=YES;
+        self.logoutbtn.backgroundColor = [UIColor greenColor];
+        self.logoutbtn.layer.cornerRadius = 4;
+        //    self.btn.showsTouchWhenHighlighted = YES;
+        [self.logoutbtn addTarget:self action:@selector(clickChangeButton) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.logoutbtn];
     }
 }
 
