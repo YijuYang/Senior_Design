@@ -68,6 +68,7 @@
     self.LastNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 488, 95, 44)];
     self.LastNameLabel.text = @"Last Name: ";
     self.LastNameLabel.textColor = [UIColor grayColor];
+    
     [self addSubview:self.LastNameLabel];
     
     //lastname textfield
@@ -89,7 +90,7 @@
     self.emailAddressTextField.backgroundColor = [UIColor whiteColor];
     self.emailAddressTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.emailAddressTextField.placeholder = @"enter your email address here";
-    self.emailAddressTextField.keyboardType = UIKeyboardTypeDefault;
+    self.emailAddressTextField.keyboardType = UIKeyboardTypeEmailAddress;
     [self addSubview:self.emailAddressTextField];
 
     //passwordLabel

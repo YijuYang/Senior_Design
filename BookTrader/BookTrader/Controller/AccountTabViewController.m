@@ -11,7 +11,7 @@
 #import "AccountTabViewController.h"
 #import "OnSellViewController.h"
 #import "AccountTabView.h"
-#import "OrderHistoryViewController.h"
+#import "BrowsingHistoryViewController.h"
 #import "SettingViewController.h"
 #import "HelpContactViewController.h"
 #import "login\singup/LoginPageViewController.h"
@@ -43,8 +43,9 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@" ",@"My selling",@"View History",@"Setting",@"Help and contacts",];
+    self.AccountList = @[@" ",@"My Selling",@"My Browsing History",@"Settings",@"Help& Contact"];
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     [self.accountView addSubview:self.tableView];
     //Logout button
@@ -82,6 +83,8 @@ static NSString* cellID = @"cellID";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.AccountList count];
 }
+    
+    
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -94,6 +97,7 @@ static NSString* cellID = @"cellID";
     return cell;
     
 }
+    
 -  (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSInteger indexofRow = indexPath.row;
     if(indexofRow==1) {
@@ -103,7 +107,7 @@ static NSString* cellID = @"cellID";
     }
     else if(indexofRow==2){
         NSLog(@"My Order Historys",(long)indexPath.row);
-        OrderHistoryViewController *odsl= [[OrderHistoryViewController alloc]init];
+        BrowsingHistoryViewController *odsl= [[BrowsingHistoryViewController alloc]init];
         [self.navigationController pushViewController:odsl animated:NO];
     }
     else if(indexofRow==3){
@@ -118,4 +122,8 @@ static NSString* cellID = @"cellID";
     }
 }
 
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+        return 45;
+    }
 @end
