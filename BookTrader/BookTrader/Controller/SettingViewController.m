@@ -43,13 +43,15 @@
     
     self.Firstname = [[UITextField alloc] initWithFrame:CGRectMake(100, 75, 200, 40)];
     self.Firstname.adjustsFontSizeToFitWidth = YES;
-    self.Firstname.placeholder = @"JoJo";
+    self.Firstname.placeholder = @" JoJo";
     self.Firstname.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.Firstname.layer.borderColor = [[UIColor grayColor] CGColor];
     self.Firstname.enabled= NO;
     self.Firstname.keyboardType = UIKeyboardTypeDefault;
     self.Firstname.returnKeyType = UIReturnKeyNext;
     self.Firstname.text = _currUser[@"firstName"];
+
+
     [self.view addSubview: self.Firstname];
     
     self.lname = [[UILabel alloc] initWithFrame:CGRectMake(5, 120, 95, 40)];
@@ -61,7 +63,7 @@
     
     self.Lastname = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 200, 40)];
     self.Lastname.adjustsFontSizeToFitWidth = YES;
-    self.Lastname.placeholder = @"J";
+    self.Lastname.placeholder = @" J";
     self.Lastname.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.Lastname.layer.borderColor = [[UIColor grayColor] CGColor];
     self.Lastname.enabled= NO;
@@ -79,7 +81,7 @@
     
     self.Password = [[UITextField alloc] initWithFrame:CGRectMake(100, 165, 200, 40)];
     self.Password.adjustsFontSizeToFitWidth = YES;
-    self.Password.placeholder = @"da2819";
+    self.Password.placeholder = @" da2819";
     self.Password.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.Password.layer.borderColor = [[UIColor grayColor] CGColor];
     self.Password.enabled= YES;
@@ -98,7 +100,7 @@
     
     self.Emailaddress = [[UITextField alloc] initWithFrame:CGRectMake(100, 210, 200, 40)];
     self.Emailaddress.adjustsFontSizeToFitWidth = YES;
-    self.Emailaddress.placeholder = @"sample@gmail.com";
+    self.Emailaddress.placeholder = @" sample@gmail.com";
     self.Emailaddress.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.Emailaddress.layer.borderColor = [[UIColor grayColor] CGColor];
     self.Emailaddress.enabled= NO;
@@ -106,20 +108,22 @@
     self.Emailaddress.returnKeyType = UIReturnKeyNext;
     self.Emailaddress.text = _currUser[@"customerEmail"];
 
+    
+
     [self.view addSubview: self.Emailaddress];
 
-    self.btn = [[UIButton alloc] initWithFrame:CGRectMake(5, 280, 100, 50)];
+    self.btn = [[UIButton alloc] initWithFrame:CGRectMake(75, 280, 100, 50)];
     [self.btn setTitle:@"Change" forState:UIControlStateNormal];
     self.btn.enabled=YES;
-    self.btn.backgroundColor = [UIColor greenColor];
+    self.btn.backgroundColor = [UIColor blueColor];
     self.btn.layer.cornerRadius = 4;
 //    self.btn.showsTouchWhenHighlighted = YES;
     [self.btn addTarget:self action:@selector(clickChangeButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btn];
     
-    self.btn2 = [[UIButton alloc] initWithFrame:CGRectMake(110, 280, 100, 50)];
+    self.btn2 = [[UIButton alloc] initWithFrame:CGRectMake(225, 280, 100, 50)];
     [self.btn2 setTitle:@"Confirm" forState:UIControlStateNormal];
-    self.btn2.backgroundColor = [UIColor greenColor];
+    self.btn2.backgroundColor = [UIColor grayColor];
     self.btn2.layer.cornerRadius = 4;
     self.btn2.enabled=YES;
     [self.btn2 addTarget:self action:@selector(clickConfirmButton) forControlEvents:UIControlEventTouchUpInside];
@@ -132,7 +136,8 @@
 
 - (void) clickChangeButton
 {
-//    self.btn.backgroundColor = [UIColor redColor];
+    self.btn.backgroundColor = [UIColor grayColor];
+    self.btn2.backgroundColor = [UIColor blueColor];
     self.Firstname.enabled= YES;
     self.Lastname.enabled= YES;
     self.Password.enabled= YES;
@@ -141,8 +146,8 @@
 
 - (void) clickConfirmButton
 {
-    self.btn.backgroundColor = [UIColor greenColor];
-    self.btn2.backgroundColor = [UIColor redColor];
+    self.btn.backgroundColor = [UIColor blueColor];
+    self.btn2.backgroundColor = [UIColor grayColor];
     self.Firstname.enabled= NO;
     self.Lastname.enabled= NO;
     self.Password.enabled= NO;
