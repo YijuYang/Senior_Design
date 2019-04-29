@@ -26,6 +26,9 @@
 
 @property(nonatomic, strong) NSArray* goods;
 @property(nonatomic, strong) NSArray* booksonSell;
+
+@property(nonatomic, strong) NSMutableArray* myBrowsingHistory;
+
 @end
 
 @implementation HomePageTabViewController
@@ -46,7 +49,7 @@
     //TABLE VIEW
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
     
-    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     _tableView.delegate = self;
     self.tableView.dataSource = self;
 //    self.tableView
@@ -180,10 +183,11 @@ static NSString* cellID = @"cellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
+    
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     productViewController *productCtrl = [[productViewController alloc]init];
-    productCtrl.allBooks = self.allResults;
+//    productCtrl.allBooks = self.allResults;
     productCtrl.bookID = self.visibleResults[indexPath.row][@"bookID"];
     productCtrl.booktitle = self.visibleResults[indexPath.row][@"title"];
     productCtrl.ISBN = self.visibleResults[indexPath.row][@"ISBN"];
@@ -191,6 +195,14 @@ static NSString* cellID = @"cellID";
     productCtrl.bookdescription = self.visibleResults[indexPath.row][@"description"];
     productCtrl.imagestring = self.visibleResults[indexPath.row][@"image"];
     
+    
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *fileName = [path stringByAppendingPathComponent:@"browsingHistory.plist"];
+    NSMutableArray *dictArray = [NSMutableArray arrayWithContentsOfFile:fileName];
+    self.myBrowsingHistory  = [[NSMutableArray alloc] initWithArray:dictArray];
+   
+    [self.myBrowsingHistory addObject:self.visibleResults[indexPath.row]];
+    [self.myBrowsingHistory writeToFile:fileName atomically:YES];
     [self.navigationController pushViewController:productCtrl animated:NO];
     
 }

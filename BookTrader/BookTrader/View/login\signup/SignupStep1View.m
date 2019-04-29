@@ -68,6 +68,7 @@
     self.LastNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 488, 95, 44)];
     self.LastNameLabel.text = @"Last Name: ";
     self.LastNameLabel.textColor = [UIColor grayColor];
+    
     [self addSubview:self.LastNameLabel];
     
     //lastname textfield
