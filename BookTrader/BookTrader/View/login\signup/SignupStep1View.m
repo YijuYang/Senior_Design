@@ -90,7 +90,7 @@
     self.emailAddressTextField.backgroundColor = [UIColor whiteColor];
     self.emailAddressTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.emailAddressTextField.placeholder = @"enter your email address here";
-    self.emailAddressTextField.keyboardType = UIKeyboardTypeDefault;
+    self.emailAddressTextField.keyboardType = UIKeyboardTypeEmailAddress;
     [self addSubview:self.emailAddressTextField];
 
     //passwordLabel
