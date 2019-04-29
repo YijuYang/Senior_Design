@@ -23,7 +23,8 @@
     [super viewDidLoad];
     self.title = @"register";
 
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     self.signupStep1View = [[SignupStep1View alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.signupStep1View.delegate = self;
     [self.view addSubview:self.signupStep1View];
@@ -31,7 +32,42 @@
 
 
 }
-
+    
+//move up
+-(void)keyboardWillShow:(NSNotification *)note
+{
+    NSDictionary *info = [note userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    CGRect frame = self.signupStep1View.passwordTextField.frame;
+    int y = frame.origin.y + frame.size.height - (self.view.frame.size.height - keyboardSize.height);
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    if(y > 0)
+    {
+        
+        self.view.frame = CGRectMake(0, -y, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }
+    [UIView commitAnimations];
+    
+}
+    
+//go back to original layout
+-(void)keyboardWillHide:(NSNotification *)note
+{
+    
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

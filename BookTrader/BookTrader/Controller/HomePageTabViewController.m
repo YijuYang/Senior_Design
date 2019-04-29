@@ -21,7 +21,6 @@
 @property(nonatomic, strong) UISearchController *searchController;
 @property(nonatomic, strong) NSString *filterString;
 @property (atomic,strong) NSArray *allResults;
-//searching results
 @property (atomic, strong) NSArray *visibleResults;
 
 @property(nonatomic, strong) NSArray* goods;
@@ -34,60 +33,79 @@
 @implementation HomePageTabViewController
 
 /*
- @author 
+ @author Jian
  */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"HOME";
     
-    self.homePageView = [[HomePageTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+//    self.homePageView = [[HomePageTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //    self.homePageView.delegate = self;
-    [self.view addSubview:self.homePageView];
+//    [self.view addSubview:self.homePageView];
     
-
+    [self loadBooksfromAWS];
     //TABLE VIEW
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
     
     self.tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate = self;
+    self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView
-    [self.homePageView addSubview:self.tableView];
+    [self.view addSubview:self.tableView];
     
     
+    
+    //SEARCH TITLE BAR
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.delegate = self;
+    self.searchController.searchBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
+//    [self.searchController.searchBar sizeToFit];
+//    [self.view addSubview:self.searchController.searchBar];
+    
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+//    self.tableView.style = [UITableViewStylePlain ;]
+    
+    
+    
+
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat sectionHeaderHeight = 40;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
+
+- (void) loadBooksfromAWS
+{
     //get all books from web server
     BookModel* book = [[BookModel alloc] init];
     [book displayAllBooks:^(id response) {
         if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
             //failure
             NSLog(@"FAIL:%@",response);
-
-
+            
+            
         }else{
-
+            
             NSLog(@"SUCC:%@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
-
+                
                 self.goods = [[NSArray alloc] initWithArray:response copyItems:YES];
                 NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
                 NSString *fileName = [path stringByAppendingPathComponent:@"goods.plist"];
                 [self.goods writeToFile:fileName atomically:YES];
                 
-
+                
             });
-
-
+            
+            
         }
     }];
-    
-    //SEARCH TITLE BAR
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    //    self.searchController.dimsBackgroundDuringPresentation = NO;
-    self.searchController.delegate = self;
-    [self.searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
     
     
     //plist
@@ -101,15 +119,17 @@
         [goodsArray addObject:good];
     }
     self.booksonSell = [goodsArray copy];
-    
-    
     self.allResults = self.booksonSell;
     self.visibleResults = self.allResults;
     
-
 }
+    
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self loadBooksfromAWS];
+    [self.tableView reloadData];
+}
 
 #pragma mark -- setFilterString
 - (void) setFilterString:(NSString*) filterString
@@ -157,11 +177,13 @@ static NSString* cellID = @"cellID";
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
+    
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.visibleResults count];
 }
 
+    
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
@@ -180,14 +202,15 @@ static NSString* cellID = @"cellID";
     
 }
 
+    
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
     
+    
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     productViewController *productCtrl = [[productViewController alloc]init];
-//    productCtrl.allBooks = self.allResults;
     productCtrl.bookID = self.visibleResults[indexPath.row][@"bookID"];
     productCtrl.booktitle = self.visibleResults[indexPath.row][@"title"];
     productCtrl.ISBN = self.visibleResults[indexPath.row][@"ISBN"];
@@ -206,17 +229,5 @@ static NSString* cellID = @"cellID";
     [self.navigationController pushViewController:productCtrl animated:NO];
     
 }
-
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-}
-
 
 @end

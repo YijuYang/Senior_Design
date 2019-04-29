@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface QuickSellTabView : UIView
+@interface QuickSellTabView : UIScrollView
 
 @end

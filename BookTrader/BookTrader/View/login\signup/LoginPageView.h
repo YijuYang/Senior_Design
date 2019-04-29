@@ -22,5 +22,6 @@
 @interface LoginPageView : UIView
 
 @property (nonatomic, weak) id<LoginPageViewDelegate> delegate;
+@property (nonatomic, strong) UITextField* passwordTextField;
 
 @end

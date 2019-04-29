@@ -94,7 +94,8 @@
     [super viewDidLoad];
     [self getLastImage];
     
-
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
@@ -135,7 +136,8 @@
 //    NSLog(@"%@", [self.tesseract recognizedText]);
     
     self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 65, 150, 150)];
-    self.imagePreview.backgroundColor = [UIColor orangeColor];
+    UIColor *lightblue = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
+    self.imagePreview.backgroundColor = lightblue;
     self.imagePreview.layer.borderWidth = 2;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
@@ -182,6 +184,7 @@
     self.authorField1.layer.borderWidth = 2;
     self.authorField1.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField1.layer.cornerRadius = 8;
+    self.authorField1.keyboardType = UIKeyboardTypeNamePhonePad;
     [self.view addSubview:self.authorField1];
     
     self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(115, 372, 100, 44)];
@@ -209,7 +212,7 @@
     self.priceField.layer.borderWidth = 2;
     self.priceField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.priceField.layer.cornerRadius = 8;
-    self.priceField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceField.keyboardType = UIKeyboardTypeDecimalPad;
     [self.view addSubview:self.priceField];
     
     self.isbnField = [[UITextField alloc] initWithFrame:CGRectMake(60, 307, 300, 44)];
@@ -237,13 +240,54 @@
     [self.view addSubview:scanISBNbtn];
     
     UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 578, 405, 44)];
-    submitBtn.backgroundColor = [UIColor greenColor];
+    submitBtn.backgroundColor = [UIColor blueColor];
     submitBtn.layer.cornerRadius = 5;
     [submitBtn setTitle:@"Submit" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(submitInfo) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
 }
+    
+//move up
+-(void)keyboardWillShow:(NSNotification *)note
+    
+    {
+        NSDictionary *info = [note userInfo];
+        CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+        
+        CGRect frame = self.detailField.frame;
+    int y = frame.origin.y + frame.size.height - (self.view.frame.size.height - keyboardSize.height);
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    if(y > 0)
+    {
+    
+        self.view.frame = CGRectMake(0, -y+115, self.view.frame.size.width, self.view.frame.size.height);
+    
+    }
+        [UIView commitAnimations];
+                
+    }
+    
+    
+    
+//go back to original layout
+-(void)keyboardWillHide:(NSNotification *)note
+    
+    {
+        
+        NSTimeInterval animationDuration = 0.30f;
+        [UIView beginAnimations:@"ResizeView" context:nil];
+        
+        [UIView setAnimationDuration:animationDuration];
+        
+        self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+    }
+
 -(void)dismissKeyboard
 {
     [self.isbnField resignFirstResponder];
@@ -449,13 +493,7 @@
         }
     }];
 }
-//@property (nonatomic, strong) UITextField *authorField1;
-//@property (nonatomic, strong) UITextField *authorField2;
-//@property (nonatomic, strong) UITextField *authorField3;
-//@property (nonatomic, strong) UITextField *titleField;
-//@property (nonatomic, strong) UITextField *priceField;
-//@property (nonatomic, strong) UITextField *isbnField;
-//@property (nonatomic, strong) UITextView *detailField;
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (![self.titleField isExclusiveTouch]) {

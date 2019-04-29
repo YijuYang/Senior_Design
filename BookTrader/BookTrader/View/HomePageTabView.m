@@ -10,7 +10,6 @@
 #import <Foundation/Foundation.h>
 
 #import "HomePageTabView.h"
-#import "bookCell.h"
 #import "LoginPageView.h"
 
 @interface HomePageTabView()

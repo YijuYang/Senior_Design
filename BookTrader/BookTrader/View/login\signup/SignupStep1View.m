@@ -15,14 +15,12 @@
 @property (nonatomic, strong)UIImage *KUIcon;
 @property (nonatomic, strong)UIImageView *emailAddressIcon;
 @property (nonatomic, strong)UILabel *emailAddressLabel;
-@property (nonatomic, strong)UITextField *emailAddressTextField;
 @property (nonatomic, strong)UIButton *nextBtn;
 @property (nonatomic, strong)UILabel *FirstNameLabel;
 @property (nonatomic, strong)UITextField *FirstNameTextField;
 @property (nonatomic, strong)UILabel *LastNameLabel;
 @property (nonatomic, strong)UITextField *LastNameTextField;
 @property (nonatomic, strong)UILabel *passwordLabel;
-@property (nonatomic, strong)UITextField *passwordTextField;
 
 @end
 

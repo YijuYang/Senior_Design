@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UITextField *titleField;
 @property (nonatomic, strong) UITextField *priceField;
 @property (nonatomic, strong) UITextField *isbnField;
-@property (nonatomic, strong) UITextView *detailField;
+@property (nonatomic, strong) UITextField *detailField;
 @property (nonatomic, strong) NSString * recognition;
 
 @end
@@ -121,13 +121,14 @@
     self.isbnField.layer.cornerRadius = 8;
     [self addSubview:self.isbnField];
     
-    self.detailField = [[UITextView alloc] initWithFrame:CGRectMake(5, 350, 405, 200)];
+    self.detailField = [[UITextField alloc] initWithFrame:CGRectMake(5, 350, 405, 120)];
     self.detailField.backgroundColor = [UIColor whiteColor];
     self.detailField.layer.borderWidth = UITextBorderStyleRoundedRect;
     self.detailField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.detailField.layer.cornerRadius = 8;
     [self addSubview:self.detailField];
-    
+//    [self textFieldShouldBeginEditing: self.detailField];
+
     UIButton *scanISBNbtn = [[UIButton alloc] initWithFrame:CGRectMake(365, 252, 44, 44)];
     scanISBNbtn.backgroundColor = [UIColor whiteColor];
     UIImage *scan = [UIImage imageNamed:@"scan.png"];
@@ -147,7 +148,26 @@
     
     return self;
 }
-            
+/*
+ @author: Jian
+ */
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+//    NSLog(@"将要编辑");
+//    CGFloat offset = self.frame.size.height - (textField.frame.origin.y + textField.frame.size.height + 216 + 500);//150  是越大 文本框向上移动的距离越大 自己可以改变数值试一下
+//
+//    NSLog(@"offset %f",offset);
+//    if (offset <= 0) {
+//        [UIView animateWithDuration:0.3 animations:^{
+//            CGRect frame = self.frame;
+//            frame.origin.y = offset;
+//            self.frame = frame;
+//
+//        }];
+//
+//    }
+//    return YES;
+//}
+    
 - (void)submitCliked
 {
     if([[self.isbnField text] isEqualToString:@""]||[[self.titleField text] isEqualToString:@""]||[[self.priceField text] isEqualToString:@""]){
