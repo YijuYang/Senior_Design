@@ -61,7 +61,7 @@
     self.FirstNameTextField.backgroundColor = [UIColor whiteColor];
     self.FirstNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.FirstNameTextField.placeholder = @"enter your first name here";
-    self.FirstNameTextField.keyboardType = UIKeyboardTypePhonePad;
+    self.FirstNameTextField.keyboardType = UIKeyboardTypeDefault;
     [self addSubview:self.FirstNameTextField];
     
     //lastname label
@@ -75,7 +75,7 @@
     self.LastNameTextField.backgroundColor = [UIColor whiteColor];
     self.LastNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.LastNameTextField.placeholder = @"enter your last name here";
-    self.LastNameTextField.keyboardType = UIKeyboardTypePhonePad;
+    self.LastNameTextField.keyboardType = UIKeyboardTypeDefault;
     [self addSubview:self.LastNameTextField];
     
     //emailAddress
@@ -89,7 +89,7 @@
     self.emailAddressTextField.backgroundColor = [UIColor whiteColor];
     self.emailAddressTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.emailAddressTextField.placeholder = @"enter your email address here";
-    self.emailAddressTextField.keyboardType = UIKeyboardTypePhonePad;
+    self.emailAddressTextField.keyboardType = UIKeyboardTypeDefault;
     [self addSubview:self.emailAddressTextField];
 
     //passwordLabel
@@ -104,7 +104,7 @@
     self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.passwordTextField.placeholder = @"set password here";
     self.passwordTextField.secureTextEntry = YES;
-    self.passwordTextField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.passwordTextField.keyboardType = UIKeyboardTypeDefault;
     [self addSubview:self.passwordTextField];
     
     //nextBtn

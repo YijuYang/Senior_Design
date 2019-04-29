@@ -13,7 +13,7 @@
 @interface OrderHistoryViewController ()
 @property (nonatomic, strong) OrderHistoryView* orderhistoryView;
 @property (nonatomic, strong) UITableView *tableView;
-@property(nonatomic, strong) NSArray* bookList;
+@property(nonatomic, strong) NSMutableArray* bookList;
 @end
 
 @implementation OrderHistoryViewController
@@ -31,10 +31,31 @@
     _tableView.delegate = self;
     self.tableView.dataSource = self;
     
+//    [self.tableView setEditing:YES animated:NO];
+//    self.tableView.allowsMultipleSelection = NO;
+//    self.tableView.allowsSelectionDuringEditing = NO;
+//    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+
     [self.orderhistoryView addSubview:self.tableView];
     
     // Do any additional setup after loading the view.
 }
+
+- ( UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //删除
+    UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        [self.bookList removeObjectAtIndex:indexPath.row];
+        completionHandler (YES);
+        [self.tableView reloadData];
+    }];
+    deleteRowAction.image = [UIImage imageNamed:@"Delete"];
+    deleteRowAction.backgroundColor = [UIColor redColor];
+    
+    UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction]];
+    return config;
+}
+
+
 
 - (void)doClickSwitch
 {
@@ -67,12 +88,12 @@ static NSString* cellID = @"cellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    OrderViewController *orderCtrl = [[OrderViewController alloc]init];
-    [self.navigationController pushViewController:orderCtrl animated:NO];
-    
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    OrderViewController *orderCtrl = [[OrderViewController alloc]init];
+//    [self.navigationController pushViewController:orderCtrl animated:NO];
+//    
+//}
 
 /*
  #pragma mark - Navigation
