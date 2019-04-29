@@ -40,7 +40,7 @@
 
         }else{
 
-            NSLog(@"SUCC:%@",response);
+            //NSLog(@"SUCC:%@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSArray* allgoods = [[NSArray alloc] initWithArray:response copyItems:YES];
                 NSMutableArray * temp = [[NSMutableArray alloc] init];
@@ -90,34 +90,26 @@
     UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         //Jian editted here:
         NSMutableArray * temp = [[NSMutableArray alloc]initWithArray:self.goods];
+        //delete DB on server
+        NSString *bookID =[[NSString alloc] initWithFormat:@"bookID=%@", temp[indexPath.row][@"bookID"]];
+        //ASYN
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //NSLog(@"%@", bookID);
+            [BookModel deleteBook:bookID completion:^(id response) {
+                if([response containsString:@"FAILURE"]){
+                    NSLog(@"%@",response);
+                }else{
+                    NSLog(@"%@",response);
+                    
+                }
+            }];
+        });
+        
         [temp removeObjectAtIndex:indexPath.row];
         self.goods = [temp copy];
         completionHandler (YES);
-        
-        //delete DB on server
-        NSString* bookID =@"1";//Can we get book ID ?
-        
-        [BookModel deleteBook:bookID completion:^(id response) {
-            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
-                NSLog(@"%@",response);
-
-            }else{
-                
-                NSLog(@"%@",response);
-                
-                //ASYN
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //delete local DB
-
-                });
-
-            }
-        }];
-
-        
-        
-        
         [self.tableView reloadData];
+        
     }];
     deleteRowAction.image = [UIImage imageNamed:@"Delete"];
     deleteRowAction.backgroundColor = [UIColor redColor];

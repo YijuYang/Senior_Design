@@ -66,7 +66,7 @@
 
         }else{
 
-            NSLog(@"SUCC:%@",response);
+            //NSLog(@"SUCC:%@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
 
                 self.goods = [[NSArray alloc] initWithArray:response copyItems:YES];
