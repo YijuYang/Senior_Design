@@ -294,15 +294,6 @@
                 NSLog(@"Fail sell");
             }else{
     
-                //check UIImage !=nil
-//                CGImageRef cgref = [_image CGImage];
-//                CIImage *cim = [_image CIImage];
-//
-//                if (cim == nil && cgref == NULL)
-//                {
-//                    NSLog(@"no underlying data");
-//                }
-                //covert UIImage to NSData(.png)
                 NSData* imageData = UIImageJPEGRepresentation(_image,0.3);
                 NSString* imageString;
                 if([imageData respondsToSelector:@selector(base64EncodedStringWithOptions:)])
@@ -348,9 +339,10 @@
                         //
                     }
                 }];
-
             }
-            }
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        }
         
    
 }
