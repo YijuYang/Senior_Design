@@ -94,10 +94,12 @@
     [super viewDidLoad];
     [self getLastImage];
     
-
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    [self.view accessibilityScroll:YES];
 
 //    self.quicksellView = [[QuickSellTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //    [self.view addSubview:self.quicksellView];
@@ -109,7 +111,6 @@
     
     // Create your Tesseract object using the initWithLanguage method:
     self.tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
-    [self setVariableValue];
     
     // Set up the delegate to receive Tesseract's callbacks.
     // self should respond to TesseractDelegate and implement a
@@ -135,11 +136,13 @@
 //    NSLog(@"%@", [self.tesseract recognizedText]);
     
     self.imagePreview = [[UIImageView alloc] initWithFrame:CGRectMake(130, 65, 150, 150)];
-    self.imagePreview.backgroundColor = [UIColor orangeColor];
+    UIColor *lightblue = [UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
+    self.imagePreview.backgroundColor = lightblue;
     self.imagePreview.layer.borderWidth = 2;
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
     [self getLastImage];
+    //[self setVariableValue];
     [self.view addSubview:self.imagePreview];
     
     self.mytitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 205, 95, 44)];
@@ -182,6 +185,7 @@
     self.authorField1.layer.borderWidth = 2;
     self.authorField1.layer.borderColor = [[UIColor grayColor] CGColor];
     self.authorField1.layer.cornerRadius = 8;
+    self.authorField1.keyboardType = UIKeyboardTypeNamePhonePad;
     [self.view addSubview:self.authorField1];
     
     self.authorField2 = [[UITextField alloc] initWithFrame:CGRectMake(115, 372, 100, 44)];
@@ -209,7 +213,7 @@
     self.priceField.layer.borderWidth = 2;
     self.priceField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.priceField.layer.cornerRadius = 8;
-    self.priceField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceField.keyboardType = UIKeyboardTypeDecimalPad;
     [self.view addSubview:self.priceField];
     
     self.isbnField = [[UITextField alloc] initWithFrame:CGRectMake(60, 307, 300, 44)];
@@ -237,13 +241,54 @@
     [self.view addSubview:scanISBNbtn];
     
     UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 578, 405, 44)];
-    submitBtn.backgroundColor = [UIColor greenColor];
+    submitBtn.backgroundColor = [UIColor blueColor];
     submitBtn.layer.cornerRadius = 5;
     [submitBtn setTitle:@"Submit" forState:UIControlStateNormal];
     [submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(submitInfo) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
 }
+    
+//move up
+-(void)keyboardWillShow:(NSNotification *)note
+    
+    {
+        NSDictionary *info = [note userInfo];
+        CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+        
+        CGRect frame = self.detailField.frame;
+    int y = frame.origin.y + frame.size.height - (self.view.frame.size.height - keyboardSize.height);
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeView" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    if(y > 0)
+    {
+    
+        self.view.frame = CGRectMake(0, -y+115, self.view.frame.size.width, self.view.frame.size.height);
+    
+    }
+        [UIView commitAnimations];
+                
+    }
+    
+    
+    
+//go back to original layout
+-(void)keyboardWillHide:(NSNotification *)note
+    
+    {
+        
+        NSTimeInterval animationDuration = 0.30f;
+        [UIView beginAnimations:@"ResizeView" context:nil];
+        
+        [UIView setAnimationDuration:animationDuration];
+        
+        self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+    }
+
 -(void)dismissKeyboard
 {
     [self.isbnField resignFirstResponder];
@@ -260,13 +305,13 @@
     {
         [self.tesseract setVariableValue:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@".,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(0, 0, 3000, 4000)];
+        self.tesseract.rect = CGRectMake(0, 0, 3000, 4000);
         NSLog(@"COVER");
     }
     else{ // ISBN
         [self.tesseract setVariableValue:@"BINS0123456789" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzACDEFGHJKLMOPQRTUVWXYZ.,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(500, 800, 2000, 400)];
+        self.tesseract.rect = CGRectMake(0, 1900, 3000, 800);
         NSLog(@"ISBN");
     }
 }
@@ -293,15 +338,6 @@
                 NSLog(@"Fail sell");
             }else{
     
-                //check UIImage !=nil
-//                CGImageRef cgref = [_image CGImage];
-//                CIImage *cim = [_image CIImage];
-//
-//                if (cim == nil && cgref == NULL)
-//                {
-//                    NSLog(@"no underlying data");
-//                }
-                //covert UIImage to NSData(.png)
                 NSData* imageData = UIImageJPEGRepresentation(_image,0.3);
                 NSString* imageString;
                 if([imageData respondsToSelector:@selector(base64EncodedStringWithOptions:)])
@@ -347,9 +383,19 @@
                         //
                     }
                 }];
-
             }
-            }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SUCCESS"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+        [alert show];
+        [NSThread sleepForTimeInterval: 2];
+        [alert dismissWithClickedButtonIndex:nil animated:YES];
+        
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        }
         
    
 }
@@ -435,6 +481,7 @@
             if (needImage) {
                 self.imagePreview.image = needImage;
                 [self.tesseract setImage:needImage];
+                [self setVariableValue];
                 [self.tesseract recognize];
 
                 self.image = self.imagePreview.image;
@@ -449,13 +496,7 @@
         }
     }];
 }
-//@property (nonatomic, strong) UITextField *authorField1;
-//@property (nonatomic, strong) UITextField *authorField2;
-//@property (nonatomic, strong) UITextField *authorField3;
-//@property (nonatomic, strong) UITextField *titleField;
-//@property (nonatomic, strong) UITextField *priceField;
-//@property (nonatomic, strong) UITextField *isbnField;
-//@property (nonatomic, strong) UITextView *detailField;
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (![self.titleField isExclusiveTouch]) {

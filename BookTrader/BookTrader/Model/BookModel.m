@@ -15,7 +15,7 @@ static NSString* bookLocal = @"http://localhost/bookModel.php";
 static NSString* displayBookLocal = @"http://localhost/displayAllBooksInfo.php";
 static NSString* displayBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/displayAllBooksInfo.php";
 
-static NSString* deleteBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/deleteBooks.php";
+static NSString* deleteBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/deleteBook.php";
 
 static NSString* searchBookAWS = @"http://ec2-54-242-126-17.compute-1.amazonaws.com/searchBook.php";
 static NSString* searchBookGoodRead = @"https://www.goodreads.com/search/index.xml";
@@ -160,16 +160,19 @@ static NSString* searchBookGoodRead = @"https://www.goodreads.com/search/index.x
     
     NSURLSessionDataTask * dataTask =  [session dataTaskWithRequest:request completionHandler:^(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error) {
         
-        //第三种打印 比较高级 可以报错error，可以得到其他数据类型 NSAraay,NSDictionary,NSString
-        NSError *err;
-        NSArray* book = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
-        if(err){
-            //failure
-            NSLog(@"Failed to serialize into JSON%@",err);
-        }else{
-            //return NSarray
-            completion(book);
-        }
+//        //第三种打印 比较高级 可以报错error，可以得到其他数据类型 NSAraay,NSDictionary,NSString
+//        NSError *err;
+//        id book = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+//        //NSLog(@"%@", book);
+//        if(err){
+//            NSLog(@"Failed to serialize into JSON%@",err);
+//        }else{
+//            //return NSString
+//            completion(book);
+//        }
+        NSString *returnString = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+        //NSLog(@"Response:%@",returnString2);
+        completion(returnString);
     }];
     
     [dataTask resume];

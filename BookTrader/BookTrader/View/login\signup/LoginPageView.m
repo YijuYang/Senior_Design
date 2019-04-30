@@ -15,7 +15,6 @@
 @property (nonatomic, strong) UILabel* usernameLabel;
 @property (nonatomic, strong) UILabel* passwordLabel;
 @property (nonatomic, strong) UITextField* usernameTextField;
-@property (nonatomic, strong) UITextField* passwordTextField;
 @property (nonatomic, strong) UIButton* loginBtn;
 @property (nonatomic, strong) UIButton* signupBtn;
 
@@ -65,6 +64,7 @@
     self.usernameTextField.backgroundColor = [UIColor whiteColor];
     self.usernameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    self.usernameTextField.keyboardType = UIKeyboardTypeEmailAddress;
     [self addSubview:self.usernameTextField];
     
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(105, 444, 300, 44)];
@@ -72,8 +72,6 @@
     self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.passwordTextField.secureTextEntry = YES;
     [self addSubview:self.passwordTextField];
-    
-    
     //login button
     self.loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(40, 500, 150, 44)];
     self.loginBtn.backgroundColor = [UIColor lightGrayColor];
@@ -93,7 +91,11 @@
     return self;
 }
 
-
+    //close keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return [textField resignFirstResponder];
+}
 #pragma mark user action
 - (void) clickLoginButton
 {

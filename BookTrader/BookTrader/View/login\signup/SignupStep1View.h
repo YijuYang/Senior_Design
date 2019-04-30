@@ -18,5 +18,7 @@
 @interface SignupStep1View : UIView
 
 @property (nonatomic, weak) id<SignupStep1ViewDelegate> delegate;
+@property (nonatomic, strong)UITextField *emailAddressTextField;
+@property (nonatomic, strong)UITextField *passwordTextField;
 
 @end
