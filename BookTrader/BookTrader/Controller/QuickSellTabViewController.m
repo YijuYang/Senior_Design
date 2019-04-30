@@ -99,6 +99,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    [self.view accessibilityScroll:YES];
 
 //    self.quicksellView = [[QuickSellTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 //    [self.view addSubview:self.quicksellView];
@@ -110,7 +111,6 @@
     
     // Create your Tesseract object using the initWithLanguage method:
     self.tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
-    [self setVariableValue];
     
     // Set up the delegate to receive Tesseract's callbacks.
     // self should respond to TesseractDelegate and implement a
@@ -142,6 +142,7 @@
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
     [self getLastImage];
+    //[self setVariableValue];
     [self.view addSubview:self.imagePreview];
     
     self.mytitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 205, 95, 44)];
@@ -304,13 +305,13 @@
     {
         [self.tesseract setVariableValue:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@".,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(0, 0, 3000, 4000)];
+        self.tesseract.rect = CGRectMake(0, 0, 3000, 4000);
         NSLog(@"COVER");
     }
     else{ // ISBN
         [self.tesseract setVariableValue:@"BINS0123456789" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzACDEFGHJKLMOPQRTUVWXYZ.,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(500, 800, 2000, 400)];
+        self.tesseract.rect = CGRectMake(0, 1900, 3000, 800);
         NSLog(@"ISBN");
     }
 }
@@ -337,15 +338,6 @@
                 NSLog(@"Fail sell");
             }else{
     
-                //check UIImage !=nil
-//                CGImageRef cgref = [_image CGImage];
-//                CIImage *cim = [_image CIImage];
-//
-//                if (cim == nil && cgref == NULL)
-//                {
-//                    NSLog(@"no underlying data");
-//                }
-                //covert UIImage to NSData(.png)
                 NSData* imageData = UIImageJPEGRepresentation(_image,0.3);
                 NSString* imageString;
                 if([imageData respondsToSelector:@selector(base64EncodedStringWithOptions:)])
@@ -391,9 +383,19 @@
                         //
                     }
                 }];
-
             }
-            }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SUCCESS"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+        [alert show];
+        [NSThread sleepForTimeInterval: 2];
+        [alert dismissWithClickedButtonIndex:nil animated:YES];
+        
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        }
         
    
 }
@@ -479,6 +481,7 @@
             if (needImage) {
                 self.imagePreview.image = needImage;
                 [self.tesseract setImage:needImage];
+                [self setVariableValue];
                 [self.tesseract recognize];
 
                 self.image = self.imagePreview.image;

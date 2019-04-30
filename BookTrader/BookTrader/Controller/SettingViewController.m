@@ -8,6 +8,8 @@
 
 #import "SettingViewController.h"
 #import <Foundation/Foundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 #import "SettingView.h"
 #import "UserModel.h"
 
@@ -29,6 +31,7 @@
 @end
 
 @implementation SettingViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -144,6 +147,7 @@
     
 }
 
+
 - (void) clickConfirmButton
 {
     self.btn.backgroundColor = [UIColor blueColor];
@@ -151,6 +155,14 @@
     self.Firstname.enabled= NO;
     self.Lastname.enabled= NO;
     self.Password.enabled= NO;
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"INFO"
+                                                    message:@"Information changed."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+ 
     //check local data is the same as before
     if(_currUser[@"firstName"]!= _Firstname.text||_currUser[@"lastName"]!=_Lastname.text||_currUser[@"customerPwd"]!=_Emailaddress.text){
         
