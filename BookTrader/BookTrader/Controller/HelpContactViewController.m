@@ -29,27 +29,27 @@
     self.helpcontactView.delegate = self;
     [self.view addSubview:self.helpcontactView];
  
-    self.contact1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 75, 95, 40)];
+    self.contact1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 85, 500, 40)];
     self.contact1.text = @"Yiju Yang: y150y133@gmail.com ";
     self.contact1.textColor = [UIColor grayColor];
     [self.view addSubview: self.contact1];
     
-    self.contact2 = [[UILabel alloc] initWithFrame:CGRectMake(5, 120, 95, 40)];
-    self.contact2.text = @"Jian Shen: ";
+    self.contact2 = [[UILabel alloc] initWithFrame:CGRectMake(5, 130, 500, 40)];
+    self.contact2.text = @"Jian Shen: jianshen205@gmail.com";
     self.contact2.textColor = [UIColor grayColor];
     [self.view addSubview: self.contact2];
     
-    self.contact3 = [[UILabel alloc] initWithFrame:CGRectMake(5, 165, 95, 40)];
-    self.contact3.text = @"Qixiang Liu: ";
+    self.contact3 = [[UILabel alloc] initWithFrame:CGRectMake(5, 175, 500, 40)];
+    self.contact3.text = @"Qixiang Liu: qixiangxing@gmail.com";
     self.contact3.textColor = [UIColor grayColor];
     [self.view addSubview: self.contact3];
     
-    self.contact4 = [[UILabel alloc] initWithFrame:CGRectMake(5, 210, 95, 40)];
+    self.contact4 = [[UILabel alloc] initWithFrame:CGRectMake(5, 220, 500, 40)];
     self.contact4.text = @"Siluo Feng: s682f720@ku.edu";
     self.contact4.textColor = [UIColor grayColor];
     [self.view addSubview: self.contact4];
     
-    self.contact5 = [[UILabel alloc] initWithFrame:CGRectMake(5, 255, 95, 40)];
+    self.contact5 = [[UILabel alloc] initWithFrame:CGRectMake(5, 255, 500, 40)];
     self.contact5.text = @"Robert Goss: rgoss091@gmail.com";
     self.contact5.textColor = [UIColor grayColor];
     [self.view addSubview: self.contact5];
