@@ -43,7 +43,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@" ",@"My Selling",@"My Browsing History",@"Settings",@"Help& Contact"];
+    self.AccountList = @[@" ",@"My Sales",@"My Browsing History",@"Settings",@"Help& Contact"];
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;

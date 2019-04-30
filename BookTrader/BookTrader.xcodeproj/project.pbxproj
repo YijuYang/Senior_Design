@@ -20,6 +20,7 @@
 		9A0BC13E22668FE000DC6ABA /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BC13D22668FE000DC6ABA /* SettingView.m */; };
 		9A9C1B28227745F3006FC5AD /* HelpContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C1B27227745F3006FC5AD /* HelpContactViewController.m */; };
 		9A9C1B2B22774768006FC5AD /* HelpContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C1B2A22774768006FC5AD /* HelpContactView.m */; };
+		9A9C1B2E22777672006FC5AD /* BrowsingHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C1B2C22777671006FC5AD /* BrowsingHistoryViewController.m */; };
 		AA422B272264F48900B2699E /* productView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA422B252264F48900B2699E /* productView.m */; };
 		AA422B2A2264F4A100B2699E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA422B282264F4A100B2699E /* UserModel.m */; };
 		AA422B2E2265018600B2699E /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA422B2D2265018600B2699E /* BookModel.m */; };
@@ -59,13 +60,9 @@
 		C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E3221F12CF00703CD2 /* book_store.jpeg */; };
 		C81D79F7221F12D000703CD2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = C81D79E4221F12CF00703CD2 /* images.png */; };
 		C81D79FC221F160D00703CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81D79FA221F160D00703CD2 /* Main.storyboard */; };
-		C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */; };
 		C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */; };
 		C8EA294C222C4A3800FDB7F0 /* SignupSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */; };
-		C8EA294D222C4A3800FDB7F0 /* SignupStep3View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */; };
 		C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */; };
-		C8EA2954222C5BBA00FDB7F0 /* SignupStep2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */; };
-		C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */; };
 		C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */; };
 		C8EA295F222C5E7800FDB7F0 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA295E222C5E7800FDB7F0 /* BaseController.m */; };
 		D219739622656BBF006D3E39 /* MsgCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7E225638C9004C76FE /* MsgCenterController.m */; };
@@ -116,6 +113,8 @@
 		9A9C1B27227745F3006FC5AD /* HelpContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpContactViewController.m; sourceTree = "<group>"; };
 		9A9C1B2922774705006FC5AD /* HelpContactView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpContactView.h; sourceTree = "<group>"; };
 		9A9C1B2A22774768006FC5AD /* HelpContactView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpContactView.m; sourceTree = "<group>"; };
+		9A9C1B2C22777671006FC5AD /* BrowsingHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingHistoryViewController.m; sourceTree = "<group>"; };
+		9A9C1B2D22777672006FC5AD /* BrowsingHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowsingHistoryViewController.h; sourceTree = "<group>"; };
 		A68372BD4DECE94D9513FCF1 /* Pods-BookTraderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTraderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookTraderUITests/Pods-BookTraderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A705E16619B0F1F50A492E56 /* Pods-BookTraderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTraderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookTraderTests/Pods-BookTraderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA422B252264F48900B2699E /* productView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productView.m; sourceTree = "<group>"; };
@@ -187,19 +186,11 @@
 		C81D79E4221F12CF00703CD2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		C81D79FB221F160D00703CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8EA2942222C4A3700FDB7F0 /* SignupSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessView.h; sourceTree = "<group>"; };
-		C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep2View.m; sourceTree = "<group>"; };
 		C8EA2945222C4A3700FDB7F0 /* SignupStep1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupStep1View.h; sourceTree = "<group>"; };
 		C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep1View.m; sourceTree = "<group>"; };
 		C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessView.m; sourceTree = "<group>"; };
-		C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupStep3View.m; sourceTree = "<group>"; };
-		C8EA2949222C4A3800FDB7F0 /* SignupStep3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupStep3View.h; sourceTree = "<group>"; };
-		C8EA294E222C4E2800FDB7F0 /* SignupStep2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep2View.h; sourceTree = "<group>"; };
 		C8EA294F222C5B9B00FDB7F0 /* SignupStep1Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep1Controller.h; sourceTree = "<group>"; };
 		C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep1Controller.m; sourceTree = "<group>"; };
-		C8EA2952222C5BB200FDB7F0 /* SignupStep2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep2Controller.h; sourceTree = "<group>"; };
-		C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep2Controller.m; sourceTree = "<group>"; };
-		C8EA2955222C5BC900FDB7F0 /* SignupStep3Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupStep3Controller.h; sourceTree = "<group>"; };
-		C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupStep3Controller.m; sourceTree = "<group>"; };
 		C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessController.m; sourceTree = "<group>"; };
 		C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupSuccessController.h; sourceTree = "<group>"; };
 		C8EA295D222C5E6900FDB7F0 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
@@ -363,6 +354,8 @@
 		C81D79FE221F180600703CD2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9A9C1B2D22777672006FC5AD /* BrowsingHistoryViewController.h */,
+				9A9C1B2C22777671006FC5AD /* BrowsingHistoryViewController.m */,
 				9A0BC12E22668F3300DC6ABA /* OnSellViewController.h */,
 				9A0BC12B22668F3300DC6ABA /* OnSellViewController.m */,
 				9A0BC12822668F3200DC6ABA /* OrderHistoryViewController.h */,
@@ -440,10 +433,6 @@
 				C81D79D7221F12CF00703CD2 /* LoginPageView.m */,
 				C8EA2945222C4A3700FDB7F0 /* SignupStep1View.h */,
 				C8EA2946222C4A3700FDB7F0 /* SignupStep1View.m */,
-				C8EA294E222C4E2800FDB7F0 /* SignupStep2View.h */,
-				C8EA2943222C4A3700FDB7F0 /* SignupStep2View.m */,
-				C8EA2949222C4A3800FDB7F0 /* SignupStep3View.h */,
-				C8EA2948222C4A3800FDB7F0 /* SignupStep3View.m */,
 				C8EA2942222C4A3700FDB7F0 /* SignupSuccessView.h */,
 				C8EA2947222C4A3800FDB7F0 /* SignupSuccessView.m */,
 			);
@@ -457,10 +446,6 @@
 				C81D79D0221F12CE00703CD2 /* LoginPageViewController.m */,
 				C8EA294F222C5B9B00FDB7F0 /* SignupStep1Controller.h */,
 				C8EA2950222C5BA400FDB7F0 /* SignupStep1Controller.m */,
-				C8EA2952222C5BB200FDB7F0 /* SignupStep2Controller.h */,
-				C8EA2953222C5BBA00FDB7F0 /* SignupStep2Controller.m */,
-				C8EA2955222C5BC900FDB7F0 /* SignupStep3Controller.h */,
-				C8EA2956222C5BD300FDB7F0 /* SignupStep3Controller.m */,
 				C8EA295B222C5C0C00FDB7F0 /* SignupSuccessController.h */,
 				C8EA2959222C5BF100FDB7F0 /* SignupSuccessController.m */,
 			);
@@ -727,7 +712,6 @@
 				C81D79E7221F12CF00703CD2 /* MsgCenterTabView.m in Sources */,
 				AA422B2E2265018600B2699E /* BookModel.m in Sources */,
 				AABDCC2B2249581400FBD71B /* productViewController.m in Sources */,
-				C8EA2954222C5BBA00FDB7F0 /* SignupStep2Controller.m in Sources */,
 				C81D7994221F124F00703CD2 /* AppDelegate.m in Sources */,
 				C81D79EE221F12CF00703CD2 /* LoginPageView.m in Sources */,
 				9A0BC13022668F3300DC6ABA /* SettingViewController.m in Sources */,
@@ -737,7 +721,6 @@
 				C81D79F1221F12CF00703CD2 /* ViewController.m in Sources */,
 				C8EA294C222C4A3800FDB7F0 /* SignupSuccessView.m in Sources */,
 				C81D79E6221F12CF00703CD2 /* HomePageTabViewController.m in Sources */,
-				C8EA294A222C4A3800FDB7F0 /* SignupStep2View.m in Sources */,
 				9A0BC13222668F3300DC6ABA /* OrderHistoryViewController.m in Sources */,
 				D25CD08A22675F790054A05A /* MsgCell.m in Sources */,
 				9A9C1B2B22774768006FC5AD /* HelpContactView.m in Sources */,
@@ -747,12 +730,11 @@
 				C8EA294B222C4A3800FDB7F0 /* SignupStep1View.m in Sources */,
 				AA422B272264F48900B2699E /* productView.m in Sources */,
 				C8EA2951222C5BA400FDB7F0 /* SignupStep1Controller.m in Sources */,
-				C8EA2957222C5BD300FDB7F0 /* SignupStep3Controller.m in Sources */,
 				9A0BC13922668F5200DC6ABA /* OrderView.m in Sources */,
+				9A9C1B2E22777672006FC5AD /* BrowsingHistoryViewController.m in Sources */,
 				C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */,
 				9A0BC13122668F3300DC6ABA /* OnSellViewController.m in Sources */,
 				AABDCC2E2249583900FBD71B /* AVCamCameraViewController.m in Sources */,
-				C8EA294D222C4A3800FDB7F0 /* SignupStep3View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
