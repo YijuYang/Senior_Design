@@ -21,6 +21,7 @@
 #import <Photos/Photos.h>
 #import "UserModel.h"
 #import "BookModel.h"
+#import "HomePageTabViewController.h"
 
 @implementation ALAssetsLibrary (PFLast)
 
@@ -110,7 +111,6 @@
     
     // Create your Tesseract object using the initWithLanguage method:
     self.tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
-    [self setVariableValue];
     
     // Set up the delegate to receive Tesseract's callbacks.
     // self should respond to TesseractDelegate and implement a
@@ -141,6 +141,7 @@
     self.imagePreview.layer.borderColor = [[UIColor grayColor] CGColor];
     self.imagePreview.layer.cornerRadius = 8;
     [self getLastImage];
+    //[self setVariableValue];
     [self.view addSubview:self.imagePreview];
     
     self.mytitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 205, 95, 44)];
@@ -261,13 +262,13 @@
     {
         [self.tesseract setVariableValue:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@".,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(0, 0, 3000, 4000)];
+        self.tesseract.rect = CGRectMake(0, 0, 3000, 4000);
         NSLog(@"COVER");
     }
     else{ // ISBN
         [self.tesseract setVariableValue:@"BINS0123456789" forKey:@"tessedit_char_whitelist"];
         [self.tesseract setVariableValue:@"abcdefghijklmnopqrstuvwxyzACDEFGHJKLMOPQRTUVWXYZ.,:;'" forKey:@"tessedit_char_blacklist"];
-        [self.tesseract setRect:CGRectMake(500, 800, 2000, 400)];
+        self.tesseract.rect = CGRectMake(0, 1900, 3000, 800);
         NSLog(@"ISBN");
     }
 }
@@ -340,6 +341,15 @@
                     }
                 }];
             }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SUCCESS"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+        [alert show];
+        [NSThread sleepForTimeInterval: 2];
+        [alert dismissWithClickedButtonIndex:nil animated:YES];
+        
         [self dismissViewControllerAnimated:NO completion:nil];
         [self.navigationController popToRootViewControllerAnimated:YES];
         }
@@ -428,6 +438,7 @@
             if (needImage) {
                 self.imagePreview.image = needImage;
                 [self.tesseract setImage:needImage];
+                [self setVariableValue];
                 [self.tesseract recognize];
 
                 self.image = self.imagePreview.image;
@@ -441,32 +452,6 @@
             }
         }
     }];
-}
-//@property (nonatomic, strong) UITextField *authorField1;
-//@property (nonatomic, strong) UITextField *authorField2;
-//@property (nonatomic, strong) UITextField *authorField3;
-//@property (nonatomic, strong) UITextField *titleField;
-//@property (nonatomic, strong) UITextField *priceField;
-//@property (nonatomic, strong) UITextField *isbnField;
-//@property (nonatomic, strong) UITextView *detailField;
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (![self.titleField isExclusiveTouch]) {
-        [self.titleField resignFirstResponder];
-    }
-    if (![self.priceField isExclusiveTouch]) {
-        [self.priceField resignFirstResponder];
-    }
-    if (![self.priceField isExclusiveTouch]) {
-        [self.priceField resignFirstResponder];
-    }
-    if (![self.priceField isExclusiveTouch]) {
-        [self.priceField resignFirstResponder];
-    }
-    if (![self.detailField isExclusiveTouch]) {
-        [self.detailField resignFirstResponder];
-    }
-    
 }
 @end
 
