@@ -12,6 +12,26 @@
 #import "BookModel.h"
 #import "UserModel.h"
 
+@interface sellRefreshControl : UIRefreshControl
+    
+    @end
+
+@implementation sellRefreshControl
+    
+-(void)beginRefreshing
+    {
+        [super beginRefreshing];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+    
+-(void)endRefreshing
+    {
+        [super endRefreshing];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+    @end
+
+
 @interface OnSellViewController ()
 @property (nonatomic, strong) OnSellView* onsellView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -25,8 +45,46 @@
     [super viewDidLoad];
 
     
-    // Do any additional setup after loading the view.
     
+   
+    
+    self.onsellView = [[OnSellView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [self.view addSubview:self.onsellView];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
+
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.delegate = self;
+    self.tableView.dataSource = self;
+
+    [self.onsellView addSubview:self.tableView];
+    
+    //refresh
+    sellRefreshControl *refresh = [[sellRefreshControl alloc]init];
+    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = refresh;
+    [self.tableView.refreshControl beginRefreshing];
+    
+    
+}
+/*
+ @author:Jian
+ */
+- (void)refresh{
+    if (self.tableView.refreshControl.isRefreshing){
+        self.tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"loading..."];
+        [self loadMySelling];
+        self.tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"refresh..."];
+        [self.tableView reloadData];
+        [self.tableView.refreshControl endRefreshing];
+        
+    }
+}
+/*
+ @author:Jian
+ */
+-(void) loadMySelling
+{
     UserModel* user = [[UserModel alloc] init];
     NSDictionary* userlocal = [user getCurrentLocalUserInfo];
     NSString *userid = userlocal[@"customerID"];
@@ -36,10 +94,10 @@
         if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
             //failure
             NSLog(@"FAIL:%@",response);
-
-
+            
+            
         }else{
-
+            
             //NSLog(@"SUCC:%@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSArray* allgoods = [[NSArray alloc] initWithArray:response copyItems:YES];
@@ -55,15 +113,15 @@
                 NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
                 NSString *fileName = [path stringByAppendingPathComponent:@"usergoods.plist"];
                 [self.goods writeToFile:fileName atomically:YES];
-
-
+                
+                
             });
-
-
+            
+            
         }
     }];
     
-
+    
     
     //plist
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
@@ -72,17 +130,6 @@
     
     self.goods = [dictArray copy];
 
-    
-    self.onsellView = [[OnSellView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    [self.view addSubview:self.onsellView];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
-
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate = self;
-    self.tableView.dataSource = self;
-
-    [self.onsellView addSubview:self.tableView];
 }
 
 - ( UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -150,15 +197,7 @@ static NSString* cellID = @"cellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    return 105;
 }
 
 @end
-//
-//
-////jump to login interface
-////delete local user account
-//NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-////remove local
-//[userDefault removeObjectForKey:@"currentUser"];
-
