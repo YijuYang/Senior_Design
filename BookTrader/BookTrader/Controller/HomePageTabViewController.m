@@ -11,6 +11,26 @@
 #import "HomePageTabView.h"
 #import "productViewController.h"
 #import "BookModel.h"
+
+@interface RefreshControl : UIRefreshControl
+    
+    @end
+
+@implementation RefreshControl
+    
+-(void)beginRefreshing
+    {
+        [super beginRefreshing];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+    
+-(void)endRefreshing
+    {
+        [super endRefreshing];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+    @end
+
 @interface HomePageTabViewController ()
 
 @property (nonatomic, strong) HomePageTabView* homePageView;
@@ -44,7 +64,7 @@
 //    self.homePageView.delegate = self;
 //    [self.view addSubview:self.homePageView];
     
-    [self loadBooksfromAWS];
+//    [self loadBooksfromAWS];
     //TABLE VIEW
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
     
@@ -60,14 +80,16 @@
     self.searchController.searchResultsUpdater = self;
     self.searchController.delegate = self;
     self.searchController.searchBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
-//    [self.searchController.searchBar sizeToFit];
-//    [self.view addSubview:self.searchController.searchBar];
-    
+
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     self.tableView.tableHeaderView = self.searchController.searchBar;
-//    self.tableView.style = [UITableViewStylePlain ;]
     
     
+    //refresh
+    RefreshControl *refresh = [[RefreshControl alloc]init];
+    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = refresh;
+    [self.tableView.refreshControl beginRefreshing];
     
 
 }
@@ -79,7 +101,17 @@
         scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
     }
 }
-
+    
+- (void)refresh{
+    if (self.tableView.refreshControl.isRefreshing){
+        self.tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"loading..."];
+        [self loadBooksfromAWS];
+        self.tableView.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"refresh..."];
+        [self.tableView reloadData];
+        [self.tableView.refreshControl endRefreshing];
+        
+    }
+}
 - (void) loadBooksfromAWS
 {
     //get all books from web server
@@ -204,7 +236,7 @@ static NSString* cellID = @"cellID";
 
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    return 105;
 }
     
     
