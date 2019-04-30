@@ -11,8 +11,10 @@
 #import "AccountTabViewController.h"
 #import "OnSellViewController.h"
 #import "AccountTabView.h"
-#import "OrderHistoryViewController.h"
+#import "BrowsingHistoryViewController.h"
 #import "SettingViewController.h"
+#import "HelpContactViewController.h"
+#import "login\singup/LoginPageViewController.h"
 
 @interface AccountTabViewController ()
 {
@@ -41,10 +43,31 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@" ",@"My selling",@"View History",@"Setting",@"Help and contacts"];
+    self.AccountList = @[@" ",@"My Selling",@"My Browsing History",@"Settings",@"Help& Contact"];
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     [self.accountView addSubview:self.tableView];
+    //Logout button
+    self.logoutbtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 380, 100, 50)];
+    [self.logoutbtn setTitle:@"Log out" forState:UIControlStateNormal];
+    self.logoutbtn.enabled=YES;
+    self.logoutbtn.backgroundColor = [UIColor blueColor];
+    self.logoutbtn.layer.cornerRadius = 4;
+    //    self.btn.showsTouchWhenHighlighted = YES;
+    [self.logoutbtn addTarget:self action:@selector(clickLogoutButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.logoutbtn];
+}
+
+- (void) clickLogoutButton
+{
+    LoginPageViewController *lgsl= [[LoginPageViewController alloc]init];
+//    [self.navigationController pushViewController:lgsl animated:NO];
+    self.view.window.rootViewController = lgsl;
+//    [self pushViewController:lgsl animated:NO];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    // Need delete user information
 }
 
 - (void)doClickSwitch
@@ -60,6 +83,8 @@ static NSString* cellID = @"cellID";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.AccountList count];
 }
+    
+    
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -72,6 +97,7 @@ static NSString* cellID = @"cellID";
     return cell;
     
 }
+    
 -  (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSInteger indexofRow = indexPath.row;
     if(indexofRow==1) {
@@ -81,7 +107,7 @@ static NSString* cellID = @"cellID";
     }
     else if(indexofRow==2){
         NSLog(@"My Order Historys",(long)indexPath.row);
-        OrderHistoryViewController *odsl= [[OrderHistoryViewController alloc]init];
+        BrowsingHistoryViewController *odsl= [[BrowsingHistoryViewController alloc]init];
         [self.navigationController pushViewController:odsl animated:NO];
     }
     else if(indexofRow==3){
@@ -89,16 +115,15 @@ static NSString* cellID = @"cellID";
         SettingViewController *stsl= [[SettingViewController alloc]init];
         [self.navigationController pushViewController:stsl animated:NO];
     }
-    else if(indexofRow==5){
-        self.logoutbtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 280, 100, 50)];
-        [self.logoutbtn setTitle:@"Log out" forState:UIControlStateNormal];
-        self.logoutbtn.enabled=YES;
-        self.logoutbtn.backgroundColor = [UIColor greenColor];
-        self.logoutbtn.layer.cornerRadius = 4;
-        //    self.btn.showsTouchWhenHighlighted = YES;
-        [self.logoutbtn addTarget:self action:@selector(clickChangeButton) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:self.logoutbtn];
+    else if(indexofRow==4){
+        NSLog(@"Help&Contact",(long)indexPath.row);
+        HelpContactViewController *hcsl= [[HelpContactViewController alloc]init];
+        [self.navigationController pushViewController:hcsl animated:NO];
     }
 }
 
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+        return 45;
+    }
 @end

@@ -11,7 +11,6 @@
 
 @interface productViewController : UIViewController
 
-@property (nonatomic, assign) NSArray* allBooks;
 @property (nonatomic, assign) NSString* bookID;
 @property (nonatomic, assign) NSString* bookdescription;
 @property (nonatomic, assign) NSString* ISBN;

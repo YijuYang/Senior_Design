@@ -40,7 +40,7 @@
 
         }else{
 
-            NSLog(@"SUCC:%@",response);
+            //NSLog(@"SUCC:%@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSArray* allgoods = [[NSArray alloc] initWithArray:response copyItems:YES];
                 NSMutableArray * temp = [[NSMutableArray alloc] init];
@@ -76,9 +76,9 @@
     self.onsellView = [[OnSellView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     [self.view addSubview:self.onsellView];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    
-    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
+
+    self.tableView.backgroundColor = [UIColor whiteColor];
     _tableView.delegate = self;
     self.tableView.dataSource = self;
 
@@ -90,34 +90,26 @@
     UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         //Jian editted here:
         NSMutableArray * temp = [[NSMutableArray alloc]initWithArray:self.goods];
+        //delete DB on server
+        NSString *bookID =[[NSString alloc] initWithFormat:@"bookID=%@", temp[indexPath.row][@"bookID"]];
+        //ASYN
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //NSLog(@"%@", bookID);
+            [BookModel deleteBook:bookID completion:^(id response) {
+                if([response containsString:@"FAILURE"]){
+                    NSLog(@"%@",response);
+                }else{
+                    NSLog(@"%@",response);
+                    
+                }
+            }];
+        });
+        
         [temp removeObjectAtIndex:indexPath.row];
         self.goods = [temp copy];
         completionHandler (YES);
-        
-        //delete DB on server
-        NSString* bookID =@"1";//Can we get book ID ?
-        
-        [BookModel deleteBook:bookID completion:^(id response) {
-            if([response isKindOfClass:[NSString class]]&&[response containsString:@"FAILURE"]){
-                NSLog(@"%@",response);
-
-            }else{
-                
-                NSLog(@"%@",response);
-                
-                //ASYN
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //delete local DB
-
-                });
-
-            }
-        }];
-
-        
-        
-        
         [self.tableView reloadData];
+        
     }];
     deleteRowAction.image = [UIImage imageNamed:@"Delete"];
     deleteRowAction.backgroundColor = [UIColor redColor];
@@ -160,22 +152,6 @@ static NSString* cellID = @"cellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    OrderViewController *orderCtrl = [[OrderViewController alloc]init];
-//    [self.navigationController pushViewController:orderCtrl animated:NO];
-//
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
 //
