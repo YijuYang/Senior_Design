@@ -12,10 +12,3 @@ View the documentation directory located in this repository for more information
 * **Qixiang Liu** - [QixiangLiu](https://github.com/QixiangLiu)
 * **Siluo Feng** - [SiluoFeng](https://github.com/SiluoFeng)
 * **Robert Goss** - [rgoss1](https://github.com/rgoss1)
-
-## Roles
-
-Qixiang Liu
-My part is about backend, using PHP,mysql, and Objective-C in xcode
-
-Log 1: Finsih login,create account, and sell books PHP in backend Model.
