@@ -91,7 +91,19 @@ static NSString* cellID = @"cellID";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
     NSInteger indexofRow = indexPath.row;
-    cell.textLabel.text = self.bookList[indexPath.row][@"title"];
+    int len = [self.bookList[indexofRow][@"title"] length];
+    if(len > 24)
+    {
+        NSString *subStr = [self.bookList[indexofRow][@"title"] substringWithRange:NSMakeRange(0,24)];
+        subStr = [subStr stringByAppendingString:@"..."];
+        cell.textLabel.text = subStr;
+        
+    }
+    else
+    {
+        cell.textLabel.text = self.bookList[indexofRow][@"title"];
+        
+    }
     cell.detailTextLabel.text = self.bookList[indexPath.row][@"price"];
     cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"];
     NSData *data = [[NSData alloc]initWithBase64EncodedString:self.bookList[indexofRow][@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];

@@ -187,7 +187,19 @@ static NSString* cellID = @"cellID";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
     NSInteger indexofRow = indexPath.row;
-    cell.textLabel.text = self.goods[indexofRow][@"title"];
+    int len = [self.goods[indexofRow][@"title"] length];
+    if(len > 24)
+    {
+        NSString *subStr = [self.goods[indexofRow][@"title"] substringWithRange:NSMakeRange(0,24)];
+        subStr = [subStr stringByAppendingString:@"..."];
+        cell.textLabel.text = subStr;
+        
+    }
+    else
+    {
+        cell.textLabel.text = self.goods[indexofRow][@"title"];
+        
+    }
     cell.detailTextLabel.text = self.goods[indexofRow][@"price"];
     cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"] ;
     NSData *data = [[NSData alloc]initWithBase64EncodedString:self.goods[indexofRow][@"image"] options:NSDataBase64DecodingIgnoreUnknownCharacters];

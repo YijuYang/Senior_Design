@@ -59,12 +59,7 @@
 {
     [super viewDidLoad];
     self.title = @"HOME";
-    
-//    self.homePageView = [[HomePageTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-//    self.homePageView.delegate = self;
-//    [self.view addSubview:self.homePageView];
-    
-//    [self loadBooksfromAWS];
+
     //TABLE VIEW
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88)];
     
@@ -93,14 +88,14 @@
     
 
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat sectionHeaderHeight = 40;
-    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat sectionHeaderHeight = 40;
+//    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+//    }
+//}
     
 - (void)refresh{
     if (self.tableView.refreshControl.isRefreshing){
@@ -156,12 +151,12 @@
     
 }
     
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [self loadBooksfromAWS];
-    [self.tableView reloadData];
-}
+//
+//-(void)viewDidDisappear:(BOOL)animated
+//{
+//    [self loadBooksfromAWS];
+//    [self.tableView reloadData];
+//}
 
 #pragma mark -- setFilterString
 - (void) setFilterString:(NSString*) filterString
@@ -222,9 +217,21 @@ static NSString* cellID = @"cellID";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
     NSInteger indexofRow = indexPath.row;
-    
-    cell.textLabel.text = self.visibleResults[indexofRow][@"title"];
+    int len = [self.visibleResults[indexofRow][@"title"] length];
+    if(len > 24)
+    {
+         NSString *subStr = [self.visibleResults[indexofRow][@"title"] substringWithRange:NSMakeRange(0,24)];
+        subStr = [subStr stringByAppendingString:@"..."];
+        cell.textLabel.text = subStr;
 
+    }
+    else
+    {
+        cell.textLabel.text = self.visibleResults[indexofRow][@"title"];
+
+    }
+
+    
     cell.detailTextLabel.text = [self.visibleResults objectAtIndex:indexofRow][@"price"];
     cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingString:@"$"];
     

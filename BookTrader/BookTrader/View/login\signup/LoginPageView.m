@@ -40,9 +40,9 @@
     self.backgroundColor = [UIColor whiteColor];
     
     //KU Icon
-    self.KUIcon = [UIImage imageNamed:@"ku.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 220, 200)];
-    imageView.backgroundColor = [UIColor grayColor];
+    self.KUIcon = [UIImage imageNamed:@"Booktrader.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 220, 220)];
+    imageView.backgroundColor = [UIColor blueColor];
     imageView.image = self.KUIcon;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.layer.cornerRadius = 3;

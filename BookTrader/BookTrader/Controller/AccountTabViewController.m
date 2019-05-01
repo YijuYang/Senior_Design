@@ -39,11 +39,19 @@
     //框框
     self.accountView = [[AccountTabView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     [self.view addSubview:self.accountView];
+    
+    UIImage* icon = [UIImage imageNamed:@"Booktrader.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, 100, 100)];
+    imageView.backgroundColor = [UIColor blueColor];
+    imageView.image = icon;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.layer.cornerRadius = 3;
+    [self.view addSubview:imageView];
     //图表
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@" ",@"My Sales",@"My Browsing History",@"Settings",@"Help& Contact"];
+    self.AccountList = @[@"My Selling",@"My Browsing History",@"Settings",@"Help& Contact"];
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
@@ -64,10 +72,7 @@
     LoginPageViewController *lgsl= [[LoginPageViewController alloc]init];
 //    [self.navigationController pushViewController:lgsl animated:NO];
     self.view.window.rootViewController = lgsl;
-//    [self pushViewController:lgsl animated:NO];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    // Need delete user information
+
 }
 
 - (void)doClickSwitch
@@ -89,33 +94,44 @@ static NSString* cellID = @"cellID";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+//        if(indexPath.row != 0)
+//        {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+
+            NSInteger indexofRow = indexPath.row;
+            
+            cell.textLabel.text = [_AccountList objectAtIndex:indexofRow];
+//        }
+//        else
+//        {
+//            UIImage *icon = [UIImage imageNamed:@"Booktrader.png"];
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//            cell.imageView.image = icon;
+//        }
     }
-    NSInteger indexofRow = indexPath.row;
-    
-    cell.textLabel.text = [_AccountList objectAtIndex:indexofRow];
+   
     return cell;
     
 }
     
 -  (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSInteger indexofRow = indexPath.row;
-    if(indexofRow==1) {
+    if(indexofRow==0) {
         NSLog(@"My on sell items",(long)indexPath.row);
         OnSellViewController *onsl= [[OnSellViewController alloc]init];
         [self.navigationController pushViewController:onsl animated:NO];
     }
-    else if(indexofRow==2){
+    else if(indexofRow==1){
         NSLog(@"My Order Historys",(long)indexPath.row);
         BrowsingHistoryViewController *odsl= [[BrowsingHistoryViewController alloc]init];
         [self.navigationController pushViewController:odsl animated:NO];
     }
-    else if(indexofRow==3){
+    else if(indexofRow==2){
         NSLog(@"Settings",(long)indexPath.row);
         SettingViewController *stsl= [[SettingViewController alloc]init];
         [self.navigationController pushViewController:stsl animated:NO];
     }
-    else if(indexofRow==4){
+    else if(indexofRow==3){
         NSLog(@"Help&Contact",(long)indexPath.row);
         HelpContactViewController *hcsl= [[HelpContactViewController alloc]init];
         [self.navigationController pushViewController:hcsl animated:NO];
