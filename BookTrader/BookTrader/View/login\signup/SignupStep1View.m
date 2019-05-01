@@ -108,7 +108,7 @@
     
     //nextBtn
     self.nextBtn = [[UIButton alloc]initWithFrame:CGRectMake(130, 640, 150, 44)];
-    [self.nextBtn setTitle:@"Next Step" forState:UIControlStateNormal];
+    [self.nextBtn setTitle:@"Next" forState:UIControlStateNormal];
     [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.nextBtn setBackgroundColor:[UIColor blueColor]];
     self.nextBtn.layer.cornerRadius = 4;

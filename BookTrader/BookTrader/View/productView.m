@@ -83,7 +83,7 @@
 
     self.contactButton = [[UIButton alloc]initWithFrame:CGRectMake(55, 560, 300, 44)];
     self.contactButton.backgroundColor = [UIColor orangeColor];
-    [self.contactButton setTitle:@"buy this book? contact buyer now! " forState:UIControlStateNormal];
+    [self.contactButton setTitle:@"Contact Seller" forState:UIControlStateNormal];
     [self.contactButton addTarget:self action:@selector(clickContactButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.contactButton];
 

@@ -51,14 +51,14 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    self.AccountList = @[@"My Selling",@"My Browsing History",@"Settings",@"Help& Contact"];
+    self.AccountList = @[@"My Sales",@"My Browsing History",@"Settings",@"Contact Developers"];
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     [self.accountView addSubview:self.tableView];
     //Logout button
     self.logoutbtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 380, 100, 50)];
-    [self.logoutbtn setTitle:@"Log out" forState:UIControlStateNormal];
+    [self.logoutbtn setTitle:@"Log Out" forState:UIControlStateNormal];
     self.logoutbtn.enabled=YES;
     self.logoutbtn.backgroundColor = [UIColor blueColor];
     self.logoutbtn.layer.cornerRadius = 4;

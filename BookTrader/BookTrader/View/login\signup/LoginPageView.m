@@ -84,7 +84,7 @@
     self.signupBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 500, 150, 44)];
     self.signupBtn.backgroundColor = [UIColor lightGrayColor];
     self.signupBtn.layer.cornerRadius = 4;
-    [self.signupBtn setTitle:@"Sign Up Now!" forState:UIControlStateNormal];
+    [self.signupBtn setTitle:@"Sign Up" forState:UIControlStateNormal];
     [self.signupBtn addTarget:self action:@selector(clickSignUpButton) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.signupBtn];
     

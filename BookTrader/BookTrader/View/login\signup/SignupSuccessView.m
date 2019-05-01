@@ -30,7 +30,7 @@
     
 
     self.congrateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 200,[UIScreen mainScreen].bounds.size.width, 44)];
-    self.congrateLabel.text = @"Congratulations Your Registration Was Successful!";
+    self.congrateLabel.text = @"Registration Complete";
     [self addSubview:self.congrateLabel];
 
     
@@ -52,7 +52,7 @@
     
     //shopBtn
     self.shopBtn = [[UIButton alloc] initWithFrame:CGRectMake(130, 500, 150, 44) ];
-    [self.shopBtn setTitle:@"start my journey" forState:UIControlStateNormal];
+    [self.shopBtn setTitle:@"Continue" forState:UIControlStateNormal];
     [self.shopBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.shopBtn setBackgroundColor:[UIColor blueColor]];
     self.shopBtn.layer.cornerRadius = 4;
@@ -68,10 +68,10 @@
  */
 - (void)fillContentWithFirstName:(NSString *)firstName LastName:(NSString *)lastName EmailAddress:(NSString *)emailAddress password:(NSString *)password
 {
-    self.firstNameLabel.text = [NSString stringWithFormat:@"first Name: %@", firstName];
-    self.lastNameLabel.text = [NSString stringWithFormat:@"last Name: %@", lastName];
-    self.loginNameLabel.text = [NSString stringWithFormat:@"email address：%@", emailAddress];
-    self.passwordLabel.text = [NSString stringWithFormat:@"password：%@", password];
+    self.firstNameLabel.text = [NSString stringWithFormat:@"First Name: %@", firstName];
+    self.lastNameLabel.text = [NSString stringWithFormat:@"Last Name: %@", lastName];
+    self.loginNameLabel.text = [NSString stringWithFormat:@"Email Address：%@", emailAddress];
+    self.passwordLabel.text = [NSString stringWithFormat:@"Password：%@", password];
 }
 /*
  @author: Jian

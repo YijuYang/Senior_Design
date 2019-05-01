@@ -24,7 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Help and Contacts";
+    self.title = @"Developer Contact Info";
     self.helpcontactView = [[HelpContactView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.helpcontactView.delegate = self;
     [self.view addSubview:self.helpcontactView];
