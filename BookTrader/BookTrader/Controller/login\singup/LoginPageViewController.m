@@ -36,7 +36,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     self.loginPage = [[LoginPageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    self.loginPage.delegate = self;
+    self.loginPage.delegate = self; //直接赋值
     [self.view addSubview:self.loginPage];
 }
     //move up
@@ -95,6 +95,8 @@
 
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
+        [self.loginPage stopAnimation];
+
     }else{
         //TODO check email style??
         NSString *data =[[NSString alloc] initWithFormat:@"email=%@&password=%@", email,password];
@@ -119,6 +121,8 @@
 
                     [alert addAction:defaultAction];
                     [self presentViewController:alert animated:YES completion:nil];
+                    [self.loginPage stopAnimation];
+
                 });
             }else{
                 //success check Case-sensitive
@@ -131,6 +135,7 @@
                     [[NSUserDefaults standardUserDefaults] setObject:currUser forKey:@"currentUser"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     self.view.window.rootViewController = [self rootController];
+                    [self.loginPage stopAnimation];
 
 //                    [self.navigationController pushViewController: animated:<#(BOOL)#>:YES];
                 });
@@ -143,7 +148,6 @@
 
     }
 
-
 }
 
 /*
@@ -151,10 +155,9 @@
  */
 - (void) doClickSignUpButton
 {
-    self.signupStep1Ctrl = [[SignupStep1Controller alloc]init];
-    self.view.window.rootViewController = self.signupStep1Ctrl;
-    
-//    [self pushViewController:self.signupStep1Ctrl animated:NO];
+     self.signupStep1Ctrl = [[SignupStep1Controller alloc]init];
+     [self.navigationController pushViewController:self.signupStep1Ctrl animated:NO];
+     [self.view.window makeKeyAndVisible];
 
 }
 

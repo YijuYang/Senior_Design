@@ -8,11 +8,13 @@
 
 
 #import "SignupStep1View.h"
-
+#import "Constants.h"
 
 @interface SignupStep1View ()
 
+//@property (weak, nonatomic) UINavigationItem *navItem;
 @property (nonatomic, strong)UIImage *KUIcon;
+//@property (nonatomic, strong)UIButton *backBtn;
 @property (nonatomic, strong)UIImageView *emailAddressIcon;
 @property (nonatomic, strong)UILabel *emailAddressLabel;
 @property (nonatomic, strong)UIButton *nextBtn;
@@ -36,6 +38,8 @@
     
     self.backgroundColor = [UIColor whiteColor];
     
+   
+
     //KU Icon
     self.KUIcon = [UIImage imageNamed:@"ku.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 220, 200)];
@@ -107,7 +111,7 @@
     [self addSubview:self.passwordTextField];
     
     //nextBtn
-    self.nextBtn = [[UIButton alloc]initWithFrame:CGRectMake(130, 640, 150, 44)];
+    self.nextBtn = [[UIButton alloc]initWithFrame:CGRectMake(140, 640, 150, 44)];
     [self.nextBtn setTitle:@"Next" forState:UIControlStateNormal];
     [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.nextBtn setBackgroundColor:[UIColor blueColor]];
@@ -116,6 +120,15 @@
     
     [self.nextBtn addTarget:self action:@selector(clickNextBtn) forControlEvents:UIControlEventTouchUpInside];
     
+//    //return button
+//    _backBtn = [[UIButton alloc]initWithFrame:CGRectMake(30,640,150,44)];
+//    [_backBtn setTitle:@"Back" forState:UIControlStateNormal];
+//    _backBtn.backgroundColor = [UIColor blueColor];//button的背景颜色
+//    [_backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    //[btn1 setBackgroundImage:[UIImage imageNamed:@"1.png"] forState:UIControlStateNormal];//button的背景图片
+//    _backBtn.layer.cornerRadius = 4;
+//    [self addSubview:_backBtn];
+//     [_backBtn addTarget:self action:@selector(clickBackBtn) forControlEvents:UIControlEventTouchUpInside];
     return self;
 }
 
@@ -130,6 +143,11 @@
     NSString *password = self.passwordTextField.text;
     [self.delegate doClickNextBtnWithFirstName:firstName LastName:lastName EmailAddress:emailAddress Password:password];
 }
+
+- (void)clickBackBtn
+{
+    [self.delegate doClickBackBtn];
+}
 -(void)dismissKeyboard
 {
     [self.passwordTextField resignFirstResponder];
@@ -139,4 +157,12 @@
 
 }
 
+
+- (void)disconnect {
+    
+}
+
+- (void)profile {
+  
+}
 @end

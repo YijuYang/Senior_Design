@@ -5,15 +5,16 @@
 //  Created by JianShen on 3/3/19.
 //  Copyright © 2019 BookTrader. All rights reserved.
 //
-
+#import "LoginPageViewController.h"
 #import "SignupStep1Controller.h"
 #import "SignupSuccessController.h"
 #import "SignupStep1View.h"
 #import "UserModel.h"
-
+#import "Constants.h"
 @interface SignupStep1Controller () <SignupStep1ViewDelegate>
 
 @property (nonatomic, strong) SignupStep1View *signupStep1View;
+@property (weak, nonatomic) UINavigationItem *navItem;
 
 @end
 
@@ -22,6 +23,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"register";
+    UIBarButtonItem *negativeRightSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeRightSpacer.width = -2;
+    UIBarButtonItem *rightDisconnectItem = [[UIBarButtonItem alloc] initWithTitle:@"Profile" style:UIBarButtonItemStylePlain target:self action:@selector(profile)];
+    [rightDisconnectItem setTitleTextAttributes:@{NSFontAttributeName: [Constants navigationBarButtonItemFont]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *negativeLeftSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeLeftSpacer.width = -2;
+    UIBarButtonItem *leftProfileItem = [[UIBarButtonItem alloc] initWithTitle:@"Profile" style:UIBarButtonItemStylePlain target:self action:@selector(profile)];
+    [leftProfileItem setTitleTextAttributes:@{NSFontAttributeName: [Constants navigationBarButtonItemFont]} forState:UIControlStateNormal];
+    
+    
+    self.navItem.rightBarButtonItems = @[negativeRightSpacer, rightDisconnectItem];
+    self.navItem.leftBarButtonItems = @[negativeLeftSpacer, leftProfileItem];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -81,6 +95,29 @@
 {
     //TODO: save email address to web server
     //hard code for UI test
+    if([firstName isEqualToString:@""]||[lastName isEqualToString:@""]||[emailAddress isEqualToString:@""]||[password isEqualToString:@""]){
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                                                                       message:@"Cannot be empty"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    if([emailAddress containsString:@"@"]==NO){
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                                                                       message:@"Email need @"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+  
     NSDictionary* data = @{
                            @"firstName":firstName,
                            @"lastName" :lastName,
@@ -126,5 +163,9 @@
 
 }
 
-
+- (void) doClickBackBtn{
+    LoginPageViewController *loginctrl = [[LoginPageViewController alloc] init];
+    UINavigationController *objNavigationController=[[UINavigationController alloc]initWithRootViewController:loginctrl];
+    self.view.window.rootViewController = objNavigationController;
+}
 @end

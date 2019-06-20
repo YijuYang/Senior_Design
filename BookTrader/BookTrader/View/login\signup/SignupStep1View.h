@@ -11,7 +11,7 @@
 @protocol SignupStep1ViewDelegate <NSObject>
 
 - (void)doClickNextBtnWithFirstName:(NSString *)firstName LastName:(NSString *) lastName EmailAddress:(NSString *)emailAddress Password:(NSString *)password;
-
+- (void)doClickBackBtn;
 @end
 
 

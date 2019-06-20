@@ -170,16 +170,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    //初始化控制器 == 控制的视图对象和模型对象
     LoginPageViewController *loginctrl = [[LoginPageViewController alloc] init];
+    //生成UINaviagtionController
     UINavigationController *objNavigationController=[[UINavigationController alloc]initWithRootViewController:loginctrl];
 
     self.window.rootViewController = objNavigationController;
     
     self.window.backgroundColor = [UIColor whiteColor];
 
-//    [self.window makeKeyAndVisible];
-    return YES;}
+    //被子类继承 关键属性 例如UINavigationController 的 bar，item，。。
+    [self.window makeKeyAndVisible];
+    return YES;
+    
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

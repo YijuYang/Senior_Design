@@ -67,6 +67,8 @@
 		D219739722656BDC006D3E39 /* CommunicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D22B1C7822546879004C76FE /* CommunicationView.m */; };
 		D258B7AD2277A35F004E55A5 /* BrowsingHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D258B7AC2277A35F004E55A5 /* BrowsingHistoryViewController.m */; };
 		D25CD08A22675F790054A05A /* MsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D25CD08922675F790054A05A /* MsgCell.m */; };
+		D29BA61022B9E0C60047D352 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D29BA60F22B9E0C50047D352 /* Constants.m */; };
+		D29BA61322B9EA960047D352 /* LoginUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29BA61222B9EA960047D352 /* LoginUI.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +209,9 @@
 		D258B7AC2277A35F004E55A5 /* BrowsingHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowsingHistoryViewController.m; sourceTree = "<group>"; };
 		D25CD08822675F790054A05A /* MsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgCell.h; sourceTree = "<group>"; };
 		D25CD08922675F790054A05A /* MsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgCell.m; sourceTree = "<group>"; };
+		D29BA60E22B9E0C50047D352 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D29BA60F22B9E0C50047D352 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D29BA61222B9EA960047D352 /* LoginUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginUI.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +283,7 @@
 		C81D7991221F124F00703CD2 /* BookTrader */ = {
 			isa = PBXGroup;
 			children = (
+				D29BA61122B9E0C90047D352 /* Common */,
 				AA79388C225B176700DAC9D3 /* tessdata */,
 				AABDCC35224958D900FBD71B /* Assets.xcassets */,
 				C8EA295C222C5E0C00FDB7F0 /* components */,
@@ -293,6 +299,7 @@
 				C81D799D221F125000703CD2 /* LaunchScreen.storyboard */,
 				C81D79A0221F125000703CD2 /* Info.plist */,
 				C81D79A1221F125000703CD2 /* main.m */,
+				D29BA61222B9EA960047D352 /* LoginUI.storyboard */,
 			);
 			path = BookTrader;
 			sourceTree = "<group>";
@@ -463,6 +470,16 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		D29BA61122B9E0C90047D352 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D29BA60E22B9E0C50047D352 /* Constants.h */,
+				D29BA60F22B9E0C50047D352 /* Constants.m */,
+			);
+			name = Common;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		DBB11CE79D01E39461719C8C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +607,7 @@
 				C81D79F6221F12D000703CD2 /* book_store.jpeg in Resources */,
 				AABDCC36224958DA00FBD71B /* Assets.xcassets in Resources */,
 				AA793881225B0CA800DAC9D3 /* image_sample.png in Resources */,
+				D29BA61322B9EA960047D352 /* LoginUI.storyboard in Resources */,
 				AA857E362249D3B8006C6DA2 /* cam_scan.png in Resources */,
 				AA79388D225B176700DAC9D3 /* tessdata in Resources */,
 				C81D79F3221F12D000703CD2 /* bookSample.jpg in Resources */,
@@ -729,6 +747,7 @@
 				C8EA295A222C5BF100FDB7F0 /* SignupSuccessController.m in Sources */,
 				9A0BC13122668F3300DC6ABA /* OnSellViewController.m in Sources */,
 				AABDCC2E2249583900FBD71B /* AVCamCameraViewController.m in Sources */,
+				D29BA61022B9E0C60047D352 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
